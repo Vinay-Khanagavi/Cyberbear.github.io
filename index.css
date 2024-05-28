@@ -520,3 +520,15 @@
     box-sizing: border-box;
   }
 }
+.music-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+.music-icon:hover {
+  opacity: 0.7; /* Change opacity on hover for better UX */
+}

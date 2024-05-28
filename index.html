@@ -12,6 +12,10 @@
     />
   </head>
   <body>
+    <audio id="background-music" loop>
+      <source src="back.mp3" type="audio/mpeg">
+    </audio>
+    <img src="public/music.png" alt="Music Icon" class="music-icon" id="music-icon">
     <div class="homepage">
       <section class="homepage-inner">
         <div class="frame-parent">
@@ -156,6 +160,24 @@
         </div>
       </section>
     </div>
+   
+    <script>
+      var isPlaying = false;
+      var audio = document.getElementById('background-music');
+      var musicIcon = document.getElementById('music-icon');
+  
+      musicIcon.addEventListener('click', function() {
+        if (isPlaying) {
+          audio.pause();
+          isPlaying = false;
+        } else {
+          audio.play().catch(error => {
+            console.log('Error playing audio:', error);
+          });
+          isPlaying = true;
+        }
+      });
+    </script>
     <script>
       window.embeddedChatbotConfig = {
       chatbotId: "iHUFXP4dziHwbqdmgIfl3",
@@ -168,5 +190,6 @@
       domain="www.chatbase.co"
       defer>
     </script>
+    
   </body>
 </html>
