@@ -520,6 +520,16 @@
     box-sizing: border-box;
   }
 }
+
+.multiplayer-icon {
+  position: fixed;
+  top: 20px;
+  right: 200px;
+  width: 45px; /* Adjust size as needed */
+  height: 45px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
 .reward-icon {
   position: fixed;
   top: 20px;

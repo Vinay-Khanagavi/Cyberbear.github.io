@@ -252,10 +252,23 @@
               opacity: 1;
             }
           }
+          .backButton-icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 40px; /* Adjust size as needed */
+            height: 40px; /* Adjust size as needed */
+            cursor: pointer;
+            z-index: 1000; /* Ensure it is on top of other elements */
+          }
         </style>
       </head>
 
       <body class="phishguard launch subpage media">
+
+        <a href="index-level1.html">
+          <img src="public/back_button.png" alt="Back Icon" class="backButton-icon" id="backButton-icon">
+        </a>
         <div id="page" class="page">
           <div class="container">
             <a>
