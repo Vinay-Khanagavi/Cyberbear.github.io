@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Animated Video</title>
+    <link rel="icon" href="assets/favicon.png">
+    <link rel=stylesheet href=css/video.css>
+</head>
+
+<body>
+		<div id="loader"></div>
+
+		<section class=player id=CH1_INTRO name=subControl>
+			<section  class="video-container" id="coins"></section>
+			<section id="pa-q">
+				<a id="again-button" href="#" onclick='location.reload(true); return false;'></a>
+				<a id="quit-button" href="../../"></a>
+			</section>
+			<section id=player--controls >
+				<a class=btn id=player-btn--skip href="sam_message.html">Skip section</a>
+			</section>
+			<div class="fullscreen-video" id="video-outer">
+				<div id="napisy"></div>
+				<video class="videoalign" preload="auto" loading="lazy" controls id="player--video" autoplay="autoplay">
+					<source src="https://fuhadkalathingal.github.io/PhishGuard/level_1/assets/video.mp4" type=video/mp4>
+				</video>
+
+			</div>
+			<div id="cntrl-wrapper">
+				<div class="control" id="controlsid">
+					<div class="progress">
+						<span class="bufferBar"></span>
+						<span class="timeBar"></span>
+					</div>
+
+					<div class="btmControl">
+
+						<div class="mainControl">
+							<a class="btnPlay lvl1 btnmain paused" href="#" tabindex="0" title="Play/Pause video"> <span class="ico"></span> </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="loading"></div>
+			<div id="video-controls">
+				<!-- <span id="play-pause" class="play"><span class=pause-icon></span></span></button> -->
+			</div>
+		</section>
+
+		<script src=js/system.js></script>
+		<script>
+			$("#player-btn--skip").on("click", function() {
+				Popcorn("#player--video").play();
+				console.log("SKIP CLICK IE");
+			});
+			
+        
+    </script>
+    <script src=js/main.js></script>
+    <script src=js/video.js></script>
+    <script>
+	video = document.getElementById('player--video');
+video.addEventListener('ended',function() {alert('Video is ended Going to the mission');       
+window.location.href = 'sam_message.html';})
+        const fullscreenButton = document.getElementById('fullscreen-button');
+        const videoElement = document.getElementById('fullscreen-video');
+
+        fullscreenButton.addEventListener('click', function () {
+            if (videoElement.requestFullscreen) {
+                videoElement.requestFullscreen();
+            } else if (videoElement.mozRequestFullScreen) { // Firefox
+                videoElement.mozRequestFullScreen();
+            } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                videoElement.webkitRequestFullscreen();
+            } else if (videoElement.msRequestFullscreen) { // IE/Edge
+                videoElement.msRequestFullscreen();
+            }
+			
+        });
+    </script>
+	
+</body>
+
+</html>

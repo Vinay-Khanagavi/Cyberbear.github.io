@@ -1,0 +1,291 @@
+/* Reset styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.banner {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.banner span {
+  border-bottom: 2px solid #FBAE1F;
+  padding-bottom: 5px;
+}
+
+.smalllinks {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.smalllinks .link {
+  flex-basis: 30%;
+  text-align: center;
+}
+
+.smalllinks .link a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.quotation {
+  font-style: italic;
+}
+
+.citation {
+  margin-top: 5px;
+}
+
+.screenshot img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .smalllinks {
+    flex-wrap: wrap;
+  }
+
+  .smalllinks .link {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+#phishguardcontain {
+  text-align: center;
+  max-width: 400px;
+  margin: 15px auto -40px;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.section.copyright {
+  text-align: center;
+  padding: 20px;
+}
+
+.section.copyright p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #333333;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .section.copyright {
+    padding: 10px;
+  }
+}
+
+/********************/
+/********************/
+/*** GRID  LAYOUT ***/
+/********************/
+/********************/
+
+.gridcontainer {
+  width: 1425px;
+  font-size: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  vertical-align: top;
+}
+.gridcontainer.fullpage {
+  margin-bottom: 100px;
+}
+
+.gridunit,
+.gridparent {
+  display: inline-block;
+}
+
+.gridunit {
+  margin: 30px 25px;
+
+  font-size: 0;
+}
+.gridunit > a {
+  font-size: 0;
+}
+
+.gridunit.c1 {
+  width: 425px;
+}
+.gridparent.c1 {
+  max-width: 475px;
+}
+
+.gridunit.c2 {
+  width: 900px;
+}
+.gridparent.c2 {
+  max-width: 950px;
+}
+
+.gridunit.c3 {
+  display: block;
+}
+.gridparent.c3 {
+  width: 100%;
+}
+
+.gridcontainer .screenshot img {
+  width: 100%;
+}
+
+.reportcaptions {
+  font-size: 16px;
+  color: #FBAE1F;
+  text-transform: uppercase;
+  display: block;
+  height: 34px;
+  margin-bottom: -4px;
+  letter-spacing: 3px;
+  position: relative;
+}
+.reportcaptions span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+.reportcaptions span.left {
+  left: 0;
+}
+.reportcaptions span.right {
+  right: 0;
+}
+
+.quotecontain {
+  text-transform: uppercase;
+}
+.quotation {
+  font-size: 22px;
+  color: #FCC451;
+  letter-spacing: 3px;
+  line-height: 48px;
+}
+.citation {
+  margin-top: 15px;
+}
+.quotecontain .gridcaptionbold {
+  line-height: 24px;
+}
+
+.gridcaptionbold {
+  color: #333333;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 1450px) {
+  .gridcontainer {
+    max-width: 950px;
+  }
+  .gridunit.hidetwocolumn {
+    display: none;
+  }
+}
+
+@media (min-width: 976px) {
+  .gridunit.quote {
+    height: 227px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .quotecontain {
+    position: relative;
+    top: 25%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 975px) {
+  .gridunit.hideonecolumn,
+  .gridunit .hideonecolumn {
+    display: none;
+  }
+
+  .gridcontainer,
+  .gridcontainer > .gridparent {
+    width: auto;
+    max-width: inherit;
+  }
+  .gridcontainer > .gridunit,
+  .gridcontainer > .gridparent,
+  .gridcontainer > .gridparent > .gridunit {
+    display: block;
+    width: auto;
+  }
+
+  .quotecontain {
+    margin: 60px auto;
+  }
+
+  .gridunit.fullbleed {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.quotecontain {
+  text-align: center;
+}
+
+.quotation {
+  text-align: center;
+}
+
+.citation {
+  text-align: center;
+}

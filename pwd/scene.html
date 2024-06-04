@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Security - Scenario</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Changa', sans-serif;
+        }
+        .hint-container {
+            text-align: center;
+        }
+        .hint-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .btn-glitch-fill {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #dc3545;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hint-container">
+        <img src="assets/password_scenario.jpg" alt="Password Scenario">
+        <h1>Security Alert from SAM:</h1>
+        <p>Create your account! Choose a password:</p>
+        <input type="password" id="passwordInput" placeholder="Enter your password">
+        <br>
+        <button class="btn-glitch-fill" onclick="checkPassword()">Submit</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const message = document.getElementById('message');
+            const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+            if (strongPassword.test(password)) {
+                message.innerHTML = '<span style="color: #28a745;">Great job! Your password is strong! 🎉</span>';
+                setTimeout(() => window.location.href = 'strong.html', 2000);
+            } else {
+                message.innerHTML = '<span style="color: #dc3545;">Oh no! Your password is weak! 😢</span>';
+                setTimeout(() => window.location.href = 'weak.html', 2000);
+            }
+        }
+    </script>
+</body>
+</html>

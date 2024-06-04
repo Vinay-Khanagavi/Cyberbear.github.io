@@ -520,6 +520,16 @@
     box-sizing: border-box;
   }
 }
+.reward-icon {
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+
 .music-icon {
   position: fixed;
   top: 20px;
