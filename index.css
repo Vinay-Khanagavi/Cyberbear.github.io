@@ -520,11 +520,20 @@
     box-sizing: border-box;
   }
 }
+.kids-icon {
+  position: fixed;
+  top: 100px;
+  left: 30px;
+  width: 45px; /* Adjust size as needed */
+  height: 45px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
 
 .multiplayer-icon {
   position: fixed;
-  top: 20px;
-  right: 200px;
+  top: 30px;
+  left: 30px;
   width: 45px; /* Adjust size as needed */
   height: 45px; /* Adjust size as needed */
   cursor: pointer;
@@ -532,8 +541,8 @@
 }
 .reward-icon {
   position: fixed;
-  top: 20px;
-  right: 100px;
+  top: 180px;
+  left: 30px;
   width: 40px; /* Adjust size as needed */
   height: 40px; /* Adjust size as needed */
   cursor: pointer;
