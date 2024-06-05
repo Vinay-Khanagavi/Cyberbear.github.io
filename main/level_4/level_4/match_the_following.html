@@ -1,0 +1,532 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Match the Following</title>
+    <link rel="icon" href="assets/favicon.png" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata&family=Roboto+Condensed:wght@700&display=swap');
+
+      body {
+        color: #fff;
+        background-color: #F5F5F5;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 5.4rem;
+        color: #000;
+        font-family: 'Bebas Neue', sans-serif;
+      }
+
+      .hud {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .hud-item {
+        text-align: center;
+      }
+
+      .hud-prefix {
+        font-size: 2rem;
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+
+      .hud-main-text {
+        font-size: 3rem;
+        font-family: 'Bebas Neue', sans-serif;
+      }
+
+      #progressBar {
+        width: 20rem;
+        height: 3rem;
+        border: 0.2rem solid rgb(11, 223, 36);
+        margin-top: 2rem;
+        border-radius: 50px;
+        overflow: hidden;
+      }
+
+      #progressBarFull {
+        height: 100%;
+        background: rgb(11, 223, 36);
+        width: 0%;
+      }
+
+      .match-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .left-column,
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+      }
+
+      .match-item {
+        background: #fbae1f;
+        font-size: 2rem;
+        border-radius: 4px;
+        margin-bottom: 0.8rem;
+        padding: 1rem;
+        text-align: center;
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+      }
+
+      .match-item:hover {
+        box-shadow: 0 0.4rem 1.4rem 0 #fbcd73;
+        transform: scale(1.02);
+      }
+
+      .match-item img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .correct {
+        background: linear-gradient(
+          32deg,
+          rgba(11, 223, 36) 0%,
+          rgb(41, 232, 111) 100%
+        );
+      }
+
+      .incorrect {
+        background: linear-gradient(
+          32deg,
+          rgba(230, 29, 29, 1) 0%,
+          rgb(224, 11, 11, 1) 100%
+        );
+      }
+
+      .selected {
+        box-shadow: 0 0.4rem 1.4rem 0 #fbcd73;
+      }
+
+      .hud-prefix.black {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="game" class="justify-center flex-column">
+        <div class="hud">
+          <div class="hud-item">
+            <p class="hud-prefix black">Matched <span id="matchedCount">0</span> of 4</p>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
+            </div>
+          </div>
+          <div class="hud-item">
+            <p class="hud-prefix">Score</p>
+            <h1 class="hud-main-text" id="score">0</h1>
+          </div>
+        </div>
+        <h1 id="question">Match the following cyber attacks</h1>
+        <div class="match-container">
+          <div class="left-column">
+            <div class="match-item" data-number="1">Phishing Attack</div>
+            <div class="match-item" data-number="2">Malware Attack</div>
+            <div class="match-item" data-number="3">Firewall</div>
+            <div class="match-item" data-number="4">Encryption</div>
+          </div>
+          <div class="right-column">
+            <div class="match-item" data-number="1">
+              <img src="phishing.gif" alt="Phishing" />
+            </div>
+            <div class="match-item" data-number="2">
+              <img src="malware.gif" alt="Malware" />
+            </div>
+            <div class="match-item" data-number="3">
+              <img src="firewall.gif" alt="Firewall" />
+            </div>
+            <div class="match-item" data-number="4">
+              <img src="encryption.gif" alt="Encryption" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const matchedCountText = document.querySelector("#matchedCount");
+      const scoreText = document.querySelector("#score");
+      const progressBarFull = document.querySelector("#progressBarFull");
+
+      let score = 0;
+      const MAX_SCORE = 400;
+      const SCORE_POINTS = 100;
+      let matches = 0;
+
+      const leftItems = Array.from(
+        document.querySelectorAll(".left-column .match-item")
+      );
+      const rightItems = Array.from(
+        document.querySelectorAll(".right-column .match-item")
+      );
+
+      let selectedLeft = null;
+
+      const startGame = () => {
+        score = 0;
+        matches = 0;
+        updateProgress();
+      };
+
+      const updateProgress = () => {
+        progressBarFull.style.width = `${(score / MAX_SCORE) * 100}%`;
+        scoreText.innerText = score;
+        matchedCountText.innerText = matches;
+        if (score >= MAX_SCORE) {
+          localStorage.setItem("mostRecentScore", score);
+          window.location.assign("save_game.html");
+        }
+      };
+
+      leftItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          if (selectedLeft) {
+            selectedLeft.classList.remove("selected");
+          }
+          selectedLeft = item;
+          selectedLeft.classList.add("selected");
+        });
+      });
+
+      rightItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          if (!selectedLeft) return;
+
+          const leftNumber = selectedLeft.dataset.number;
+          const rightNumber = item.dataset.number;
+
+          if (leftNumber === rightNumber) {
+            selectedLeft.classList.add("correct");
+            item.classList.add("correct");
+            incrementScore(SCORE_POINTS);
+            matches++;
+            updateProgress();
+          } else {
+            selectedLeft.classList.add("incorrect");
+            item.classList.add("incorrect");
+          }
+
+          setTimeout(() => {
+            selectedLeft.classList.remove("selected");
+            selectedLeft = null;
+            getNewQuestion();
+          }, 1000);
+        });
+      });
+
+      const incrementScore = (num) => {
+        score += num;
+        updateProgress();
+      };
+
+      const getNewQuestion = () => {
+        leftItems.forEach((item) =>
+          item.classList.remove("correct", "incorrect")
+        );
+        rightItems.forEach((item) =>
+          item.classList.remove("correct", "incorrect")
+        );
+      };
+
+      startGame();
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Match the Following</title>
+    <link rel="icon" href="assets/favicon.png" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata&family=Roboto+Condensed:wght@700&display=swap');
+
+      body {
+        color: #fff;
+        background-color: #F5F5F5;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      h3 {
+        font-size: 2.4rem;
+        color: #000;
+        font-family: 'Bebas Neue', sans-serif;
+      }
+
+      .hud {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .hud-item p {
+        text-align: center;
+        color: black;
+      }
+
+      .hud-prefix {
+        font-size: 2rem;
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+
+      .hud-main-text {
+        font-size: 3rem;
+        font-family: 'Bebas Neue', sans-serif;
+      }
+
+      #progressBar {
+        width: 20rem;
+        height: 3rem;
+        border: 0.2rem solid rgb(11, 223, 36);
+        margin-top: 2rem;
+        border-radius: 50px;
+        overflow: hidden;
+      }
+
+      #progressBarFull {
+        height: 100%;
+        background: rgb(11, 223, 36);
+        width: 0%;
+      }
+
+      .match-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .left-column,
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+      }
+
+      .match-item {
+        background: #fbae1f;
+        font-size: 2rem;
+        border-radius: 4px;
+        margin-bottom: 0.8rem;
+        padding: 1rem;
+        text-align: center;
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+      }
+
+      .match-item:hover {
+        box-shadow: 0 0.4rem 1.4rem 0 #fbcd73;
+        transform: scale(1.02);
+      }
+
+      .match-item img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .correct {
+        background: linear-gradient(
+          32deg,
+          rgba(11, 223, 36) 0%,
+          rgb(41, 232, 111) 100%
+        );
+      }
+
+      .incorrect {
+        background: linear-gradient(
+          32deg,
+          rgba(230, 29, 29, 1) 0%,
+          rgb(224, 11, 11, 1) 100%
+        );
+      }
+
+      .selected {
+        box-shadow: 0 0.4rem 1.4rem 0 #fbcd73;
+      }
+
+      .hud-prefix.black {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="game" class="justify-center flex-column">
+        <div class="hud">
+          <div class="hud-item">
+            <p class="hud-prefix black">Matched <span id="matchedCount">0</span> of 4</p>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
+            </div>
+          </div>
+          <div class="hud-item">
+            <p class="hud-prefix">Score</p>
+            <h3 class="hud-main-text" id="score">0</h3>
+          </div>
+        </div>
+        <h3 id="question">Match the following cyber attacks</h3>
+        <div class="match-container">
+          <div class="left-column">
+            <div class="match-item" data-number="2">Malware Attack</div>
+            <div class="match-item" data-number="1">Phishing Attack</div>
+            <div class="match-item" data-number="3">Firewall</div>
+
+            <div class="match-item" data-number="4">Encryption</div>
+          </div>
+          <div class="right-column">
+            <div class="match-item" data-number="1">
+              <img src="phishing.gif" alt="Phishing" />
+            </div>
+            <div class="match-item" data-number="2">
+              <img src="malware.gif" alt="Malware" />
+            </div>
+            <div class="match-item" data-number="3">
+              <img src="firewall.gif" alt="Firewall" />
+            </div>
+            <div class="match-item" data-number="4">
+              <img src="encryption.gif" alt="Encryption" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const matchedCountText = document.querySelector("#matchedCount");
+      const scoreText = document.querySelector("#score");
+      const progressBarFull = document.querySelector("#progressBarFull");
+
+      let score = 0;
+      const MAX_SCORE = 400;
+      const SCORE_POINTS = 100;
+      let matches = 0;
+
+      const leftItems = Array.from(
+        document.querySelectorAll(".left-column .match-item")
+      );
+      const rightItems = Array.from(
+        document.querySelectorAll(".right-column .match-item")
+      );
+
+      let selectedLeft = null;
+
+      const startGame = () => {
+        score = 0;
+        matches = 0;
+        updateProgress();
+      };
+
+      const updateProgress = () => {
+        progressBarFull.style.width = `${(score / MAX_SCORE) * 100}%`;
+        scoreText.innerText = score;
+        matchedCountText.innerText = matches;
+        if (score >= MAX_SCORE) {
+          localStorage.setItem("mostRecentScore", score);
+          window.location.assign("save_game.html");
+        }
+      };
+
+      leftItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          if (selectedLeft) {
+            selectedLeft.classList.remove("selected");
+          }
+          selectedLeft = item;
+          selectedLeft.classList.add("selected");
+        });
+      });
+
+      rightItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          if (!selectedLeft) return;
+
+          const leftNumber = selectedLeft.dataset.number;
+          const rightNumber = item.dataset.number;
+
+          if (leftNumber === rightNumber) {
+            selectedLeft.classList.add("correct");
+            item.classList.add("correct");
+            incrementScore(SCORE_POINTS);
+            matches++;
+            updateProgress();
+          } else {
+            selectedLeft.classList.add("incorrect");
+            item.classList.add("incorrect");
+          }
+
+          setTimeout(() => {
+            selectedLeft.classList.remove("selected");
+            selectedLeft = null;
+            getNewQuestion();
+          }, 1000);
+        });
+      });
+
+      const incrementScore = (num) => {
+        score += num;
+        updateProgress();
+      };
+
+      const getNewQuestion = () => {
+        leftItems.forEach((item) =>
+          item.classList.remove("correct", "incorrect")
+        );
+        rightItems.forEach((item) =>
+          item.classList.remove("correct", "incorrect")
+        );
+      };
+
+      startGame();
+    </script>
+  </body>
+</html>
