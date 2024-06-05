@@ -1,0 +1,65 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #73b2bb;
+    background-image: url(homepage\ \(1\).png);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header {
+    /* background-color: #007bff; */
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  header h1 {
+    color: #fff;
+  }
+  
+  main {
+    padding: 40px 0;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .video {
+    margin-bottom: 20px;
+  }
+  
+  video {
+    width: 100%;
+  }
+  
+  p {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  footer {
+    background-color: #343a40;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    color: #fff;
+  }
+  
