@@ -10,4 +10,3 @@
 ![image](https://github.com/Vinay-Khanagavi/CyberFit.github.io/assets/116386393/9584ded5-4ea0-488d-9647-cb9528cc64ff)
 
 
-![image](https://github.com/Vinay-Khanagavi/CyberFit.github.io/assets/116386393/ac3f088d-8431-4b1d-98eb-de4a739af879)
