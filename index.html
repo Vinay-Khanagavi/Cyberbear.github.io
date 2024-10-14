@@ -21,6 +21,20 @@
 
   </head>
   <body>
+
+<!-- Google Translate Element -->
+<div id="google_translate_element" style="margin: 20px;"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'af,ar,hy,az,ba,eu,bn,bs,ca,hr,cs,da,nl,en,eo,et,tl,tlh,fi,fr,gaa,ka,de,el,gu,ht,ha,he,hi,hu,is,id,it,ja,jw,kn,kk,km,ko,ku,ky,la,lv,lt,lb,mk,ml,mn,no,ne,pl,pt,pa,ro,ru,sr,si,sk,sl,es,su,sw,sv,ta,te,th,tl,tr,uk,ur,vi,cy,xh,yi,zu',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <audio id="background-music" loop>
       <source src="./audio/back.mp3" type="audio/mpeg">
     </audio>
