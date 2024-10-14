@@ -590,6 +590,49 @@
   opacity: 0.7; /* Change opacity on hover for better UX */
 }
 
+/*For Responsive for mobile*/
+@media screen and (max-width: 450px) {
+  .homepage {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .level-1-wrapper,
+  .level-2-wrapper {
+    margin-bottom: 0.5rem;
+  }
+
+  .hacker-python-1-icon {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .animation-1716828621477-1-wrapper {
+    margin-bottom: 0.5rem;
+  }
+
+  .animation-1716828621477-1 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .level-1,
+  .level-2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .reward-icon,
+  .music-icon,
+  .backButton-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+
   /* Keyframes for moving the music icon */
   @keyframes moveIcon {
     0% { transform: translate(0, 0); }
@@ -598,3 +641,5 @@
     75% { transform: translate(-20px, 20px); }
     100% { transform: translate(0, 0); }
   }
+
+  
