@@ -580,3 +580,15 @@
     75% { transform: translate(-20px, 20px); }
     100% { transform: translate(0, 0); }
   }
+
+  .scroll_top{
+    position: fixed;
+    right: 90px;
+    bottom: 20px;
+    cursor: pointer;
+  }
+
+  #to_top{
+    width: 40px;
+    height: auto;
+  }
