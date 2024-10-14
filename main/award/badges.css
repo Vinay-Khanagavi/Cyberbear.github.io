@@ -40,14 +40,14 @@ body {
 /* Score and Awards Styles */
 #finalScore {
   font-size: 3.2rem;
-  margin: 2rem;
+  margin: 2.10rem;
   font-family: 'Bebas Neue', sans-serif;
 }
 
 .awardsText {
   font-size: 2.4rem;
   margin-bottom: 1.5rem;
-  color: #000;
+  color: #222020;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -116,7 +116,7 @@ li {
 }
 
 .leaderboard {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   margin-bottom: 25px;
 }

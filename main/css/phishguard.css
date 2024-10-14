@@ -17,9 +17,10 @@ ul {
 /* Global styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #ebdddd;
   color: #333333;
   line-height: 1.5;
+  font-size: medium;
 }
 
 .container {
@@ -54,6 +55,9 @@ body {
 .smalllinks .link a {
   text-decoration: none;
   color: #333333;
+}
+.smalllinks .link  a{
+  color: #FBAE1F;
 }
 
 .section {
@@ -104,6 +108,7 @@ body {
 .section.copyright {
   text-align: center;
   padding: 20px;
+  text-emphasis: none;
 }
 
 .section.copyright p {
@@ -112,7 +117,7 @@ body {
   line-height: 26px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #333333;
+  color: #1c1a1a;
   margin: 0;
 }
 
@@ -206,7 +211,7 @@ body {
 }
 .quotation {
   font-size: 22px;
-  color: #FCC451;
+  color: #fcc149;
   letter-spacing: 3px;
   line-height: 48px;
 }

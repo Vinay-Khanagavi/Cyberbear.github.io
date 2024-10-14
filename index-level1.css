@@ -74,8 +74,8 @@ body, html {
   height: 100%;
   position: relative;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(252.82deg, #234271 11.79%, #131313 49.38%);
-  border: 1px solid #000;
+  background: linear-gradient(252.82deg, #234271 12.23%, #131313 46.38%);
+  border: 1px solid #080808;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -89,7 +89,7 @@ body, html {
   text-align: left;
   font-size: 2.25rem;
   color: #eaeaea;
-  font-family: 'Irish Grover', cursive;
+  font-family: 'Irish Grover', cursive,inherit;
 }
 
 /* Medium screens (tablets) */
@@ -146,7 +146,10 @@ body, html {
   cursor: pointer;
   z-index: 1000; /* Ensure it is on top of other elements */
 }
-
+.backButton-icon:hover{
+  color: blue;
+  transition: all;
+}
 .reward-icon {
   position: fixed;
   top: 20px;
@@ -155,6 +158,10 @@ body, html {
   height: 40px; /* Adjust size as needed */
   cursor: pointer;
   z-index: 1000; /* Ensure it is on top of other elements */
+}
+.reward-icon:hover{
+  color: blue;
+  transition: all;
 }
 
 .music-icon {

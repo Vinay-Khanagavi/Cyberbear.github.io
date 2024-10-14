@@ -4,7 +4,7 @@
   font-size: inherit;
   font-weight: 800;
   font-family: inherit;
-  text-shadow: 10px 4px 4px rgba(255, 255, 255, 0.25);
+  text-shadow: 10px 4px 4px rgba(255, 255, 255, 0.5);
 }
 .cyber-fit-wrapper {
   width: 71.125rem;
@@ -105,6 +105,7 @@
   font-size: var(--font-size-45xl);
   color: var(--color-whitesmoke);
   font-family: var(--font-inter);
+  font-weight: 500;
 }
 .giphy-2-1 {
   width: 29.375rem;
@@ -314,7 +315,7 @@
   position: relative;
   font-size: inherit;
   font-weight: 400;
-  font-family: inherit;
+  font-family: inherit,Arial, Helvetica, sans-serif;
 }
 .animation-1716828621477-4 {
   height: 4.375rem;
@@ -385,7 +386,7 @@
   width: 100%;
   position: relative;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(252.82deg, #234271 11.79%, #131313 49.38%);
+  background: linear-gradient(252.82deg, #234271 12.23%, #131313 46.38%);
   border: 1px solid var(--color-black);
   overflow: hidden;
   flex-direction: column;
@@ -529,6 +530,10 @@
   cursor: pointer;
   z-index: 1000; /* Ensure it is on top of other elements */
 }
+.kids-icon:hover{
+  color: blue;
+  transition: all;
+}
 
 .multiplayer-icon {
   position: fixed;
@@ -539,6 +544,10 @@
   cursor: pointer;
   z-index: 1000; /* Ensure it is on top of other elements */
 }
+.multiplayer-icon:hover{
+  color: blue;
+  transition: all;
+}
 .reward-icon {
   position: fixed;
   top: 180px;
@@ -548,6 +557,11 @@
   cursor: pointer;
   z-index: 1000; /* Ensure it is on top of other elements */
 }
+.reward-icon:hover{
+  color: blue;
+  transition: all;
+}
+
 
 .video-icon {
   position: fixed;
@@ -557,6 +571,10 @@
   height: 40px; /* Adjust size as needed */
   cursor: pointer;
   z-index: 1000; /* Ensure it is on top of other elements */
+}
+.video-icon:hover{
+  color:blue;
+  opacity: .6;
 }
 
 .music-icon {
