@@ -592,3 +592,12 @@
     width: 40px;
     height: auto;
   }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h3, p {
+    font-family: 'Poppins', sans-serif;
+  }
+  
