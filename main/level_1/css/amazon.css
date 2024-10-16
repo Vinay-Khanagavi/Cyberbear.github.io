@@ -15,7 +15,7 @@
 }
 
 #claim-button {
-  background-color: #4caf50;
+  background-color: #29f52f;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -54,6 +54,7 @@ h2 {
 p {
     font-family: 'Roboto Condensed', sans-serif;
     line-height: 22px;
+    font-size: large;
 }
 
 body {

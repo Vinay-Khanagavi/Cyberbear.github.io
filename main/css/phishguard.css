@@ -34,7 +34,7 @@ body {
 }
 
 .banner span {
-  border-bottom: 2px solid #FBAE1F;
+  border-bottom: 2px solid #f28b04;
   padding-bottom: 5px;
 }
 
@@ -206,7 +206,7 @@ body {
 }
 .quotation {
   font-size: 22px;
-  color: #FCC451;
+  color: #f0b133;
   letter-spacing: 3px;
   line-height: 48px;
 }

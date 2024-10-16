@@ -54,6 +54,7 @@ h2 {
 p {
     font-family: 'Roboto Condensed', sans-serif;
     line-height: 22px;
+    font-weight: 300;
 }
 
 body {

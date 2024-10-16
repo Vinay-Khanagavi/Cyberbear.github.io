@@ -17,7 +17,7 @@ body {
 
 .choice-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 #FBCD73;
+    box-shadow: 0 0.4rem 1.4rem 0 #eb6004;
     transform: scale(1.02);
     transform: transform 100ms;
 }
@@ -30,6 +30,7 @@ body {
 .choice-text {
     padding: 2rem;
     width: 100%;
+    font-weight: 300;
 }
 
 .correct {
@@ -92,9 +93,10 @@ h1 {
 p {
     color: #333333;
     font-family: 'Roboto Condensed', sans-serif;
+    font-style: normal;
 }
 
 .choice-text {
-    color: #f5f5f5;
+    color: #f8f1f1;
     font-family: 'Roboto Condensed', sans-serif;
 }
