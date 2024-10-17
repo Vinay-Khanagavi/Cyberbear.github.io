@@ -600,4 +600,88 @@
   h1, h3, p {
     font-family: 'Poppins', sans-serif;
   }
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+.footer {
+  background-color: #333131; /* Light background */
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #333131; /* Subtle top border */
+}
+
+.footer-content {
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  display: inline; /* Inline list items */
+  margin: 0 10px; /* Space between links */
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white; /* Bootstrap primary color */
+}
+
+.footer-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Center the icons */
+  margin-top: 10px; /* Space above the icons */
+}
+
+.social-icons a {
+  margin: 0 10px; /* Space between icons */
+}
+
+.social-icons img {
+  width: 24px; /* Set width of icons */
+  height: 24px; /* Set height of icons */
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.social-icons img:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
   
