@@ -513,61 +513,78 @@
   .frame-parent3 {
     gap: var(--gap-mid);
   }
+
   .homepage {
-    gap: 2.938rem;
-    padding-left: var(--padding-xl);
-    padding-right: var(--padding-xl);
-    box-sizing: border-box;
+
+    gap:  2.938rem;
+    padding-left:  var(--padding-xl);
+    padding-right:  var(--padding-xl);
+    box-sizing:  border-box;
+
   }
+
 }
+
 .kids-icon {
-  position: fixed;
-  top: 100px;
-  left: 30px;
-  width: 45px; /* Adjust size as needed */
-  height: 45px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
-}
 
+  position:  fixed;
+  top:  120px;
+  left:  30px;
+  width:  45px; /* Adjust size as needed */
+  height:  45px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
+}
+ 
 .multiplayer-icon {
-  position: fixed;
-  top: 30px;
-  left: 30px;
-  width: 45px; /* Adjust size as needed */
-  height: 45px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
+
+  position:  fixed;
+  top:  50px;
+  left:  30px;
+  width:  45px; /* Adjust size as needed */
+  height:  45px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
 }
+
 .reward-icon {
-  position: fixed;
-  top: 180px;
-  left: 30px;
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
-}
 
+  position:  fixed;
+  top:  200px;
+  left:  30px;
+  width:  40px; /* Adjust size as needed */
+  height:  40px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
+}
+ 
 .video-icon {
-  position: fixed;
-  top: 250px;
-  left: 30px;
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
-}
 
-.music-icon {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
+  position:  fixed;
+  top:  270px;
+  left:  30px;
+  width:  40px; /* Adjust size as needed */
+  height:  40px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
 }
+ 
+.music-icon {
+
+  position:  fixed;
+  top:  50px;
+  right:  20px;
+  width: 40px; /* Adjust size as needed */
+  height:  40px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
+}
+ 
 .music-icon:hover {
   opacity: 0.7; /* Change opacity on hover for better UX */
 }
