@@ -593,17 +593,32 @@
     100% { transform: translate(0, 0); }
   }
 
-  .scroll_top{
-    position: fixed;
-    right: 90px;
-    bottom: 20px;
-    cursor: pointer;
-  }
+.scroll_top {
+  position: fixed;
+  right: 90px;
+  bottom: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  /* Define a fixed size for the button */
+  height: 50px;
+  /* Ensure it's square */
+  overflow: hidden;
+  /* Ensure the image doesn't overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  #to_top{
-    width: 40px;
-    height: auto;
-  }
+#to_top {
+  width: 100%;
+  /* Make the image take full width of the button */
+  height: 100%;
+  /* Ensure it covers the full height */
+  object-fit: cover;
+  /* Ensures the image scales while maintaining aspect ratio */
+  border-radius: 50%;
+}
 
   body {
     font-family: 'Poppins', sans-serif;
