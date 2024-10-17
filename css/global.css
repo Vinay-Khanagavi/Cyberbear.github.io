@@ -57,3 +57,17 @@ body {
   --br-81xl: 100px;
   --br-31xl: 50px;
 }
+
+#google_translate_element {
+
+  background-color: #22406e;
+  border: 1px solid #213d67;
+  padding: 10px;
+  border-radius: 5px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 650px; 
+  left: 20px;
+  z-index: 1000;
+
+}
