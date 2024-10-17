@@ -56,26 +56,42 @@
       let availableQuestions = [];
 
       let questions = [
-      {
-        question: "What is malware?",
-        choice1: "Malware is harmless software that boosts your computer's performance.",
-        choice2: "Malware is a type of software designed to protect your computer from threats.",
-        choice3: "Malware is malicious software intended to damage or disable computers and systems.",
-        choice4: "Malware is software that provides free games and applications.",
-        answer: 3,
-    },
         {
-        question: "Choose the correct option based on the new game software download scenario 🎮💻",
-        choice1: "It's from an official-looking website, so it's definitely safe to download and install.",
-        choice2: "No, it's not secure. It might be malware disguised as a game.",
-        choice3: "I trust this game software completely and will share it with all my friends.",
-        choice4: "The website has a professional design. I don't need to worry about security.",
-        answer: 2,
-    },
+          question: "Why is it important to use strong passwords?",
+          choice1: "Strong passwords are easier to remember.",
+          choice2: "Weak passwords are more secure.",
+          choice3: "Strong passwords make it harder for hackers to guess or crack.",
+          choice4: "It doesn't matter; all passwords are equally secure.",
+          answer: 3,
+        },
+        {
+          question: "What is a passphrase?",
+          choice1: "A passphrase is a type of password consisting of only numbers.",
+          choice2: "It's a security question used for password recovery.",
+          choice3: "A passphrase is a sequence of words or other text used to control access to a computer system, program, or data.",
+          choice4: "Passphrases are never used for authentication.",
+          answer: 3,
+        },
+        {
+         question: "Which of the following represents the strongest password?",
+          choice1: "password123",
+          choice2: "iloveyou",
+          choice3: "D0g!cat$bird",
+          choice4: "123456",
+           answer: 3,
+        },
+        {
+          question: "How often should you change your passwords?",
+          choice1: "Passwords should never be changed.",
+          choice2: "Only when you suspect a security breach.",
+          choice3: "Regularly, every few months, to reduce the risk of unauthorized access.",
+          choice4: "Once a year is sufficient.",
+          answer: 3,
+        }
       ];
 
-      const SCORE_POINTS = 200;
-      const MAX_QUESTIONS = 2;
+      const SCORE_POINTS = 100;
+      const MAX_QUESTIONS = 4; // Adjusted to handle all questions
 
       startGame = () => {
         questionCounter = 0;
@@ -87,7 +103,7 @@
       getNewQuestion = () => {
         if (
           availableQuestions.length === 0 ||
-          questionCounter > MAX_QUESTIONS
+          questionCounter >= MAX_QUESTIONS
         ) {
           localStorage.setItem("mostRecentScore", score);
 
@@ -96,13 +112,9 @@
 
         questionCounter++;
         progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
-        progressBarFull.style.width = `${
-          (questionCounter / MAX_QUESTIONS) * 100
-        }%`;
+        progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
-        const questionsIndex = Math.floor(
-          Math.random() * availableQuestions.length
-        );
+        const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionsIndex];
         question.innerText = currentQuestion.question;
 
@@ -124,8 +136,7 @@
           const selectedChoice = e.target;
           const selectedAnswer = selectedChoice.dataset["number"];
 
-          let classToApply =
-            selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+          let classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
           if (classToApply === "correct") {
             incrementScore(SCORE_POINTS);
