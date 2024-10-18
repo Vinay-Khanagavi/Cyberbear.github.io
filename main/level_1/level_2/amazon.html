@@ -8,19 +8,81 @@
     <title>Amazon Voucher</title>
     <link rel="stylesheet" href="css/amazon.css">
     <link rel="shortcut icon" href="assets/FREE GAMEZZ.png" type="image/x-icon">
+    <style>
+        #phishing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #phishing-email {
+            max-width: 500px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Comic Sans MS', cursive;
+            color: blue;
+        }
+
+        p {
+            font-size: 1.1em;
+        }
+
+        button {
+            font-family: 'Comic Sans MS', cursive;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #claim-button {
+            background-color: limegreen;
+            color: white;
+        }
+
+        #claim-button-red {
+            background-color: red;
+            color: white;
+        }
+
+        h3 {
+            color: red;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
     <div id="phishing-container">
         <div id="phishing-email">
-            <img src="assets/FREE GAMEZZ.png" alt="aAmazon">
-            <h2>Check out this amazing Application!</h2>
-            <p>Dear User, Download the application now and get flat 80% of on all Prime Games.</p>
-            <button onclick="location.href='hint_2.html'" id="claim-button">Download</button>
-            <button onclick="location.href='question.html'" id="claim-button-red">Quit</button>
+            <h3>Note: This is just part of a fun game and lesson! It's not real. Always think before downloading apps!
+            </h3>
+            <img style="width: 200px; height: 200px;" src="assets/FREE GAMEZZ.png" alt="Free Games Offer">
+
+            <h2>Check Out This Super Cool App! (But Wait...)</h2>
+
+            <p>
+                Hello there! Guess what? You can get an amazing app and enjoy <span style="color: forestgreen;">80%
+                    off</span> on all Prime Games! <br>
+                Sounds too good to be true, right? Before downloading anything, remember: Always check if the app is
+                safe. Don’t fall for sneaky traps!
+            </p>
+
+            <button onclick="location.href='hint_2.html'" id="claim-button">See What Happens</button>
+            <button onclick="location.href='question.html'" id="claim-button-red">Take Me Back</button>
         </div>
     </div>
-
 </body>
+
 
 </html>
