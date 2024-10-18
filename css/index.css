@@ -521,53 +521,65 @@
   }
 }
 .kids-icon {
+
   position: fixed;
-  top: 100px;
-  left: 30px;
+  top:  120px;
+  left:  30px;
   width: 45px; /* Adjust size as needed */
-  height: 45px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
+  height:  45px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
 }
 
 .multiplayer-icon {
-  position: fixed;
-  top: 30px;
-  left: 30px;
-  width: 45px; /* Adjust size as needed */
-  height: 45px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
+
+  position:  fixed;
+  top:  50px;
+  left:  30px;
+  width:  45px; /* Adjust size as needed */
+  height:  45px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
 }
+
 .reward-icon {
-  position: fixed;
-  top: 180px;
-  left: 30px;
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
+
+  position:  fixed;
+  top:  200px;
+  left:  30px;
+  width:  40px; /* Adjust size as needed */
+  height:  40px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
 }
 
 .video-icon {
-  position: fixed;
-  top: 250px;
-  left: 30px;
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
+
+  position:  fixed;
+  top:  270px;
+  left:  30px;
+  width:  40px; /* Adjust size as needed */
+  height:  40px; /* Adjust size as needed */
   cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
+  z-index:  1000; /* Ensure it is on top of other elements */
+
 }
 
 .music-icon {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  cursor: pointer;
-  z-index: 1000; /* Ensure it is on top of other elements */
+
+  position:  fixed;
+  top:  50px;
+  right:  20px;
+  width:  40px; /* Adjust size as needed */
+  height:  40px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
 }
+
 .music-icon:hover {
   opacity: 0.7; /* Change opacity on hover for better UX */
 }
@@ -581,17 +593,32 @@
     100% { transform: translate(0, 0); }
   }
 
-  .scroll_top{
-    position: fixed;
-    right: 90px;
-    bottom: 20px;
-    cursor: pointer;
-  }
+.scroll_top {
+  position: fixed;
+  right: 90px;
+  bottom: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  /* Define a fixed size for the button */
+  height: 50px;
+  /* Ensure it's square */
+  overflow: hidden;
+  /* Ensure the image doesn't overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  #to_top{
-    width: 40px;
-    height: auto;
-  }
+#to_top {
+  width: 100%;
+  /* Make the image take full width of the button */
+  height: 100%;
+  /* Ensure it covers the full height */
+  object-fit: cover;
+  /* Ensures the image scales while maintaining aspect ratio */
+  border-radius: 50%;
+}
 
   body {
     font-family: 'Poppins', sans-serif;
