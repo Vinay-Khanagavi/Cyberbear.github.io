@@ -64,11 +64,11 @@ li:hover {
 }
 
 .correct {
-    background-color: #d4edda;
+    background-color: #e85555;
 }
 
 .incorrect {
-    background-color: #f8d7da;
+    background-color: #64e850;
 }
 
 button {

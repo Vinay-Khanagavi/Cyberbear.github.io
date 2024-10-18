@@ -74,7 +74,7 @@ h2 {
     margin-bottom: 1rem;
     text-decoration: none;
     color: #fff;
-    background: #FCC451;
+    background: #e79242;
     border-radius: 4px;
     font-family: 'Roboto Condensed', sans-serif;
     transition: transform 0.2s ease-in-out;
@@ -82,7 +82,7 @@ h2 {
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 #FBCD73;
+    box-shadow: 0 0.4rem 1.4rem 0 #b57c0b;
     transition: transform 150ms;
     transform: scale(1.02);
 }

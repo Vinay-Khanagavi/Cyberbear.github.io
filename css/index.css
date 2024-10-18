@@ -23,6 +23,12 @@
   align-self: stretch;
   position: relative;
   font-weight: 500;
+  background-color:rgba(0, 0, 0, 0.5); /*Semi-transparent background*/
+  padding: 10px;
+  display: none;
+  transition: opacity .3s ease-in-out;
+  left: 0;
+  width: 100%;
 }
 .cyberfit-cyber-challenges-to-wrapper {
   width: 32.813rem;
@@ -40,6 +46,10 @@
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
+}
+.level-1:hover.cyberfit-cyber-container{
+  display: block;
+  opacity: 1;
 }
 .animation-1716828621477-1 {
   height: 4.375rem;
@@ -156,6 +166,14 @@
   align-self: stretch;
   position: relative;
   font-weight: 500;
+  background-color:rgba(0, 0, 0, 0.5); /*Semi-transparent background*/
+  padding: 10px;
+  display: none;
+  transition: opacity .3s ease-in-out;
+}
+.level-2:hover.cyberfit-cyber-container1{
+  display: block;
+  opacity: 1;
 }
 .cyberfit-cyber-challenges-to-container {
   width: 32.813rem;
@@ -212,6 +230,10 @@
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
+}
+.level-3:hover.cyberfit-cyber-container2{
+  display: block;
+  opacity: 1;
 }
 .animation-1716828621477-3 {
   height: 4.375rem;
@@ -316,6 +338,10 @@
   font-weight: 400;
   font-family: inherit;
 }
+.level-4:hover.cyberfit-cyber-container3{
+  display: block;
+  opacity: 1;
+}
 .animation-1716828621477-4 {
   height: 4.375rem;
   width: 4.906rem;
@@ -356,6 +382,11 @@
   display: inline-block;
   flex-shrink: 0;
   max-width: 100%;
+  position: absolute;
+  background-color:rgba(0, 0, 0, 0.5); /*Semi-transparent background*/
+  padding: 10px;
+  display: none;
+  transition: opacity .3s ease-in-out;
 }
 .frame-parent3 {
   display: flex;

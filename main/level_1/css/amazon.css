@@ -8,14 +8,14 @@
 }
 
 #phishing-email {
-  background-color: #f5f5f5;
+  background-color: #ddd9d9;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
 }
 
 #claim-button {
-  background-color: #4caf50;
+  background-color: #68f46c;
   color: white;
   padding: 10px 20px;
   border: none;
