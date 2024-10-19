@@ -21,7 +21,7 @@
 }
 .cyberfit-cyber-container {
   align-self: stretch;
-  position: relative;
+  position: absolute;
   font-weight: 500;
   background-color:rgba(0, 0, 0, 0.5); /*Semi-transparent background*/
   padding: 10px;
@@ -29,6 +29,11 @@
   transition: opacity .3s ease-in-out;
   left: 0;
   width: 100%;
+  z-index: 10; /* Adjust as needed */
+}
+.level-1:hover .cyberfit-cyber-container {
+  display: block;
+  opacity: 1;
 }
 .cyberfit-cyber-challenges-to-wrapper {
   width: 32.813rem;
@@ -47,10 +52,7 @@
   font-weight: 400;
   font-family: inherit;
 }
-.level-1:hover.cyberfit-cyber-container{
-  display: block;
-  opacity: 1;
-}
+
 .animation-1716828621477-1 {
   height: 4.375rem;
   width: 4.906rem;
@@ -170,6 +172,7 @@
   padding: 10px;
   display: none;
   transition: opacity .3s ease-in-out;
+  z-index: 10; /* Adjust as needed */
 }
 .level-2:hover.cyberfit-cyber-container1{
   display: block;
@@ -181,8 +184,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-23xl) 0 0;
+  padding: 4.062rem 0 0;
   box-sizing: border-box;
+  min-width: 32.813rem;
   max-width: 100%;
   font-size: var(--font-size-5xl);
   color: var(--color-white);
@@ -212,7 +216,15 @@
   align-self: stretch;
   position: relative;
   font-weight: 500;
+  z-index: 10; /* Adjust as needed */
 }
+
+.level-3:hover.cyberfit-cyber-container2 {
+  display: block;
+  opacity: 1;
+}
+
+
 .cyberfit-cyber-challenges-to-frame {
   width: 32.813rem;
   display: flex;
@@ -230,10 +242,6 @@
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
-}
-.level-3:hover.cyberfit-cyber-container2{
-  display: block;
-  opacity: 1;
 }
 .animation-1716828621477-3 {
   height: 4.375rem;
@@ -355,6 +363,11 @@
   justify-content: flex-start;
   padding: 0 var(--padding-9xl);
 }
+
+.level-1, .level-2, .level-3, .level-4 {
+  position: relative;
+  overflow: visible;
+}
 .frame-wrapper3,
 .level-4-parent {
   display: flex;
@@ -387,7 +400,48 @@
   padding: 10px;
   display: none;
   transition: opacity .3s ease-in-out;
+  z-index: 10; /* Adjust as needed */
 }
+.level-4:hover.cyberfit-cyber-container3 {
+  display: block;
+  opacity: 1;
+}
+
+.level-1:hover .cyberfit-cyber-container,
+.level-2:hover .cyberfit-cyber-container1,
+.level-3:hover .cyberfit-cyber-container2,
+.level-4:hover .cyberfit-cyber-container3 {
+  background-color: rgba(0, 0, 0, 0.7); /* Darken background on hover */
+  border: 2px solid white; /* Add a border on hover */
+}
+
+.cyberfit-cyber-container,
+.cyberfit-cyber-container1,
+.cyberfit-cyber-container2,
+.cyberfit-cyber-container3 {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: static !important; /* Change from absolute positioning */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-container2, .cyberfit-cyber-container3 {
+  font-family: Arial, sans-serif !important;
+}
+
+.cyberfit-cyber-container,
+.cyberfit-cyber-container1,
+.cyberfit-cyber-container2,
+.cyberfit-cyber-container3 {
+  position: relative;
+  width: 100%;
+}
+
 .frame-parent3 {
   display: flex;
   flex-direction: row;
@@ -501,7 +555,7 @@
     box-sizing: border-box;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 1450px) {
   .cyber-fit {
     font-size: var(--font-size-19xl);
   }
@@ -551,6 +605,29 @@
     box-sizing: border-box;
   }
 }
+@media screen and (max-width: 825px) {
+  .cyberfit-cyber-container {
+    font-size: var(--font-size-lgi); /* Smaller font size */
+  }
+}
+@media screen and (max-width: 825px) {
+  .cyberfit-cyber-container1{
+    font-size: var(--font-size-lgi); /* Smaller font size */
+  }
+ 
+}
+@media screen and (max-width: 825px) {
+  .cyberfit-cyber-container2 {
+    font-size: var(--font-size-lgi); /* Smaller font size */
+  }
+}
+@media screen and (max-width: 825px) {
+  .cyberfit-cyber-container3 {
+    font-size: var(--font-size-lgi); /* Smaller font size */
+  }
+}
+
+
 .kids-icon {
   position: fixed;
   top: 100px;
