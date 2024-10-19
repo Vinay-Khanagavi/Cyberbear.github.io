@@ -9,6 +9,37 @@
     <link rel="stylesheet" href="css/question.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
         integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    <style>
+        .modal-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .modal-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .modal-box .buttons {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,16 +58,19 @@
             </div>
         </div>
         <div class="modal-box">
-            <img src="assets/level_2.png" >
-            <h2>Mission Completed🏆</h2>
-            <h3>You have successfully completed this level,<br> but there is more to know.<br> Click "Next" to continue.</h3>
+            <img style="display: flex; justify-content: center;" src="assets/level_2.png">
+            <h2 style="text-align: center;">Mission Completed🏆</h2>
+            <h3>You have successfully completed this level,<br> but there is more to know.<br> Click "Next" to continue.
+            </h3>
 
-            <div class="buttons">
-                <button class="box-btn"><a href="phishing_awareness.html" style="text-decoration: none; color: #fff; font-size: 15px;">Next</a></button>
+            <div class="buttons" style="width: 100%;">
+                <button class="box-btn" style="margin: auto;"><a href="phishing_awareness.html"
+                        style="text-decoration: none; color: #fff; font-size: 15px;">Next</a></button>
             </div>
         </div>
     </section>
     <script preload="lazy" src="js/end.js"></script>
 </body>
+
 
 </html>
