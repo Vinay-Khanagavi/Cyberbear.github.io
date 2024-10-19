@@ -66,8 +66,8 @@ body {
   border-radius: 5px; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 650px; 
-  left: 20px;
+  top: 881px; 
+  left: 0px;
   z-index: 1000;
 
 }
