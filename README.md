@@ -16,7 +16,7 @@ Welcome to **CyberBear**, a gamified platform designed to educate users on cyber
 ## Project Overview
 CyberBear is part of **HackToFuture-2024**, under the Cyber Security domain (Problem Statement Code: CS-01). Our team aims to promote cybersecurity awareness by turning complex cybersecurity concepts into interactive games, utilizing a subscription model to unlock advanced features, and providing quizzes and real-time assistance with the help of a fine-tuned Large Language Model (LLM).
 
-![Gamified Learning](https://lh5.googleusercontent.com/proxy/b0PSRmXmPUphi45Pt9VKuJjC8UegqFJOSZdNpi6vCt0KAJOPVS16tcbhiUWRNqIoqt4S10r9qz2u)
+![Gamified Learning](https://i.pinimg.com/originals/8b/fd/01/8bfd01c18be1b5059bc0d7770d9dabf1.gif)
 
 ## Features
 - **Gamified Learning**: Fun, interactive games to teach cybersecurity concepts.
