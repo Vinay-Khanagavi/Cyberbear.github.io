@@ -601,7 +601,7 @@
     font-family: 'Poppins', sans-serif;
   }
 .footer {
-  background-color: #333;
+  background-color: #4db6b4;
   color: white;
   padding: 20px 0;
 }
@@ -615,30 +615,6 @@
   padding: 0 20px;
 }
 
-.footer-left {
-  flex: 1;
-  text-align: left;
-}
-
-.footer-center {
-  flex: 1;
-  text-align: center;
-}
-
-.footer-right {
-  flex: 1;
-  text-align: right;
-}
-
-.footer-left p:first-child {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.footer-left p:nth-child(2) {
-  margin-top: 5px;
-}
 
 .footer-links {
   list-style: none;
@@ -671,6 +647,7 @@
   width: 30px;
   height: 30px;
   margin: 0 10px;
+  object-fit: contain;
 }
 
 .footer-right img {
@@ -680,7 +657,8 @@
 }
 
 .copyright {
-  text-align: center;
-  margin-top: 10px;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 20px;
   color: white;
 }
