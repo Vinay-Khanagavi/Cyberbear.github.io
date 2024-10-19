@@ -62,11 +62,11 @@ body {
 
   background-color: #22406e;
   border: 1px solid #213d67;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 650px; 
+  bottom: 10px; 
   left: 20px;
   z-index: 1000;
 
@@ -95,16 +95,3 @@ body {
   scrollbar-color: #888 #234271;
 }
 
-#google_translate_element {
-
-  background-color: #22406e;
-  border: 1px solid #213d67;
-  padding: 10px;
-  border-radius: 5px; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 650px; 
-  left: 20px;
-  z-index: 1000;
-
-}
