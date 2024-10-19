@@ -16,16 +16,12 @@ Welcome to **CyberBear**, a gamified platform designed to educate users on cyber
 ## Project Overview
 CyberBear is part of **HackToFuture-2024**, under the Cyber Security domain (Problem Statement Code: CS-01). Our team aims to promote cybersecurity awareness by turning complex cybersecurity concepts into interactive games, utilizing a subscription model to unlock advanced features, and providing quizzes and real-time assistance with the help of a fine-tuned Large Language Model (LLM).
 
-![gif](https://github.com/user-attachments/assets/ac549ea7-164d-4fc1-85c2-60b1f31d35ba)
-
 ## Features
 - **Gamified Learning**: Fun, interactive games to teach cybersecurity concepts.
 - **Subscription Model**: Additional tools and resources for subscribed users.
 - **Quizzes with Feedback**: Test knowledge with quizzes and get instant feedback.
 - **Chatbot Assistant**: 24/7 assistance via a fine-tuned LLM model.
 - **Tools & Resources**: Curated cybersecurity resources for individuals and businesses.
-
-![Quizzes with Feedback](https://kepsure.com/wp-content/uploads/2022/05/alarm-gif.gif)
 
 ## Technology Stack
 - **HTML & CSS**: Frontend built with HTML and CSS for responsive and accessible design.
@@ -37,9 +33,6 @@ CyberBear is part of **HackToFuture-2024**, under the Cyber Security domain (Pro
 - **Educational Institutions**: Interactive modules integrate easily into curricula, enabling educators to provide hands-on cybersecurity education for students.
 - **Businesses**: CyberBear offers tailored training programs that educate employees on cybersecurity best practices, bolstering organizational security.
 
-![Educational Modules](https://pahsu.ictrd.in/assets/images/courses/Cybersecurity_1.gif)
-
-
 ## Setup and Installation
 1. **Clone the Repository**:
     ```bash
@@ -50,12 +43,7 @@ Join our Discord community to stay updated, get support, and connect with other 
 
 [![Join Our Discord](https://img.shields.io/badge/Discord-Join%20Our%20Community-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/ZA7VSKHb9r)
 
-![Community](https://media.tenor.com/l-ltKxPNF-gAAAAM/wumpus-discord.gif)
-
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-https://github.com/user-attachments/assets/229dbf5c-e910-4680-ba5c-c6569d50964a
-
 
 
