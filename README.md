@@ -16,7 +16,7 @@ Welcome to **CyberBear**, a gamified platform designed to educate users on cyber
 ## Project Overview
 CyberBear is part of **HackToFuture-2024**, under the Cyber Security domain (Problem Statement Code: CS-01). Our team aims to promote cybersecurity awareness by turning complex cybersecurity concepts into interactive games, utilizing a subscription model to unlock advanced features, and providing quizzes and real-time assistance with the help of a fine-tuned Large Language Model (LLM).
 
-![Gamified Learning](https://i.pinimg.com/originals/8b/fd/01/8bfd01c18be1b5059bc0d7770d9dabf1.gif)
+![gif](https://github.com/user-attachments/assets/ac549ea7-164d-4fc1-85c2-60b1f31d35ba)
 
 ## Features
 - **Gamified Learning**: Fun, interactive games to teach cybersecurity concepts.
@@ -55,6 +55,7 @@ Join our Discord community to stay updated, get support, and connect with other 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-![CyberBear Banner](https://github.com/Vinay-Khanagavi/CyberFit.github.io/assets/116386393/20f86349-0d7c-4db1-a9bb-7c34d7b3f206)
+https://github.com/user-attachments/assets/229dbf5c-e910-4680-ba5c-c6569d50964a
 
-![CyberBear](https://github.com/Vinay-Khanagavi/CyberFit.github.io/assets/116386393/9584ded5-4ea0-488d-9647-cb9528cc64ff)
+
+
