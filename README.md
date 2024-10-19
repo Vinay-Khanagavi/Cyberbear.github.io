@@ -10,12 +10,13 @@ Welcome to **CyberBear**, a gamified platform designed to educate users on cyber
   - [Technology Stack](#technology-stack)
   - [Use Cases](#use-cases)
   - [Setup and Installation](#setup-and-installation)
-  - [Contribution Guidelines](#contribution-guidelines)
-    - [Development Requirements](#development-requirements)
+  - [Join Our Community](#join-our-community)
   - [License](#license)
 
 ## Project Overview
 CyberBear is part of **HackToFuture-2024**, under the Cyber Security domain (Problem Statement Code: CS-01). Our team aims to promote cybersecurity awareness by turning complex cybersecurity concepts into interactive games, utilizing a subscription model to unlock advanced features, and providing quizzes and real-time assistance with the help of a fine-tuned Large Language Model (LLM).
+
+![Gamified Learning](https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif)
 
 ## Features
 - **Gamified Learning**: Fun, interactive games to teach cybersecurity concepts.
@@ -23,6 +24,8 @@ CyberBear is part of **HackToFuture-2024**, under the Cyber Security domain (Pro
 - **Quizzes with Feedback**: Test knowledge with quizzes and get instant feedback.
 - **Chatbot Assistant**: 24/7 assistance via a fine-tuned LLM model.
 - **Tools & Resources**: Curated cybersecurity resources for individuals and businesses.
+
+![Quizzes with Feedback](https://media.giphy.com/media/l0HlSNOxJB956qwfK/giphy.gif)
 
 ## Technology Stack
 - **HTML & CSS**: Frontend built with HTML and CSS for responsive and accessible design.
@@ -34,28 +37,24 @@ CyberBear is part of **HackToFuture-2024**, under the Cyber Security domain (Pro
 - **Educational Institutions**: Interactive modules integrate easily into curricula, enabling educators to provide hands-on cybersecurity education for students.
 - **Businesses**: CyberBear offers tailored training programs that educate employees on cybersecurity best practices, bolstering organizational security.
 
+![Educational Modules](https://media.giphy.com/media/l3vR3S8rL6rVSHgSY/giphy.gif)
+
+
 ## Setup and Installation
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/CyberBear.github.io.git
-    cd CyberBear.github.io
+   git clone https://github.com/Vinay-Khanagavi/Cyberbear.github.io.git
     ```
+## Join Our Community
+Join our Discord community to stay updated, get support, and connect with other users and contributors:
 
-## Contribution Guidelines
-We welcome contributions to enhance CyberBear! Here’s how you can get started:
+[![Join Our Discord](https://img.shields.io/badge/Discord-Join%20Our%20Community-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/ZA7VSKHb9r)
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with a clear description of your changes.
-
-### Development Requirements
-- **HTML & CSS**
-- **JavaScript**
-- **Python** (latest stable version)
-- Any additional packages as noted in `requirements.txt`
+![Community](https://media.giphy.com/media/3o7TKFv9t9O4af7Tzq/giphy.gif)
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-![CyberBear](https://github.com/Vinay-Khanagavi/CyberFit.github.io/assets/116386393/20f86349-0d7c-4db1-a9bb-7c34d7b3f206)
+![CyberBear Banner](https://github.com/Vinay-Khanagavi/CyberFit.github.io/assets/116386393/20f86349-0d7c-4db1-a9bb-7c34d7b3f206)
+
 ![CyberBear](https://github.com/Vinay-Khanagavi/CyberFit.github.io/assets/116386393/9584ded5-4ea0-488d-9647-cb9528cc64ff)
