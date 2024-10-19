@@ -520,34 +520,77 @@
     box-sizing: border-box;
   }
 }
-.kids-icon {
 
+.icon-toggle-button {
+  display: none;
+}
+
+.icon-toggle-label {
+  display: inline-block;
+  padding: 10px;
+  background-color: #333;
+  cursor: pointer;
+  border-radius: 5px;
   position: fixed;
-  top:  120px;
-  left:  30px;
-  width: 45px; /* Adjust size as needed */
-  height:  45px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  top: 50px;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+  z-index: 1001;
+  background: url('/public/menu.png') no-repeat center center;
+  background-size: contain;
+}
 
+.icon-container {
+  display: none;
+  position: fixed;
+  top: 95px;
+  left: 20px;
+  z-index: 1000;
+  background-color: #1a273c;
+  height: 260px;
+  width:45px ;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.icon-toggle-button:checked + .icon-toggle-label + .icon-container {
+  display: block;
+}
+
+.icon-container img {
+  display: block;
+  margin-bottom: 10px;
 }
 
 .multiplayer-icon {
 
   position:  fixed;
-  top:  50px;
+  top:  100px;
   left:  30px;
   width:  45px; /* Adjust size as needed */
   height:  45px; /* Adjust size as needed */
   cursor:  pointer;
   z-index:  1000; /* Ensure it is on top of other elements */
-
 }
+
+.kids-icon {
+  position: fixed;
+  top: 170px;
+  left: 30px;
+  width: 45px; /* Adjust size as needed */
+  height: 45px; /* Adjust size as needed */
+  cursor:  pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+}
+
 
 .reward-icon {
 
   position:  fixed;
-  top:  200px;
+  top:  250px;
   left:  30px;
   width:  40px; /* Adjust size as needed */
   height:  40px; /* Adjust size as needed */
@@ -559,7 +602,7 @@
 .video-icon {
 
   position:  fixed;
-  top:  270px;
+  top:  320px;
   left:  30px;
   width:  40px; /* Adjust size as needed */
   height:  40px; /* Adjust size as needed */
@@ -595,19 +638,27 @@
 
 .scroll_top {
   position: fixed;
-  right: 90px;
+  right: 80px;
   bottom: 20px;
   cursor: pointer;
   border-radius: 50%;
-  width: 50px;
+  width: 45px;
   /* Define a fixed size for the button */
-  height: 50px;
+  height: 45px;
   /* Ensure it's square */
   overflow: hidden;
   /* Ensure the image doesn't overflow */
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
+  outline: none;
+  border: none;
+  transition: 0.2s ease-in-out; 
+
+}
+
+.scroll_top:hover{
+  transform: scale(1.08);
 }
 
 #to_top {
