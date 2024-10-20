@@ -568,6 +568,18 @@
 
 }
 
+.quiz-icon {
+
+  position:  fixed;
+  top:  340px;
+  left:  20px;
+  width:  60px; /* Adjust size as needed */
+  height:  60px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index:  1000; /* Ensure it is on top of other elements */
+
+}
+
 .music-icon {
 
   position:  fixed;
