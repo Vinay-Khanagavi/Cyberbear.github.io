@@ -7,13 +7,13 @@
     <title>Awards</title>
     <link rel="icon" href="../images/favicon.png">
     <link rel="stylesheet" href="badges.css">
-</head>
+</head>a
 
 <body>
     <div class="container">
         <div id="highScores" class="flex-center flex-column">
             <h1 id="finalScore">Leaderboard</h1>
-            <img class="leaderboard" src="../images/award.png" alt="Award Leaderboard">
+            <img class="leaderboard" src="../images/award.png">
             <div>
                 <h1 id="currentLevel"></h1>
             </div>
@@ -21,77 +21,57 @@
             <div id="awards">
                 <div id="awardsImages"></div>
             </div>
-            <button class="back-button" onclick="goBack()">Resume to Current Level</button>
-            
             <li class="link techsupport">
-                <a href="../../index.html" target="_blank">
+                <a href="https://vinay-khanagavi.github.io/CyberFit.github.io/">
                     <h4 class="banner"><span>HOME</span></h4>
                 </a>
             </li>
         </div>
     </div>
-
     <script>
         const levelBadges = [
             '../images/level_1.png',
             '../images/level_2.png',
-            // Add more image URLs for higher levels if needed
         ];
 
         const awardsImagesContainer = document.getElementById('awardsImages');
         const currentLevelElement = document.getElementById('currentLevel');
-        const resumeButton = document.getElementById('resumeButton');
 
-        // Get the current level from the cookie
         const currentLevel = getCookie('highestLevel');
-
         if (currentLevel) {
-            const level = parseInt(currentLevel);
+    const level = parseInt(currentLevel);
 
-            if (level && level > 0) {
-                // Display images up to the current level
-                for (let i = 0; i < Math.min(level, levelBadges.length); i++) {
+    if (level && level > 0) {
+                for (let i = 0; i < level; i++) {
                     const image = document.createElement('img');
                     image.src = levelBadges[i];
                     image.alt = `Badge Level ${i + 1}`;
                     awardsImagesContainer.appendChild(image);
                 }
-
-                // Update current level text
                 currentLevelElement.textContent = `Current Level: ${level}`;
-
-                // Enable resume button and append level number to the URL
-                resumeButton.disabled = false;
-                resumeButton.addEventListener('click', () => {
-                    // Redirect to the specific level URL, dynamically appending level number
-                    window.location.href = `../game/level${level}.html`;
-                });
             } else {
                 currentLevelElement.textContent = 'Current Level: Not Available';
-                resumeButton.disabled = true;
             }
-        } else {
-            currentLevelElement.textContent = 'Current Level: Not Available';
-            resumeButton.disabled = true;
+        } else {  
+           currentLevelElement.textContent = 'Current Level: Not Available';
         }
-
-        // Function to go back to the previous page
-        function goBack() {
-            window.history.go(-1); // Navigate to the previous page in the browser's history
-        }
-
         function getCookie(name) {
             const cookieName = `${name}=`;
             const cookies = document.cookie.split(';');
 
             for (let i = 0; i < cookies.length; i++) {
-                let cookie = cookies[i].trim();
+                let cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1);
+                }
                 if (cookie.indexOf(cookieName) === 0) {
                     return cookie.substring(cookieName.length, cookie.length);
                 }
             }
             return null;
         }
+
+
     </script>
 </body>
 
