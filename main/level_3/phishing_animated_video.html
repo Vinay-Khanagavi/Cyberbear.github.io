@@ -1,87 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Animated Video</title>
+    <title>Password Protection Animated Video</title>
     <link rel="icon" href="assets/favicon.png">
-    <link rel=stylesheet href=css/video.css>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" />
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #010001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+            font-family: Poppins, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .video-content {
+            flex: 1;
+        }
+
+        .video-title {
+            margin-bottom: 1rem;
+        }
+
+        .video-title h1 {
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+            color: #fff;
+        }
+
+        .video-title p {
+            font-size: 1rem;
+            margin: 0;
+            color: #ccc;
+        }
+
+        .video-container {
+            width: 100%;
+            position: relative;
+        }
+
+        .fullscreen-video {
+            width: 100%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .next-arrow {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            height: 36px;
+            background: #e92e27;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .next-arrow:hover {
+            background: #be1623;
+        }
+
+        .next-arrow::after {
+            content: "→";
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .control-button {
+            background: #e92e27;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .control-button:hover {
+            background: #be1623;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            position: relative;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #444;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .progress-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #e92e27;
+            width: 0%;
+            border-radius: 2px;
+        }
+
+        .time-display {
+            font-size: 14px;
+            color: #fff;
+            margin: 0 10px;
+            min-width: 100px;
+        }
+
+        .fullscreen-button {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .fullscreen-button:hover svg {
+            color: #e92e27;
+        }
+
+        #loader {
+            display: none;
+        }
+
+        #pa-q {
+            display: none;
+        }
+
+        .loading {
+            display: none;
+        }
+    </style>
 </head>
-
 <body>
-		<div id="loader"></div>
+    <div id="loader"></div>
+    <div class="container">
+        <div class="video-content">
+            <div class="video-title">
+                <h1>Please Watch: What does a Good Password Look Like?</h1>
+                <p> How can you prevent hackers and viruses from stealing your password? How can you stop them from accessing all your accounts?</p>
+            </div>
+            
+            <div class="video-container" id="coins">
+                <div class="fullscreen-video" id="video-outer">
+                    <div id="napisy"></div>
+                    <video id="player--video" preload="auto" loading="lazy">
+                        <source src="assets/password_animate.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-controls">
+                        <button class="control-button" id="playPauseBtn">Play</button>
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                        </div>
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill"></div>
+                            </div>
+                        </div>
+                        <button class="fullscreen-button" id="fullscreenBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="question.html" class="next-arrow">Next</a>
+    </div>
 
-		<section class=player id=CH1_INTRO name=subControl>
-			<section  class="video-container" id="coins"></section>
-			<section id="pa-q">
-				<a id="again-button" href="#" onclick='location.reload(true); return false;'></a>
-				<a id="quit-button" href="../../"></a>
-			</section>
-			<section id=player--controls >
-				<a class=btn id=player-btn--skip href="question.html">Skip section</a>
-			</section>
-			<div class="fullscreen-video" id="video-outer">
-				<div id="napisy"></div>
-				<video class="videoalign" preload="auto" loading="lazy" controls id="player--video" autoplay="autoplay">
-					<source src="assets/password_animate.mp4" type=video/mp4>
-				</video>
+    <section id="pa-q">
+        <a id="again-button" href="#" onclick='location.reload(true); return false;'></a>
+        <a id="quit-button" href="../../"></a>
+    </section>
 
-			</div>
-			<div id="cntrl-wrapper">
-				<div class="control" id="controlsid">
-					<div class="progress">
-						<span class="bufferBar"></span>
-						<span class="timeBar"></span>
-					</div>
+    <div class="loading"></div>
 
-					<div class="btmControl">
-
-						<div class="mainControl">
-							<a class="btnPlay lvl1 btnmain paused" href="#" tabindex="0" title="Play/Pause video"> <span class="ico"></span> </a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="loading"></div>
-			<div id="video-controls">
-				<!-- <span id="play-pause" class="play"><span class=pause-icon></span></span></button> -->
-			</div>
-		</section>
-
-		<script src=js/system.js></script>
-		<script>
-			$("#player-btn--skip").on("click", function() {
-				Popcorn("#player--video").play();
-				console.log("SKIP CLICK IE");
-			});
-			
-        
-    </script>
-    <script src=js/main.js></script>
-    <script src=js/video.js></script>
     <script>
-	video = document.getElementById('player--video');
-video.addEventListener('ended',function() {alert('Video is ended Going to the mission');       
-window.location.href = 'question.html';})
-        const fullscreenButton = document.getElementById('fullscreen-button');
-        const videoElement = document.getElementById('fullscreen-video');
+        const video = document.getElementById('player--video');
+        const progressBar = document.querySelector('.progress-bar-fill');
+        const progressContainer = document.getElementById('progressContainer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const currentTimeSpan = document.getElementById('currentTime');
+        const durationSpan = document.getElementById('duration');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const videoContainer = document.querySelector('.fullscreen-video');
 
-        fullscreenButton.addEventListener('click', function () {
-            if (videoElement.requestFullscreen) {
-                videoElement.requestFullscreen();
-            } else if (videoElement.mozRequestFullScreen) { // Firefox
-                videoElement.mozRequestFullScreen();
-            } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
-                videoElement.webkitRequestFullscreen();
-            } else if (videoElement.msRequestFullscreen) { // IE/Edge
-                videoElement.msRequestFullscreen();
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            seconds = Math.floor(seconds % 60);
+            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                if (videoContainer.requestFullscreen) {
+                    videoContainer.requestFullscreen();
+                } else if (videoContainer.webkitRequestFullscreen) {
+                    videoContainer.webkitRequestFullscreen();
+                } else if (videoContainer.msRequestFullscreen) {
+                    videoContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
             }
-			
+        }
+
+        video.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+        videoContainer.addEventListener('dblclick', toggleFullScreen);
+
+        fullscreenBtn.addEventListener('click', toggleFullScreen);
+
+        video.addEventListener('timeupdate', () => {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            currentTimeSpan.textContent = formatTime(video.currentTime);
+        });
+
+        video.addEventListener('loadedmetadata', () => {
+            durationSpan.textContent = formatTime(video.duration);
+        });
+
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+        video.addEventListener('ended', () => {
+            window.location.href = 'question.html';
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            video.currentTime = pos * video.duration;
+        });
+
+        video.play().catch(error => {
+            console.log("Auto-play prevented:", error);
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                fullscreenBtn.querySelector('svg').innerHTML = `
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                `;
+            } else {
+                fullscreenBtn.querySelector('svg').innerHTML = `
+                    <path d="M4 14h3v3m6-3h3v3m0-10h-3V4m-6 0H4v3"/>
+                `;
+            }
         });
     </script>
-	
 </body>
-
 </html>
