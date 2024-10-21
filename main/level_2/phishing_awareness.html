@@ -2,28 +2,19 @@
 <html lang="en">
   <head>
     <title>Malware Awareness and Protection</title>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" />
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
     <!-- Icon CSS Files -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.6.0/remixicon.min.css"
-      rel="stylesheet"
-    />
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.6.0/remixicon.min.css" rel="stylesheet" />
     <!--  Main Logo File -->
     <link rel="icon" href="assets/favicon.png" />
 
     <style>
       body {
-        font-family: "Open Sans", sans-serif;
+        font-family: "Poppins", sans-serif;
         color: #444444;
       }
 
@@ -37,8 +28,8 @@
 
       .about .content {
         margin: auto;
-        width: 80%; /* Adjust the width as needed */
-        max-width: 600px; /* Set a maximum width for larger screens */
+        width: 80%; 
+        max-width: 600px; 
         padding: 20px;
       }
 
@@ -78,26 +69,39 @@
         margin-bottom: 0;
       }
 
-      /* Responsive Styles */
-      @media only screen and (max-width: 768px) {
-        .about .content {
-          width: 90%;
-        }
+      .emoji {
+        font-size: 1.2em;
+      }
+      
+      .highlight {
+        color: #fbae1f;
+        font-weight: 600;
+      }
+      
+      .description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
       }
 
-      @media only screen and (max-width: 425px) {
-        .about .content h2 {
-          font-size: 20px;
-          line-height: 32px;
-        }
-        .about .content h3 {
-          font-size: 14px;
-          line-height: 20px;
-        }
+      .section-heading {
+        color: #5fc0fc;  
+        font-weight: 700;
+        font-size: 1.2em;
+        margin: 20px 0 15px 0;
       }
 
-      @import url("https://fonts.googleapis.com/css?family=Barlow|Tomorrow:400,700&display=swap");
+      .backButton-icon {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 1000;
+      }
 
+      /* Button Styles */
       :root {
         --yellow-color: #ffa500;
         --red-color: #ff003c;
@@ -114,7 +118,7 @@
         background-color: var(--red-color);
         cursor: pointer;
         position: relative;
-        font-family: Tomorrow, sans-serif;
+        font-family: Poppins, sans-serif;
         font-size: 0.85rem;
         text-transform: uppercase;
         color: var(--black-color);
@@ -134,15 +138,6 @@
         clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
       }
 
-      .btn--secondary {
-        background-color: var(--white-color);
-      }
-
-      .btn--secondary .btn__content {
-        background-color: var(--red-color);
-        color: var(--white-color);
-      }
-
       .btn__label {
         font-size: 0.4rem;
         position: absolute;
@@ -152,11 +147,6 @@
         background-color: var(--yellow-color);
         z-index: 3;
         border-left: 1px solid var(--blue-color);
-      }
-
-      .btn--secondary .btn__label {
-        background-color: var(--white-color);
-        color: var(--black-color);
       }
 
       .btn__glitch {
@@ -171,10 +161,6 @@
           drop-shadow(2px 1px #02d8f3);
       }
 
-      .btn--secondary .btn__glitch {
-        background-color: var(--red-color);
-      }
-
       .btn:hover .btn__glitch,
       .btn:hover .btn__content::after,
       .btn:focus .btn__glitch,
@@ -183,209 +169,148 @@
         animation: glitch-animation 2s linear 0s infinite;
       }
 
-      /* secret trick */
-      @keyframes glitch-animation {
-        0% {
-          opacity: 1;
-          transform: translateZ(0);
-          clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
-        }
-
-        2% {
-          clip-path: polygon(0 78%, 100% 78%, 100% 100%, 0 100%);
-          transform: translate(-5px);
-        }
-
-        6% {
-          clip-path: polygon(0 78%, 100% 78%, 100% 100%, 0 100%);
-          transform: translate(5px);
-        }
-
-        8% {
-          clip-path: polygon(0 78%, 100% 78%, 100% 100%, 0 100%);
-          transform: translate(-5px);
-        }
-
-        9% {
-          clip-path: polygon(0 78%, 100% 78%, 100% 100%, 0 100%);
-          transform: translate(0);
-        }
-
-        10% {
-          clip-path: polygon(0 54%, 100% 54%, 100% 44%, 0 44%);
-          transform: translate3d(5px, 0, 0);
-        }
-
-        13% {
-          clip-path: polygon(0 54%, 100% 54%, 100% 44%, 0 44%);
-          transform: translateZ(0);
-        }
-
-        13.1% {
-          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-          transform: translate3d(5px, 0, 0);
-        }
-
-        15% {
-          clip-path: polygon(0 60%, 100% 60%, 100% 40%, 0 40%);
-          transform: translate3d(5px, 0, 0);
-        }
-
-        20% {
-          clip-path: polygon(0 60%, 100% 60%, 100% 40%, 0 40%);
-          transform: translate3d(-5px, 0, 0);
-        }
-
-        20.1% {
-          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-          transform: translate3d(5px, 0, 0);
-        }
-
-        25% {
-          clip-path: polygon(0 85%, 100% 85%, 100% 40%, 0 40%);
-          transform: translate3d(5px, 0, 0);
-        }
-
-        30% {
-          clip-path: polygon(0 85%, 100% 85%, 100% 40%, 0 40%);
-          transform: translate3d(-5px, 0, 0);
-        }
-
-        30.1% {
-          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-        }
-
-        35% {
-          clip-path: polygon(0 63%, 100% 63%, 100% 80%, 0 80%);
-          transform: translate(-5px);
-        }
-
-        40% {
-          clip-path: polygon(0 63%, 100% 63%, 100% 80%, 0 80%);
-          transform: translate(5px);
-        }
-
-        45% {
-          clip-path: polygon(0 63%, 100% 63%, 100% 80%, 0 80%);
-          transform: translate(-5px);
-        }
-
-        50% {
-          clip-path: polygon(0 63%, 100% 63%, 100% 80%, 0 80%);
-          transform: translate(0);
-        }
-
-        55% {
-          clip-path: polygon(0 10%, 100% 10%, 100% 0, 0 0);
-          transform: translate3d(5px, 0, 0);
-        }
-
-        60% {
-          clip-path: polygon(0 10%, 100% 10%, 100% 0, 0 0);
-          transform: translateZ(0);
-          opacity: 1;
-        }
-
-        60.1% {
-          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-          opacity: 1;
-        }
-
-        to {
-          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-          opacity: 1;
+      /* Responsive Styles */
+      @media only screen and (max-width: 768px) {
+        .about .content {
+          width: 90%;
         }
       }
-      .backButton-icon {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 40px; /* Adjust size as needed */
-            height: 40px; /* Adjust size as needed */
-            cursor: pointer;
-            z-index: 1000; /* Ensure it is on top of other elements */
-          }
+
+      @media only screen and (max-width: 425px) {
+        .about .content h2 {
+          font-size: 20px;
+          line-height: 32px;
+        }
+        .about .content h3 {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
     </style>
   </head>
-
   <body>
-    <a href="../../../index_levels/index-level2.html">
-      <img src="../../../public/back_button.png" alt="Back Icon" class="backButton-icon" id="backButton-icon">
+    <a href="../../index_levels/index-level2.html">
+      <img src="../../public/back_button.png" alt="Back Icon" class="backButton-icon" id="backButton-icon">
     </a>
+    <br><br>
     <main id="main">
-      <!-- ======= About Section ======= -->
       <section id="about" class="about">
         <div class="container">
           <div class="row content">
             <div class="col-lg-6">
-              <h2>Understanding Malware Attacks and Protection</h2>
-              <h3>
-                Malware is malicious software designed to damage or disable computers and systems.
+              <h2>Keep Safe from Malware! 🦠🛡️</h2>
+              <h3 class="description">
+                Malware is short for malicious software that is designed to harm, exploit, or otherwise compromise a computer system, device, or network. It comes in various forms, including viruses, worms, Trojans, ransomware, and spyware.
               </h3>
+              <p>Malware's the sneaky bad guy, trying to mess up your computer, steal your information, or otherwise stop things from working. You can usually outsmart malware quite easily with the following:</p>
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0">
-              <p>Learn how to recognize and prevent malware attacks:</p>
+              <p class="section-heading">Types of Malware</p>
               <ul>
-                <li><i class="ri-check-double-line"></i>Install Antivirus Software</li>
                 <li>
-                  <i class="ri-check-double-line"></i>Keep Software Updated
+                  <i class="ri-virus-line"></i>
+                  <span class="highlight">Viruses:</span> Programs that replicate themselves and spread to other devices
                 </li>
                 <li>
-                  <i class="ri-check-double-line"></i>Avoid Downloading Unverified Files
+                  <i class="ri-bug-line"></i>
+                  <span class="highlight">Worms:</span> Standalone malware that spreads across networks without needing to attach themselves to other programs
                 </li>
                 <li>
-                  <i class="ri-check-double-line"></i>Be Cautious of Email Attachments
+                  <i class="ri-lock-line"></i>
+                  <span class="highlight">Trojans:</span> Malware that disguises itself as legitimate software
                 </li>
                 <li>
-                  <i class="ri-check-double-line"></i>Use Strong, Unique Passwords
+                  <i class="ri-money-dollar-circle-line"></i>
+                  <span class="highlight">Ransomware:</span> Encrypts files and demands payment for decryption
                 </li>
                 <li>
-                  <i class="ri-check-double-line"></i>Enable Two-Factor Authentication (2FA)
-                </li>
-                <li>
-                  <i class="ri-check-double-line"></i>Regularly Back Up Important Data
-                </li>
-                <li><i class="ri-check-double-line"></i>Educate Yourself</li>
-              </ul>
-              <p class="fst-italic">
-                For maintaining digital hygiene and protecting against malware, consider the following:
-              </p>
-              <ul>
-                <li><i class="ri-check-double-line"></i>Adjust Privacy Settings</li>
-                <li>
-                  <i class="ri-check-double-line"></i>Think Before You Click
-                </li>
-                <li>
-                  <i class="ri-check-double-line"></i>Limit Sharing Personal Information
-                </li>
-                <li>
-                  <i class="ri-check-double-line"></i>Regularly Review and Clean Up Your Devices
-                </li>
-                <li><i class="ri-check-double-line"></i>Be Skeptical of Free Offers</li>
-                <li>
-                  <i class="ri-check-double-line"></i>Secure Your Wi-Fi Connections
-                </li>
-                <li>
-                  <i class="ri-check-double-line"></i>Monitor Your Accounts for Suspicious Activity
+                  <i class="ri-eye-line"></i>
+                  <span class="highlight">Spyware:</span> Gathers information about users without their knowledge
                 </li>
               </ul>
 
+              <p class="section-heading">How to Recognize and Prevent Malware Attacks:</p>
+              <ul>
+                <li>
+                  <i class="ri-shield-check-line"></i>
+                  <span class="highlight">Install Antivirus Software 🛡️</span> - Like a shield around the computer! Antivirus helps to keep the device bother-free from malwares and other viruses
+                </li>
+                <li>
+                  <i class="ri-refresh-line"></i>
+                  <span class="highlight">Keep Everything Updated 🔄</span> - New forms of malware develop, so apps, games, and computers get updates to keep them strong. Always click that update thingy!
+                </li>
+                <li>
+                  <i class="ri-download-cloud-line"></i>
+                  <span class="highlight">Avoid Downloading Unverified Files 🚫</span> - If you don't know where the file or the app is coming, never download it. Let that always be from a secured or a trusted source
+                </li>
+                <li>
+                  <i class="ri-mail-check-line"></i>
+                  <span class="highlight">Be Careful with Email Attachments 📧</span> - If the attachment is weird or from some person whom you have never known, don't open it. It can be malware
+                </li>
+                <li>
+                  <i class="ri-lock-password-line"></i>
+                  <span class="highlight">Use Strong, Unique Passwords 💪</span> - Never use one password everywhere; instead, generate a strong, long password containing a mix of letters, numbers, and symbols
+                </li>
+                <li>
+                  <i class="ri-shield-keyhole-line"></i>
+                  <span class="highlight">Turn on Two-Step Protection 🔐</span> - 2FA simply means putting another lock on. For even hackers, it's gonna be really tough to break into!
+                </li>
+                <li>
+                  <i class="ri-file-copy-line"></i>
+                  <span class="highlight">Back Up Your Important Files 📂</span> - Always have a copy of your important stuff, like school projects or pictures, just in case malware tries to mess with your device
+                </li>
+                <li>
+                  <i class="ri-book-read-line"></i>
+                  <span class="highlight">Learn & Stay Safe 📚</span> - The more you know about malware, the easier it is to avoid! Keep learning so you can stay one step ahead
+                </li>
+              </ul>
+
+              <p class="section-heading">Digital Hygiene Tips to Stay Protected! 🌐🧼</p>
+              <ul>
+                <li>
+                  <i class="ri-settings-4-line"></i>
+                  <span class="highlight">Check Your Privacy Settings 🛡️</span> - Make sure your settings on social media, apps, and devices are set to private so only trusted people can see your stuff
+                </li>
+                <li>
+                  <i class="ri-cursor-line"></i>
+                  <span class="highlight">Think Before You Click 🤔</span> - If it seems too good to be true or in anyway won't look right, don't click! Links and advertisement may contain malware
+                </li>
+                <li>
+                  <i class="ri-user-settings-line"></i>
+                  <span class="highlight">Limit Sharing Personal Information 📉</span> - It's better the less you put out there. Avoid listing your home address and phone number on any of the social networking sites
+                </li>
+                <li>
+                  <i class="ri-delete-bin-line"></i>
+                  <span class="highlight">Clean Up Your Devices Regularly 🧹</span> - Just like you clean up your room, remove those files and applications that you no longer use. That would retain the smoothness and safety of the device intact
+                </li>
+                <li>
+                  <i class="ri-gift-line"></i>
+                  <span class="highlight">Be Skeptical of Free Stuff 🎁</span> - Free games, applications, or offers may sound fun, but most of them may be secret viruses (malware). Always check before downloading!
+                </li>
+                <li>
+                  <i class="ri-wifi-lock-line"></i>
+                  <span class="highlight">Lock Your Wi-Fi 🔒</span> - Make sure your Wi-Fi has a password so that strangers can't access it and mess with your devices
+                </li>
+                <li>
+                  <i class="ri-user-follow-line"></i>
+                  <span class="highlight">Keep an Eye on Your Accounts 👀</span> - Regularly check your online accounts for everything to be fine and in order; if something feels fishy, seek help immediately
+                </li>
+              </ul>
+
+              <p class="fst-italic">By following these steps, you can stay safe and keep malware away from your devices. Stay smart, and have fun online! 😊</p>
               <div class="button-container">
                 <button
                   onclick="window.location.href='../../index_levels/index-level3.html';"
                   class="btn"
                 >
-                  <span class="btn__content">Level3</span>
+                  <span class="btn__content">Level_3_</span>
                   <span class="btn__glitch"></span>
                   <span class="btn__label">r25</span>
                 </button>
-              </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- End About Section -->
     </main>
-    <!-- End #main -->
   </body>
 </html>
