@@ -15,7 +15,22 @@
     gtag('js', new Date());
 
     gtag('config', 'G-PMJMSDJVFT');
-  </script>
+
+    let isOriginalColor = true;
+    function changebackgroundcolor() 
+    {
+    const container = document.querySelector('.music-icon');
+    if (isOriginalColor) 
+    {
+      container.style.background = 'linear-gradient(90deg, rgb(119,234,253) ,rgb(119,203,253))'; //new gradient
+    } 
+    else 
+    {
+      container.style.background = 'linear-gradient(90deg, rgb(84, 84, 84) ,  rgb(84, 84, 84))';//prevoius gradient
+    }
+  isOriginalColor = !isOriginalColor;
+} 
+</script>
 
 </head>
 
@@ -47,7 +62,8 @@
       <img src="public/kids.png" title="enlightened" alt="Kids Icon" class="kids-icon" id="kids-icon">
     </a>
 
-    <img src="public/music.png" title="music" alt="Music Icon" class="music-icon" id="music-icon"
+    <img src="public/music.png" title="music" alt="Music Icon" class="music-icon" id="music-icon" onclick="changebackgroundcolor()"
+
 
     <div class="homepage">
       <section class="homepage-inner">

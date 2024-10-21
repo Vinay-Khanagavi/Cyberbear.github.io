@@ -32,38 +32,29 @@
         const levelBadges = [
             '../images/level_1.png',
             '../images/level_2.png',
-            // Add more image URLs for higher levels if needed
         ];
 
         const awardsImagesContainer = document.getElementById('awardsImages');
         const currentLevelElement = document.getElementById('currentLevel');
 
-        // Get the current level from the cookie
         const currentLevel = getCookie('highestLevel');
-
         if (currentLevel) {
             const level = parseInt(currentLevel);
 
-            if (level && level > 0) {
-                // Display images up to the current level
+    if (level && level > 0) {
                 for (let i = 0; i < level; i++) {
                     const image = document.createElement('img');
                     image.src = levelBadges[i];
                     image.alt = `Badge Level ${i + 1}`;
                     awardsImagesContainer.appendChild(image);
                 }
-
-                // Update current level
                 currentLevelElement.textContent = `Current Level: ${level}`;
             } else {
-                // Handle the case when the current level is not available or invalid
                 currentLevelElement.textContent = 'Current Level: Not Available';
             }
-        } else {
-            // Handle the case when the current level is not available
-            currentLevelElement.textContent = 'Current Level: Not Available';
+        } else {  
+           currentLevelElement.textContent = 'Current Level: Not Available';
         }
-
         function getCookie(name) {
             const cookieName = `${name}=`;
             const cookies = document.cookie.split(';');

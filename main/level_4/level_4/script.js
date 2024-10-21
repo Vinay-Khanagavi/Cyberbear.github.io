@@ -82,6 +82,13 @@ function checkAnswers() {
         return;
     }
 
+    // Check if this term is already matched
+    if (selectedTerm.classList.contains('correct') || selectedDefinition.classList.contains('correct')) {
+        // Don't allow re-selection of an already matched pair
+        alert('This pair is already matched correctly.');
+        return;
+    }
+
     const term = selectedTerm.getAttribute('data-term');
     const isCorrect = correctMatches[term] === selectedDefinition.textContent;
     document.getElementById('result').textContent = isCorrect ? 'Correct match!' : 'Incorrect match. Try again.';
@@ -90,17 +97,18 @@ function checkAnswers() {
         points++;
         document.getElementById('points').textContent = points;
         selectedTerm.classList.add('correct');
-        selectedTerm.style.pointerEvents = 'none';
+        selectedTerm.style.pointerEvents = 'none'; // Disable further clicking
         selectedDefinition.classList.add('correct');
-        selectedDefinition.style.pointerEvents = 'none';
+        selectedDefinition.style.pointerEvents = 'none'; // Disable further clicking
     } else {
         selectedTerm.classList.add('incorrect');
         selectedDefinition.classList.add('incorrect');
     }
 
+    // Reset selections after a short delay
     setTimeout(() => {
-        selectedTerm.classList.remove('selected', 'correct', 'incorrect');
-        selectedDefinition.classList.remove('selected', 'correct', 'incorrect');
+        selectedTerm.classList.remove('selected', 'incorrect');
+        selectedDefinition.classList.remove('selected', 'incorrect');
         selectedTerm = null;
         selectedDefinition = null;
     }, 1000);

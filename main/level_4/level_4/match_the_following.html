@@ -177,89 +177,98 @@
       </div>
     </div>
     <script>
-      const matchedCountText = document.querySelector("#matchedCount");
-      const scoreText = document.querySelector("#score");
-      const progressBarFull = document.querySelector("#progressBarFull");
+     const matchedCountText = document.querySelector("#matchedCount");
+const scoreText = document.querySelector("#score");
+const progressBarFull = document.querySelector("#progressBarFull");
 
-      let score = 0;
-      const MAX_SCORE = 400;
-      const SCORE_POINTS = 100;
-      let matches = 0;
+let score = 0;
+const MAX_SCORE = 400;
+const SCORE_POINTS = 100;
+let matches = 0;
 
-      const leftItems = Array.from(
-        document.querySelectorAll(".left-column .match-item")
-      );
-      const rightItems = Array.from(
-        document.querySelectorAll(".right-column .match-item")
-      );
+const leftItems = Array.from(
+  document.querySelectorAll(".left-column .match-item")
+);
+const rightItems = Array.from(
+  document.querySelectorAll(".right-column .match-item")
+);
 
-      let selectedLeft = null;
+let selectedLeft = null;
+let matchedPairs = []; // Array to track matched pairs
 
-      const startGame = () => {
-        score = 0;
-        matches = 0;
-        updateProgress();
-      };
+const startGame = () => {
+  score = 0;
+  matches = 0;
+  matchedPairs = []; // Reset matched pairs
+  updateProgress();
+};
 
-      const updateProgress = () => {
-        progressBarFull.style.width = `${(score / MAX_SCORE) * 100}%`;
-        scoreText.innerText = score;
-        matchedCountText.innerText = matches;
-        if (score >= MAX_SCORE) {
-          localStorage.setItem("mostRecentScore", score);
-          window.location.assign("save_game.html");
-        }
-      };
+const updateProgress = () => {
+  progressBarFull.style.width = `${(score / MAX_SCORE) * 100}%`;
+  scoreText.innerText = score;
+  matchedCountText.innerText = matches;
+  if (score >= MAX_SCORE) {
+    localStorage.setItem("mostRecentScore", score);
+    window.location.assign("save_game.html");
+  }
+};
 
-      leftItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          if (selectedLeft) {
-            selectedLeft.classList.remove("selected");
-          }
-          selectedLeft = item;
-          selectedLeft.classList.add("selected");
-        });
-      });
+leftItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    if (selectedLeft) {
+      selectedLeft.classList.remove("selected");
+    }
+    selectedLeft = item;
+    selectedLeft.classList.add("selected");
+  });
+});
 
-      rightItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          if (!selectedLeft) return;
+rightItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    if (!selectedLeft) return;
 
-          const leftNumber = selectedLeft.dataset.number;
-          const rightNumber = item.dataset.number;
+    const leftNumber = selectedLeft.dataset.number;
+    const rightNumber = item.dataset.number;
 
-          if (leftNumber === rightNumber) {
-            selectedLeft.classList.add("correct");
-            item.classList.add("correct");
-            incrementScore(SCORE_POINTS);
-            matches++;
-            updateProgress();
-          } else {
-            selectedLeft.classList.add("incorrect");
-            item.classList.add("incorrect");
-          }
+    // Check if this pair is already matched
+    if (matchedPairs.includes(`${leftNumber}-${rightNumber}`)) {
+      return; // Exit the function if already matched
+    }
 
-          setTimeout(() => {
-            selectedLeft.classList.remove("selected");
-            selectedLeft = null;
-            getNewQuestion();
-          }, 1000);
-        });
-      });
+    if (leftNumber === rightNumber) {
+      selectedLeft.classList.add("correct");
+      item.classList.add("correct");
+      incrementScore(SCORE_POINTS);
+      matches++;
+      matchedPairs.push(`${leftNumber}-${rightNumber}`); // Add to matched pairs
+      updateProgress();
+    } else {
+      selectedLeft.classList.add("incorrect");
+      item.classList.add("incorrect");
+    }
 
-      const incrementScore = (num) => {
-        score += num;
-        updateProgress();
-      };
+    setTimeout(() => {
+      selectedLeft.classList.remove("selected");
+      selectedLeft = null;
+      getNewQuestion();
+    }, 1000);
+  });
+});
 
-      const getNewQuestion = () => {
-        leftItems.forEach((item) =>
-          item.classList.remove("correct", "incorrect")
-        );
-        rightItems.forEach((item) =>
-          item.classList.remove("correct", "incorrect")
-        );
-      };
+const incrementScore = (num) => {
+  score += num;
+  updateProgress();
+};
+
+const getNewQuestion = () => {
+  leftItems.forEach((item) =>
+    item.classList.remove("correct", "incorrect")
+  );
+  rightItems.forEach((item) =>
+    item.classList.remove("correct", "incorrect")
+  );
+};
+
 
       startGame();
     </script>
