@@ -1,0 +1,187 @@
+/* Base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.level-1 {
+  text-decoration: none;
+  position: relative;
+  color: inherit;
+  display: inline-block;
+  min-width: 7.625rem;
+}
+
+.level-1-wrapper {
+  width: 31.125rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 0 0 0.25rem;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.animation-1716868169732-1 {
+  position: absolute;
+  top: 10.313rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15.375rem;
+  height: 15.375rem;
+}
+
+.hacker-python-1-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.animation-1716868169732-1-parent {
+  width: 31.125rem;
+  height: 17.5rem;
+  position: relative;
+  max-width: 100%;
+}
+
+.animation-1716828621477-1 {
+  height: 4.375rem;
+  width: 5.906rem;
+  position: relative;
+  object-fit: cover;
+}
+
+.animation-1716828621477-1-wrapper {
+  width: 31.125rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 0 0 0.062rem;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.homepage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(252.82deg, #234271 12.23%, #131313 46.38%);
+  border: 1px solid #080808;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6rem 1.25rem 10.687rem;
+  gap: 2.125rem;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 2.25rem;
+  color: #eaeaea;
+  font-family: 'Irish Grover', cursive,inherit;
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 750px) {
+  .level-1 {
+    font-size: 1.813rem;
+  }
+  .animation-1716868169732-1 {
+    top: 8rem;
+    width: 12rem;
+    height: 12rem;
+  }
+  .animation-1716828621477-1 {
+    width: 4.5rem;
+    height: 3.375rem;
+  }
+}
+
+/* Small screens (large phones) */
+@media screen and (max-width: 675px) {
+  .homepage {
+    gap: 1.063rem;
+    padding: 4rem 1.25rem 8rem;
+  }
+  .animation-1716868169732-1 {
+    top: 6rem;
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+/* Extra small screens (phones) */
+@media screen and (max-width: 450px) {
+  .level-1 {
+    font-size: 1.375rem;
+  }
+  .animation-1716868169732-1 {
+    top: 5rem;
+    width: 8rem;
+    height: 8rem;
+  }
+  .animation-1716828621477-1 {
+    width: 4rem;
+    height: 3rem;
+  }
+}
+
+.backButton-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+.backButton-icon:hover{
+  color: blue;
+  transition: all;
+}
+.reward-icon {
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+.reward-icon:hover{
+  color: blue;
+  transition: all;
+}
+
+.music-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+.music-icon:hover {
+  opacity: 0.7; /* Change opacity on hover for better UX */
+}
+
+  /* Keyframes for moving the music icon */
+  @keyframes moveIcon {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(20px, 20px); }
+    50% { transform: translate(0, 40px); }
+    75% { transform: translate(-20px, 20px); }
+    100% { transform: translate(0, 0); }
+  }

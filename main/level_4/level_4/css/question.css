@@ -82,7 +82,7 @@ h2 {
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 #b57c0b;
+    box-shadow: 0 0.4rem 1.4rem 0 #FBCD73;
     transition: transform 150ms;
     transform: scale(1.02);
 }

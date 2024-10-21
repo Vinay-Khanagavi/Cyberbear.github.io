@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-irish-grover: "Irish Grover";
+}
