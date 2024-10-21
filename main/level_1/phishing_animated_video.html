@@ -67,8 +67,8 @@
         .next-arrow {
             display: flex;
             align-items: center;
-            padding: 0.5rem 1rem;  /* Reduced padding */
-            height: 36px;          /* Set specific height */
+            padding: 0.5rem 1rem;  
+            height: 36px;          
             background: #e92e27;
             border-radius: 8px;
             color: white;
@@ -77,7 +77,7 @@
             margin-left: 1rem;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-size: 0.9rem;    /* Slightly smaller font */
+            font-size: 0.9rem;   
         }
 
         .next-arrow:hover {
@@ -86,7 +86,7 @@
 
         .next-arrow::after {
             content: "→";
-            font-size: 1.2rem;    /* Smaller arrow */
+            font-size: 1.2rem;    
             margin-left: 0.5rem;
         }
 
@@ -149,6 +149,29 @@
             margin: 0 10px;
             min-width: 100px;
         }
+        .fullscreen-video {
+            cursor: pointer;
+        }
+
+        .fullscreen-button {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .fullscreen-button:hover svg {
+            color: #e92e27;
+        }
     </style>
 </head>
 <body>
@@ -156,7 +179,7 @@
         <div class="video-content">
             <div class="video-title">
                 <h1>Please Watch: What does Phishing Look Like?</h1>
-                <p> Bob, a worker got a fake email pretending to be his bank - he shared his password, and a internet thief took his $!</p>
+                <p>Bob, a worker got a fake email pretending to be his bank - he shared his password, and an internet thief took his money!</p>
             </div>
             
             <div class="video-container">
@@ -174,6 +197,11 @@
                                 <div class="progress-bar-fill"></div>
                             </div>
                         </div>
+                        <button class="fullscreen-button" id="fullscreenBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -188,12 +216,48 @@
         const playPauseBtn = document.getElementById('playPauseBtn');
         const currentTimeSpan = document.getElementById('currentTime');
         const durationSpan = document.getElementById('duration');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const videoContainer = document.querySelector('.fullscreen-video');
 
         function formatTime(seconds) {
             const minutes = Math.floor(seconds / 60);
             seconds = Math.floor(seconds % 60);
             return `${minutes}:${seconds.toString().padStart(2, '0')}`;
         }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                if (videoContainer.requestFullscreen) {
+                    videoContainer.requestFullscreen();
+                } else if (videoContainer.webkitRequestFullscreen) {
+                    videoContainer.webkitRequestFullscreen();
+                } else if (videoContainer.msRequestFullscreen) {
+                    videoContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        video.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+        videoContainer.addEventListener('dblclick', toggleFullScreen);
+
+        fullscreenBtn.addEventListener('click', toggleFullScreen);
 
         video.addEventListener('timeupdate', () => {
             const progress = (video.currentTime / video.duration) * 100;
@@ -227,6 +291,18 @@
 
         video.play().catch(error => {
             console.log("Auto-play prevented:", error);
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                fullscreenBtn.querySelector('svg').innerHTML = `
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                `;
+            } else {
+                fullscreenBtn.querySelector('svg').innerHTML = `
+                    <path d="M4 14h3v3m6-3h3v3m0-10h-3V4m-6 0H4v3"/>
+                `;
+            }
         });
     </script>
 </body>
