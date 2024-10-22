@@ -28,7 +28,7 @@
         }
 
         h2 {
-            font-family: 'Comic Sans MS', cursive;
+            font-family: 'Arial', sans-serif;
             color: blue;
         }
 
@@ -36,13 +36,15 @@
             font-size: 1.1em;
         }
 
-        button {
-            font-family: 'Comic Sans MS', cursive;
+        .button {
+            font-family: 'Arial', sans-serif;
             padding: 10px 20px;
             margin: 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
         }
 
         #claim-button {
@@ -65,24 +67,22 @@
 <body>
     <div id="phishing-container">
         <div id="phishing-email">
-            <h3>Note: This is just part of a fun game and lesson! It's not real. Always think before downloading apps!
-            </h3>
-            <img style="width: 200px; height: 200px;" src="assets/FREE GAMEZZ.png" alt="Free Games Offer">
+            <h3>Note: This is just part of a fun game and lesson! It's not real. Always think before downloading apps!</h3>
+            <img src="assets/FREE GAMEZZ.png" alt="Image depicting a free games offer" style="max-width: 100%; height: auto;">
 
             <h2>Check Out This Super Cool App! (But Wait...)</h2>
 
             <p>
                 Hello there! Guess what? You can get an amazing app and enjoy <span style="color: forestgreen;">80%
-                    off</span> on all Prime Games! <br>
-                Sounds too good to be true, right? Before downloading anything, remember: Always check if the app is
-                safe. Don’t fall for sneaky traps!
+                    off</span> on all Prime Games!
             </p>
+            <p>Sounds too good to be true, right? Before downloading anything, remember: Always check if the app is
+                safe. Don’t fall for sneaky traps!</p>
 
-            <button onclick="location.href='hint_2.html'" id="claim-button">See What Happens</button>
-            <button onclick="location.href='question.html'" id="claim-button-red">Take Me Back</button>
+            <a href="hint_2.html" class="button" id="claim-button">See What Happens</a>
+            <a href="question.html" class="button" id="claim-button-red">Take Me Back</a>
         </div>
     </div>
 </body>
-
 
 </html>
