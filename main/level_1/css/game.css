@@ -58,7 +58,7 @@ body {
 #progressBar {
     width: 20rem;
     height: 3rem;
-    border: 0.2rem solid rgb(11,223,36);
+    border: 0.2rem solid rgb(11, 223, 36);
     margin-top: 2rem;
     border-radius: 50px;
     overflow: hidden;
@@ -79,8 +79,9 @@ body {
         min-width: unset;
     }
     #progressBar {
-        width: 14rem;
+        width: 16rem;
         height: 2rem;
+
     }
 }
 
@@ -90,7 +91,7 @@ h1 {
 }
 
 p {
-    color: #333333;
+    color: #201e1e;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
