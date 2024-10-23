@@ -97,7 +97,8 @@
     let score = 0;
     let questionCounter = 0;
     let availableQuestions = [];
-    let retries = 0; // Track retries for each question
+    let retries = 0;
+    let retryScore = 200;
 
     let questions = [
       {
@@ -126,13 +127,13 @@
     startGame = () => {
       questionCounter = 0;
       score = 0;
-      retries = 0;
       availableQuestions = [...questions];
       getNewQuestion();
     };
 
     getNewQuestion = () => {
       retries = 0;
+      retryScore = SCORE_POINTS;
       explanationElement.classList.add("hidden");
 
       if (questionCounter >= MAX_QUESTIONS) {
@@ -168,16 +169,20 @@
         selectedChoice.parentElement.classList.add(classToApply);
 
         if (classToApply === "correct") {
-          incrementScore(SCORE_POINTS);
+          incrementScore(retryScore);
           setTimeout(() => {
             getNewQuestion();
           }, 1000);
         } else {
-          if (retries === 0) {
-            retryButton.dataset.selectedChoice = selectedAnswer;
-            explanationElement.classList.remove("hidden");
-            explanationText.innerText = currentQuestion.explanation;
-            retries++;
+          retryScore -= 100;
+          if (retryScore < 0) retryScore = 0;
+
+          explanationText.innerText = currentQuestion.explanation;
+          explanationElement.classList.remove("hidden");
+          retries++;
+
+          if (retries < 3) {
+            acceptingAnswers = true;
           } else {
             setTimeout(() => {
               getNewQuestion();
@@ -188,18 +193,15 @@
     });
 
     retryQuestion = () => {
-      if (retries !== 1) {
-        return; // Retry only allowed once per question
+      if (retries >= 3) {
+        return; 
       }
 
-      const selectedNumber = retryButton.dataset.selectedChoice;
-      const selectedChoice = document.querySelector(`[data-number="${selectedNumber}"]`);
-
-      if (!selectedChoice) {
-        console.error("Invalid choice selected.");
-        return;
+      const selectedChoice = document.querySelector(".incorrect");
+      if (selectedChoice) {
+        selectedChoice.classList.remove("incorrect");
       }
-      selectedChoice.parentElement.classList.remove("incorrect");
+
       explanationElement.classList.add("hidden");
       acceptingAnswers = true;
     };
