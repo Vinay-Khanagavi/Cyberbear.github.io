@@ -188,31 +188,6 @@
       }
     });
 
-    window.addEventListener('scroll', function () {
-      if (toggleButton.checked) {
-        toggleButton.checked = false;
-        iconContainer.style.display = 'none';
-      }
-    });
-
-    document.addEventListener('click', function (event) {
-      if (toggleButton.checked && !iconContainer.contains(event.target) && !toggleButton.contains(event.target)) {
-        toggleButton.checked = false;
-        iconContainer.style.display = 'none';
-      }
-    });
-
-
-    const scrollButton = document.querySelector(".scroll_top");
-
-    window.addEventListener("scroll", () => {
-
-      if (window.pageYOffset > 1000) {
-        scrollButton.style.display = "flex";
-      } else {
-        scrollButton.style.display = "none";
-      }
-    });
 
     function smoothScrollToTop() {
       const scrollY = window.pageYOffset;
