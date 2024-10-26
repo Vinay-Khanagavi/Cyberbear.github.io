@@ -2,7 +2,7 @@
 
 # 🐻 Cyberbear.github.io 📘🖌️
 
-<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Cybergear++gihub.io!"/>
+<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Cybergear++github.io!"/>
 </div>
 
 <div align = "center">
