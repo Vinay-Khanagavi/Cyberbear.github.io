@@ -308,7 +308,10 @@
             video.currentTime = pos * video.duration;
         });
 
-        video.play().catch(error => {
+        video.play().then(() => {
+            playPauseBtn.textContent = 'Pause'
+            console.log("Video is playing automatically.");
+        }).catch(error => {
             console.log("Auto-play prevented:", error);
         });
 
