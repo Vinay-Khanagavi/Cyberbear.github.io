@@ -72,6 +72,7 @@ body, html {
 .homepage {
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   position: relative;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   background: linear-gradient(252.82deg, #234271 11.79%, #131313 49.38%);
