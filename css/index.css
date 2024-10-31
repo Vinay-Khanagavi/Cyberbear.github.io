@@ -23,10 +23,10 @@
   align-self: stretch;
   position: absolute;
   font-weight: 500;
-   /*Semi-transparent background*/
+  /*Semi-transparent background*/
   padding: 10px;
   display: none;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   left: 0;
   width: 100%;
   z-index: 10; /* Adjust as needed */
@@ -125,6 +125,7 @@
   max-height: 100%;
   object-fit: cover;
   max-width: 100%;
+
 }
 .level-2 {
   margin: 0;
@@ -132,6 +133,7 @@
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
+  
 }
 .animation-1716828621477-2 {
   height: 4.375rem;
@@ -168,13 +170,13 @@
   align-self: stretch;
   position: relative;
   font-weight: 500;
-   /*Semi-transparent background*/
+  /*Semi-transparent background*/
   padding: 10px;
   display: none;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: 10; /* Adjust as needed */
 }
-.level-2:hover.cyberfit-cyber-container1{
+.level-2:hover.cyberfit-cyber-container1 {
   display: block;
   opacity: 1;
 }
@@ -223,7 +225,6 @@
   display: block;
   opacity: 1;
 }
-
 
 .cyberfit-cyber-challenges-to-frame {
   width: 32.813rem;
@@ -328,6 +329,7 @@
   max-height: 100%;
   object-fit: cover;
 }
+
 .giphy-4-1-wrapper {
   height: 22.063rem;
   width: 29.375rem;
@@ -346,7 +348,7 @@
   font-weight: 400;
   font-family: inherit;
 }
-.level-4:hover.cyberfit-cyber-container3{
+.level-4:hover.cyberfit-cyber-container3 {
   display: block;
   opacity: 1;
 }
@@ -364,7 +366,10 @@
   padding: 0 var(--padding-9xl);
 }
 
-.level-1, .level-2, .level-3, .level-4 {
+.level-1,
+.level-2,
+.level-3,
+.level-4 {
   position: relative;
   overflow: visible;
 }
@@ -399,7 +404,7 @@
   /*Semi-transparent background*/
   padding: 10px;
   display: none;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: 10; /* Adjust as needed */
 }
 .level-4:hover.cyberfit-cyber-container3 {
@@ -429,7 +434,11 @@
   width: 100%;
   box-sizing: border-box;
 }
-body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-container2, .cyberfit-cyber-container3 {
+body,
+.cyberfit-cyber-container,
+.cyberfit-cyber-container1,
+.cyberfit-cyber-container2,
+.cyberfit-cyber-container3 {
   font-family: Arial, sans-serif !important;
 }
 
@@ -610,10 +619,9 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   }
 }
 @media screen and (max-width: 825px) {
-  .cyberfit-cyber-container1{
+  .cyberfit-cyber-container1 {
     font-size: var(--font-size-lgi); /* Smaller font size */
   }
- 
 }
 @media screen and (max-width: 825px) {
   .cyberfit-cyber-container2 {
@@ -626,67 +634,199 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   }
 }
 
+.icon-toggle-button {
+  display: none;
+}
 
-.kids-icon {
-
+.icon-toggle-label {
+  display: inline-block;
+  padding: 10px;
+  background-color: #333;
+  cursor: pointer;
+  border-radius: 5px;
   position: fixed;
-  top:  120px;
-  left:  30px;
-  width: 45px; /* Adjust size as needed */
-  height:  45px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  top: 50px;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+  z-index: 1001;
+  background: url("/public/menu.png") no-repeat center center;
+  background-size: contain;
+}
+
+.icon-container {
+  display: none;
+  position: fixed;
+  top: 95px;
+  left: 20px;
+  z-index: 1000;
+  background-color: #1a273c;
+  height: 260px;
+  width: 45px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.icon-toggle-button:checked + .icon-toggle-label + .icon-container {
+  display: block;
+}
+
+.icon-container img {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Media query for large displays */
+@media (min-width: 1024px) {
+  .icon-toggle-label {
+    display: none;
+  }
+
+  .icon-container {
+    display: block !important;
+    position: fixed;
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+/* Media query for smaller displays */
+@media (max-width: 1023px) {
+  .frame-group {
+    flex-direction: column;
+  }
+
+  .cyberfit-cyber-container {
+    order: 2;
+  }
+
+  .level-1-parent {
+    order: 1;
+  }
+
+  .giphy-2-1{
+    order: 3;
+  }
+
+  .level-1-parent{
+    margin: auto;
+  }
+
+  h3.level-1{
+    margin-inline: auto;
+  }
+
+  .frame-wrapper{
+    padding: 0;
+  }
+  .frame-wrapper1{
+    padding: 4rem 0 0;
+  }
+  
+  .frame-wrapper, .level-1-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-inline: auto;
+}
+
+.cyberfit-cyber-challenges-to-container{
+  padding: 0 0;
+}
+.cyberfit-cyber-challenges-to-frame {
+  min-width: 100%;
+  order: 1;
+}
+
+
+.frame-wrapper2, .level-3-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-inline: auto;
+}
+  .level-2-parent{
+    margin: auto;
+  }
+
+  h3.level-2{
+    margin-inline: auto;
+  }
+
+  .frame-wrapper1,
+.level-2-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.frame-wrapper3 {
+  padding: 4rem 0 0;
+  order: -1;
+}
+.cyberfit-cyber-container1 {
+  font-size: var(--font-size-lgi);
+  width: 95vw;
+}
 
 }
 
 .multiplayer-icon {
+  position: fixed;
+  top: 100px;
+  left: 30px;
+  width: 45px; /* Adjust size as needed */
+  height: 45px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
 
-  position:  fixed;
-  top:  50px;
-  left:  30px;
-  width:  45px; /* Adjust size as needed */
-  height:  45px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
-
+.kids-icon {
+  position: fixed;
+  top: 170px;
+  left: 30px;
+  width: 45px; /* Adjust size as needed */
+  height: 45px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
 }
 
 .reward-icon {
-
-  position:  fixed;
-  top:  200px;
-  left:  30px;
-  width:  40px; /* Adjust size as needed */
-  height:  40px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
-
+  position: fixed;
+  top: 250px;
+  left: 30px;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
 }
 
 .video-icon {
-
-  position:  fixed;
-  top:  270px;
-  left:  30px;
-  width:  40px; /* Adjust size as needed */
-  height:  40px; /* Adjust size as needed */
+  position: fixed;
+  top: 320px;
+  left: 30px;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
   cursor: pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
-
+  z-index: 1000; /* Ensure it is on top of other elements */
 }
 
 .music-icon {
-
-  position:  fixed;
-  top:  50px;
-  right:  20px;
-  width:  35px; /* Adjust size as needed */
-  height:  35px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 35px; /* Adjust size as needed */
+  height: 35px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000; /* Ensure it is on top of other elements */
   padding: 5px;
-  border-radius: 41%; 
-  background-image: linear-gradient(90deg, rgb(84, 84, 84) ,  rgb(84, 84, 84));
+  border-radius: 41%;
+  background-image: linear-gradient(90deg, rgb(84, 84, 84), rgb(84, 84, 84));
 }
 
 .music-icon:hover {
@@ -694,30 +834,47 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   /* background-color: lightgrey; */
 }
 
-  /* Keyframes for moving the music icon */
-  @keyframes moveIcon {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(20px, 20px); }
-    50% { transform: translate(0, 40px); }
-    75% { transform: translate(-20px, 20px); }
-    100% { transform: translate(0, 0); }
+/* Keyframes for moving the music icon */
+@keyframes moveIcon {
+  0% {
+    transform: translate(0, 0);
   }
+  25% {
+    transform: translate(20px, 20px);
+  }
+  50% {
+    transform: translate(0, 40px);
+  }
+  75% {
+    transform: translate(-20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
 .scroll_top {
   position: fixed;
-  right: 90px;
+  right: 80px;
   bottom: 20px;
   cursor: pointer;
   border-radius: 50%;
-  width: 50px;
+  width: 45px;
   /* Define a fixed size for the button */
-  height: 50px;
+  height: 45px;
   /* Ensure it's square */
   overflow: hidden;
   /* Ensure the image doesn't overflow */
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
+  outline: none;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+
+.scroll_top:hover {
+  transform: scale(1.08);
 }
 
 #to_top {
@@ -730,11 +887,12 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   border-radius: 50%;
 }
 
-  body {
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  h1, h3, p {
-    font-family: 'Poppins', sans-serif;
-  }
-  
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h3,
+p {
+  font-family: "Poppins", sans-serif;
+}
