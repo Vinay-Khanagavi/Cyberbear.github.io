@@ -6,6 +6,7 @@
   font-family: inherit;
   text-shadow: 10px 4px 4px rgba(255, 255, 255, 0.25);
 }
+
 .cyber-fit-wrapper {
   width: 71.125rem;
   display: flex;
@@ -16,25 +17,30 @@
   box-sizing: border-box;
   max-width: 100%;
 }
+
 .cyberfit-cyber {
   margin: 0;
 }
+
 .cyberfit-cyber-container {
   align-self: stretch;
   position: absolute;
   font-weight: 500;
-   /*Semi-transparent background*/
+  /*Semi-transparent background*/
   padding: 10px;
   display: none;
   transition: opacity .3s ease-in-out;
   left: 0;
   width: 100%;
-  z-index: 10; /* Adjust as needed */
+  z-index: 10;
+  /* Adjust as needed */
 }
+
 .level-1:hover .cyberfit-cyber-container {
   display: block;
   opacity: 1;
 }
+
 .cyberfit-cyber-challenges-to-wrapper {
   width: 32.813rem;
   display: flex;
@@ -45,6 +51,7 @@
   box-sizing: border-box;
   max-width: 100%;
 }
+
 .level-1 {
   margin: 0;
   position: relative;
@@ -59,6 +66,7 @@
   position: relative;
   object-fit: cover;
 }
+
 .animation-1716828621477-1-wrapper {
   display: flex;
   flex-direction: row;
@@ -66,6 +74,7 @@
   justify-content: flex-start;
   padding: 0 var(--padding-14xl) 0 var(--padding-18xl);
 }
+
 .frame-wrapper,
 .level-1-parent {
   display: flex;
@@ -73,14 +82,17 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .level-1-parent {
   gap: var(--gap-sm);
 }
+
 .frame-wrapper {
   padding: 8.875rem var(--padding-2xs) 0 0;
   font-size: var(--font-size-17xl);
   color: var(--color-whitesmoke);
 }
+
 .giphy-1-1 {
   width: 29.375rem;
   position: relative;
@@ -89,6 +101,7 @@
   object-fit: cover;
   max-width: 100%;
 }
+
 .frame-group {
   flex-direction: row;
   justify-content: center;
@@ -96,6 +109,7 @@
   font-size: var(--font-size-5xl);
   color: var(--color-white);
 }
+
 .frame-group,
 .frame-parent,
 .homepage-inner {
@@ -103,11 +117,13 @@
   align-items: flex-start;
   max-width: 100%;
 }
+
 .frame-parent {
   flex-direction: column;
   justify-content: flex-start;
   gap: var(--gap-112xl);
 }
+
 .homepage-inner {
   flex-direction: row;
   justify-content: flex-end;
@@ -118,6 +134,7 @@
   color: var(--color-whitesmoke);
   font-family: var(--font-inter);
 }
+
 .giphy-2-1 {
   width: 29.375rem;
   position: relative;
@@ -126,6 +143,7 @@
   object-fit: cover;
   max-width: 100%;
 }
+
 .level-2 {
   margin: 0;
   position: relative;
@@ -133,12 +151,14 @@
   font-weight: 400;
   font-family: inherit;
 }
+
 .animation-1716828621477-2 {
   height: 4.375rem;
   width: 4.906rem;
   position: relative;
   object-fit: cover;
 }
+
 .animation-1716828621477-2-wrapper {
   display: flex;
   flex-direction: row;
@@ -146,6 +166,7 @@
   justify-content: flex-start;
   padding: 0 var(--padding-19xl) 0 var(--padding-18xl);
 }
+
 .frame-wrapper1,
 .level-2-parent {
   display: flex;
@@ -153,31 +174,38 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .level-2-parent {
   gap: var(--gap-base);
 }
+
 .frame-wrapper1 {
   width: 12.688rem;
   padding: 8.062rem 0 0;
   box-sizing: border-box;
 }
+
 .cyberfit-cyber1 {
   margin: 0;
 }
+
 .cyberfit-cyber-container1 {
   align-self: stretch;
   position: relative;
   font-weight: 500;
-   /*Semi-transparent background*/
+  /*Semi-transparent background*/
   padding: 10px;
   display: none;
   transition: opacity .3s ease-in-out;
-  z-index: 10; /* Adjust as needed */
+  z-index: 10;
+  /* Adjust as needed */
 }
-.level-2:hover.cyberfit-cyber-container1{
+
+.level-2:hover.cyberfit-cyber-container1 {
   display: block;
   opacity: 1;
 }
+
 .cyberfit-cyber-challenges-to-container {
   width: 32.813rem;
   display: flex;
@@ -191,6 +219,7 @@
   font-size: var(--font-size-5xl);
   color: var(--color-white);
 }
+
 .frame-div,
 .giphy-2-1-parent {
   display: flex;
@@ -198,25 +227,30 @@
   align-items: flex-start;
   max-width: 100%;
 }
+
 .giphy-2-1-parent {
   flex: 1;
   justify-content: flex-start;
   gap: var(--gap-48xl);
 }
+
 .frame-div {
   align-self: stretch;
   justify-content: flex-end;
   padding: 0 var(--padding-lg) 0 0;
   box-sizing: border-box;
 }
+
 .cyberfit-cyber2 {
   margin: 0;
 }
+
 .cyberfit-cyber-container2 {
   align-self: stretch;
   position: relative;
   font-weight: 500;
-  z-index: 10; /* Adjust as needed */
+  z-index: 10;
+  /* Adjust as needed */
 }
 
 .level-3:hover.cyberfit-cyber-container2 {
@@ -236,6 +270,7 @@
   min-width: 32.813rem;
   max-width: 100%;
 }
+
 .level-3 {
   margin: 0;
   position: relative;
@@ -243,12 +278,14 @@
   font-weight: 400;
   font-family: inherit;
 }
+
 .animation-1716828621477-3 {
   height: 4.375rem;
   width: 4.906rem;
   position: relative;
   object-fit: cover;
 }
+
 .animation-1716828621477-3-wrapper {
   display: flex;
   flex-direction: row;
@@ -256,6 +293,7 @@
   justify-content: flex-start;
   padding: 0 var(--padding-9xl);
 }
+
 .frame-wrapper2,
 .level-3-parent {
   display: flex;
@@ -263,12 +301,15 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .level-3-parent {
   gap: var(--gap-smi);
 }
+
 .frame-wrapper2 {
   height: 11.625rem;
 }
+
 .giphy-3-1 {
   height: 20.5rem;
   flex: 1;
@@ -279,12 +320,14 @@
   object-fit: cover;
   min-width: 19.063rem;
 }
+
 .frame-parent1,
 .frame-parent2 {
   display: flex;
   flex-direction: row;
   max-width: 100%;
 }
+
 .frame-parent2 {
   width: 43.25rem;
   align-items: flex-end;
@@ -294,6 +337,7 @@
   font-size: var(--font-size-17xl);
   color: var(--color-whitesmoke);
 }
+
 .frame-parent1 {
   width: 81.313rem;
   align-items: flex-start;
@@ -302,11 +346,13 @@
   font-size: var(--font-size-5xl);
   color: var(--color-white);
 }
+
 .frame-container,
 .giphy-4-1 {
   align-self: stretch;
   max-width: 100%;
 }
+
 .frame-container {
   display: flex;
   flex-direction: column;
@@ -320,14 +366,16 @@
   color: var(--color-whitesmoke);
   font-family: var(--font-inter);
 }
+
 .giphy-4-1 {
-  flex: 1;
+  min-width: 29.375rem;
   position: relative;
   border-radius: var(--br-81xl);
-  overflow: hidden;
   max-height: 100%;
   object-fit: cover;
+  max-width: 100%;
 }
+
 .giphy-4-1-wrapper {
   height: 22.063rem;
   width: 29.375rem;
@@ -339,23 +387,27 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-.level-4 {
+
+.cyberfit-cyber-container3 .level-4 {
   margin: 0;
   position: relative;
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
 }
-.level-4:hover.cyberfit-cyber-container3{
+
+.level-4:hover.cyberfit-cyber-container3 {
   display: block;
   opacity: 1;
 }
+
 .animation-1716828621477-4 {
   height: 4.375rem;
   width: 4.906rem;
   position: relative;
   object-fit: cover;
 }
+
 .animation-1716828621477-4-wrapper {
   display: flex;
   flex-direction: row;
@@ -364,10 +416,14 @@
   padding: 0 var(--padding-9xl);
 }
 
-.level-1, .level-2, .level-3, .level-4 {
+.level-1,
+.level-2,
+.level-3,
+.level-4 {
   position: relative;
   overflow: visible;
 }
+
 .frame-wrapper3,
 .level-4-parent {
   display: flex;
@@ -375,17 +431,21 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .level-4-parent {
   gap: var(--gap-smi);
 }
+
 .frame-wrapper3 {
   width: 12.313rem;
   padding: 7.125rem 0 0;
   box-sizing: border-box;
 }
+
 .cyberfit-cyber3 {
   margin: 0;
 }
+
 .cyberfit-cyber-container3 {
   width: 32.813rem;
   position: relative;
@@ -400,8 +460,10 @@
   padding: 10px;
   display: none;
   transition: opacity .3s ease-in-out;
-  z-index: 10; /* Adjust as needed */
+  z-index: 10;
+  /* Adjust as needed */
 }
+
 .level-4:hover.cyberfit-cyber-container3 {
   display: block;
   opacity: 1;
@@ -411,8 +473,10 @@
 .level-2:hover .cyberfit-cyber-container1,
 .level-3:hover .cyberfit-cyber-container2,
 .level-4:hover .cyberfit-cyber-container3 {
-  background-color: rgba(0, 0, 0, 0.7); /* Darken background on hover */
-  border: 2px solid white; /* Add a border on hover */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Darken background on hover */
+  border: 2px solid white;
+  /* Add a border on hover */
 }
 
 .cyberfit-cyber-container,
@@ -422,14 +486,19 @@
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
-  position: static !important; /* Change from absolute positioning */
+  position: static !important;
+  /* Change from absolute positioning */
   color: white;
   padding: 10px;
   margin-top: 10px;
-  width: 100%;
   box-sizing: border-box;
 }
-body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-container2, .cyberfit-cyber-container3 {
+
+body,
+.cyberfit-cyber-container,
+.cyberfit-cyber-container1,
+.cyberfit-cyber-container2,
+.cyberfit-cyber-container3 {
   font-family: Arial, sans-serif !important;
 }
 
@@ -438,7 +507,7 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
 .cyberfit-cyber-container2,
 .cyberfit-cyber-container3 {
   position: relative;
-  width: 100%;
+  max-width: 100%;
 }
 
 .frame-parent3 {
@@ -449,11 +518,13 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   gap: var(--gap-51xl);
   max-width: 100%;
 }
+
 .homepage,
 .homepage-child {
   box-sizing: border-box;
   display: flex;
 }
+
 .homepage-child {
   flex-direction: row;
   align-items: flex-start;
@@ -465,6 +536,7 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   color: var(--color-whitesmoke);
   font-family: var(--font-inter);
 }
+
 .homepage {
   width: 100%;
   position: relative;
@@ -480,73 +552,94 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   line-height: normal;
   letter-spacing: normal;
 }
+
 @media screen and (max-width: 1425px) {
   .frame-group {
     flex-wrap: wrap;
   }
+
   .frame-parent {
     gap: var(--gap-46xl);
   }
+
   .giphy-2-1-parent {
     flex-wrap: wrap;
   }
+
   .cyberfit-cyber-challenges-to-frame,
   .frame-parent2 {
     flex: 1;
   }
+
   .frame-parent1 {
     flex-wrap: wrap;
   }
+
   .frame-container {
     gap: 4.813rem;
   }
+
   .frame-parent3 {
     flex-wrap: wrap;
   }
 }
+
 @media screen and (max-width: 1200px) {
   .frame-parent2 {
     min-width: 100%;
   }
 }
+
 @media screen and (max-width: 825px) {
   .cyber-fit {
     font-size: var(--font-size-32xl);
   }
+
   .level-1 {
     font-size: var(--font-size-10xl);
   }
+
   .frame-group {
     gap: 1.75rem;
   }
+
   .frame-parent {
     gap: var(--gap-14xl);
   }
+
   .level-2 {
     font-size: var(--font-size-10xl);
   }
+
   .giphy-2-1-parent {
     gap: var(--gap-14xl);
   }
+
   .cyberfit-cyber-challenges-to-frame {
     min-width: 100%;
   }
+
   .level-3 {
     font-size: var(--font-size-10xl);
   }
+
   .frame-parent2 {
     flex-wrap: wrap;
     gap: var(--gap-14xl);
   }
+
   .frame-container {
     gap: 2.438rem;
   }
+
   .level-4 {
     font-size: var(--font-size-10xl);
   }
+
   .frame-parent3 {
     gap: var(--gap-16xl);
   }
+
   .homepage {
     gap: 5.875rem;
     padding-left: var(--padding-23xl);
@@ -554,49 +647,64 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
     box-sizing: border-box;
   }
 }
+
 @media screen and (max-width: 1450px) {
   .cyber-fit {
     font-size: var(--font-size-19xl);
   }
+
   .cyberfit-cyber-container {
     font-size: var(--font-size-lgi);
   }
+
   .level-1 {
     font-size: var(--font-size-3xl);
   }
+
   .frame-parent {
     gap: var(--gap-base);
   }
+
   .level-2 {
     font-size: var(--font-size-3xl);
   }
+
   .cyberfit-cyber-container1 {
     font-size: var(--font-size-lgi);
   }
+
   .giphy-2-1-parent {
     gap: var(--gap-mid);
   }
+
   .cyberfit-cyber-container2 {
     font-size: var(--font-size-lgi);
   }
+
   .level-3 {
     font-size: var(--font-size-3xl);
   }
+
   .frame-parent2 {
     gap: var(--gap-mid);
   }
+
   .frame-container {
     gap: 1.188rem;
   }
+
   .level-4 {
     font-size: var(--font-size-3xl);
   }
+
   .cyberfit-cyber-container3 {
     font-size: var(--font-size-lgi);
   }
+
   .frame-parent3 {
     gap: var(--gap-mid);
   }
+
   .homepage {
     gap: 2.938rem;
     padding-left: var(--padding-xl);
@@ -604,25 +712,33 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
     box-sizing: border-box;
   }
 }
+
 @media screen and (max-width: 825px) {
   .cyberfit-cyber-container {
-    font-size: var(--font-size-lgi); /* Smaller font size */
+    font-size: var(--font-size-lgi);
+    /* Smaller font size */
   }
 }
+
 @media screen and (max-width: 825px) {
-  .cyberfit-cyber-container1{
-    font-size: var(--font-size-lgi); /* Smaller font size */
+  .cyberfit-cyber-container1 {
+    font-size: var(--font-size-lgi);
+    /* Smaller font size */
   }
- 
+
 }
+
 @media screen and (max-width: 825px) {
   .cyberfit-cyber-container2 {
-    font-size: var(--font-size-lgi); /* Smaller font size */
+    font-size: var(--font-size-lgi);
+    /* Smaller font size */
   }
 }
+
 @media screen and (max-width: 825px) {
   .cyberfit-cyber-container3 {
-    font-size: var(--font-size-lgi); /* Smaller font size */
+    font-size: var(--font-size-lgi);
+    /* Smaller font size */
   }
 }
 
@@ -630,78 +746,108 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
 .kids-icon {
 
   position: fixed;
-  top:  120px;
-  left:  30px;
-  width: 45px; /* Adjust size as needed */
-  height:  45px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  top: 120px;
+  left: 30px;
+  width: 45px;
+  /* Adjust size as needed */
+  height: 45px;
+  /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000;
+  /* Ensure it is on top of other elements */
 
 }
 
 .multiplayer-icon {
 
-  position:  fixed;
-  top:  50px;
-  left:  30px;
-  width:  45px; /* Adjust size as needed */
-  height:  45px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  position: fixed;
+  top: 50px;
+  left: 30px;
+  width: 45px;
+  /* Adjust size as needed */
+  height: 45px;
+  /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000;
+  /* Ensure it is on top of other elements */
 
 }
 
 .reward-icon {
 
-  position:  fixed;
-  top:  200px;
-  left:  30px;
-  width:  40px; /* Adjust size as needed */
-  height:  40px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  position: fixed;
+  top: 200px;
+  left: 30px;
+  width: 40px;
+  /* Adjust size as needed */
+  height: 40px;
+  /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000;
+  /* Ensure it is on top of other elements */
 
 }
 
 .video-icon {
 
-  position:  fixed;
-  top:  270px;
-  left:  30px;
-  width:  40px; /* Adjust size as needed */
-  height:  40px; /* Adjust size as needed */
+  position: fixed;
+  top: 270px;
+  left: 30px;
+  width: 40px;
+  /* Adjust size as needed */
+  height: 40px;
+  /* Adjust size as needed */
   cursor: pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  z-index: 1000;
+  /* Ensure it is on top of other elements */
 
 }
 
 .music-icon {
 
-  position:  fixed;
-  top:  50px;
-  right:  20px;
-  width:  35px; /* Adjust size as needed */
-  height:  35px; /* Adjust size as needed */
-  cursor:  pointer;
-  z-index:  1000; /* Ensure it is on top of other elements */
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 35px;
+  /* Adjust size as needed */
+  height: 35px;
+  /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 1000;
+  /* Ensure it is on top of other elements */
   padding: 5px;
-  border-radius: 41%; 
-  background-image: linear-gradient(90deg, rgb(84, 84, 84) ,  rgb(84, 84, 84));
+  border-radius: 41%;
+  background-image: linear-gradient(90deg, rgb(84, 84, 84), rgb(84, 84, 84));
 }
 
 .music-icon:hover {
-  opacity: 0.7; /* Change opacity on hover for better UX */
+  opacity: 0.7;
+  /* Change opacity on hover for better UX */
   /* background-color: lightgrey; */
 }
 
-  /* Keyframes for moving the music icon */
-  @keyframes moveIcon {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(20px, 20px); }
-    50% { transform: translate(0, 40px); }
-    75% { transform: translate(-20px, 20px); }
-    100% { transform: translate(0, 0); }
+/* Keyframes for moving the music icon */
+@keyframes moveIcon {
+  0% {
+    transform: translate(0, 0);
   }
+
+  25% {
+    transform: translate(20px, 20px);
+  }
+
+  50% {
+    transform: translate(0, 40px);
+  }
+
+  75% {
+    transform: translate(-20px, 20px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
 .scroll_top {
   position: fixed;
@@ -730,11 +876,12 @@ body, .cyberfit-cyber-container, .cyberfit-cyber-container1, .cyberfit-cyber-con
   border-radius: 50%;
 }
 
-  body {
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  h1, h3, p {
-    font-family: 'Poppins', sans-serif;
-  }
-  
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h3,
+p {
+  font-family: 'Poppins', sans-serif;
+}
