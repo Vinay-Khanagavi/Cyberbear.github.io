@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="./css/global.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PMJMSDJVFT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-PMJMSDJVFT');
+
+    let isOriginalColor = true;
+    function changebackgroundcolor() 
+    {
+    const container = document.querySelector('.music-icon');
+    if (isOriginalColor) 
+    {
+      container.style.background = 'linear-gradient(90deg, rgb(119,234,253) ,rgb(119,203,253))'; //new gradient
+    } 
+    else 
+    {
+      container.style.background = 'linear-gradient(90deg, rgb(84, 84, 84) ,  rgb(84, 84, 84))';//prevoius gradient
+    }
+  isOriginalColor = !isOriginalColor;
+} 
+</script>
+
+<style>
+  :root {
+    --padding-xl: 1.25rem;
+    --padding-2xs: 0.688rem;
+    --padding-lg: 1.125rem;
+    --padding-6xl: 1.563rem;
+    --padding-9xl: 1.75rem;
+    --padding-14xl: 2.063rem;
+    --padding-18xl: 2.313rem;
+    --padding-19xl: 2.375rem;
+    --padding-23xl: 2.625rem;
+    --gap-sm: 0.875rem;
+    --gap-base: 1rem;
+    --gap-smi: 0.813rem;
+    --gap-mid: 1.063rem;
+    --gap-14xl: 2.063rem;
+    --gap-16xl: 2.188rem;
+    --gap-46xl: 4.063rem;
+    --gap-48xl: 4.188rem;
+    --gap-51xl: 4.375rem;
+    --gap-112xl: 8.188rem;
+    --gap-xl: 1.25rem;
+    --br-81xl: 6.25rem;
+    --font-size-lgi: 1.188rem;
+    --font-size-3xl: 1.375rem;
+    --font-size-5xl: 1.5rem;
+    --font-size-10xl: 1.813rem;
+    --font-size-17xl: 2.25rem;
+    --font-size-19xl: 2.375rem;
+    --font-size-32xl: 3.188rem;
+    --font-size-45xl: 4rem;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-whitesmoke: #f5f5f5;
+    --font-inter: Inter;
+  }
+
+  /* Apply the same styling classes from the provided CSS */
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Poppins, sans-serif;
+  }
+
+  .about-section {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4.375rem 5.312rem;
+    background: linear-gradient(252.82deg, #234271 12.23%, #131313 46.38%);
+    color: var(--color-whitesmoke);
+  }
+
+  .about-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .about-title {
+    margin: 0;
+    font-size: var(--font-size-45xl);
+    font-weight: 800;
+    text-shadow: 10px 4px 4px rgba(255, 255, 255, 0.5);
+  }
+
+  .about-subtitle {
+    font-size: var(--font-size-5xl);
+    font-weight: 500;
+    color: var(--color-white);
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .about-logo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .about-description {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  .about-paragraph {
+    font-size: var(--font-size-lgi);
+    line-height: 1.6;
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .highlight {
+    font-weight: 700;
+    color: #77eafd;
+  }
+
+  .services-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 3rem;
+  }
+
+  .services-title {
+    font-size: var(--font-size-17xl);
+    color: var(--color-whitesmoke);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .service-card {
+    flex: 1 1 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .service-number {
+    font-size: var(--font-size-17xl);
+    font-weight: 800;
+    color: #77eafd;
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: var(--font-size-5xl);
+    font-weight: 600;
+    color: var(--color-whitesmoke);
+    margin-bottom: 1rem;
+  }
+
+  .service-description {
+    font-size: var(--font-size-lgi);
+    line-height: 1.6;
+    color: var(--color-white);
+  }
+
+  .team-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 3rem;
+  }
+
+  .team-title {
+    font-size: var(--font-size-17xl);
+    color: var(--color-whitesmoke);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .team-member {
+    flex: 0 1 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #77eafd;
+  }
+
+  .team-name {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    color: var(--color-whitesmoke);
+    margin-bottom: 0.5rem;
+  }
+
+  .team-role {
+    font-size: var(--font-size-lgi);
+    color: #77eafd;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .cta-title {
+    font-size: var(--font-size-17xl);
+    color: var(--color-whitesmoke);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lgi);
+    font-weight: 600;
+    color: var(--color-whitesmoke);
+    background: linear-gradient(90deg, #234271, #36648B);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: linear-gradient(90deg, #77eafd, #4682B4);
+    transform: scale(1.05);
+  }
+
+  /* Icons (reused from original CSS) */
+  .kids-icon {
+    position: fixed;
+    top: 100px;
+    left: 30px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .kids-icon:hover{
+    color: blue;
+    transition: all;
+  }
+
+  .multiplayer-icon {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .multiplayer-icon:hover{
+    color: blue;
+    transition: all;
+  }
+  
+  .reward-icon {
+    position: fixed;
+    top: 180px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .reward-icon:hover{
+    color: blue;
+    transition: all;
+  }
+
+  .video-icon {
+    position: fixed;
+    top: 250px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .video-icon:hover{
+    color:blue;
+    opacity: .6;
+  }
+
+  .music-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .music-icon:hover {
+    opacity: 0.7;
+  }
+  
+  /* Footer styles (reused from original CSS) */
+  .footer {
+    background: #000;
+    padding: 30px 0px;
+    font-family: 'Play', poppins;
+    text-align: center;
+  }
+
+  .footer .row {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: gray;
+    font-size: 0.8em;
+  }
+
+  .footer .row a {
+    text-decoration: none;
+    color: gray;
+    transition: 0.5s;
+  }
+
+  .footer .row a:hover {
+    color: #fff;
+  }
+
+  .footer .row ul {
+    width: 100%;
+  }
+
+  .footer .row ul li {
+    display: inline-block;
+    margin: 0px 30px;
+  }
+
+  .footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
+  }
+
+  /* Scroll button */
+  .scroll_top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #77eafd;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .scroll_top img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .scroll_top.show-btn {
+    display: flex;
+    opacity: 1;
+  }
+
+  /* Media Queries for Responsiveness */
+  @media screen and (max-width: 1425px) {
+    .services-container {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 825px) {
+    .about-title {
+      font-size: var(--font-size-32xl);
+    }
+    
+    .about-subtitle {
+      font-size: var(--font-size-3xl);
+    }
+    
+    .services-title, .team-title, .cta-title {
+      font-size: var(--font-size-10xl);
+    }
+    
+    .service-number {
+      font-size: var(--font-size-10xl);
+    }
+    
+    .service-title {
+      font-size: var(--font-size-3xl);
+    }
+    
+    .about-section {
+      padding: 2.5rem var(--padding-23xl);
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .about-title {
+      font-size: var(--font-size-19xl);
+    }
+    
+    .about-subtitle {
+      font-size: var(--font-size-lgi);
+    }
+    
+    .about-paragraph {
+      font-size: 1rem;
+    }
+    
+    .services-title, .team-title, .cta-title {
+      font-size: var(--font-size-5xl);
+    }
+    
+    .service-number {
+      font-size: var(--font-size-5xl);
+    }
+    
+    .service-title {
+      font-size: var(--font-size-lgi);
+    }
+    
+    .service-description {
+      font-size: 1rem;
+    }
+    
+    .team-name {
+      font-size: var(--font-size-lgi);
+    }
+    
+    .team-role {
+      font-size: 1rem;
+    }
+    
+    .cta-button {
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+    }
+    
+    .about-section {
+      padding: 2rem var(--padding-xl);
+    }
+    
+    .footer .row ul li {
+      display: block;
+      margin: 10px 0px;
+      text-align: left;
+    }
+    
+    .footer .row a i {
+      margin: 0% 3%;
+    }
+    
+    .kids-icon, .multiplayer-icon, .reward-icon, .video-icon, .music-icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <audio id="background-music" loop>
+    <source src="./audio/back.mp3" type="audio/mpeg">
+  </audio>
+
+  <a href="main/award/badges.html">
+    <img src="public/reward.png" title="awards" alt="Reward Icon" class="reward-icon" id="reward-icon">
+  </a>
+
+  <a href="vids/vid.html">
+    <img src="public/video.png" title="video guides" alt="Video Icon" class="video-icon" id="video-icon">
+  </a>
+
+  <a target="_blank" href="https://create.kahoot.it/share/beginner-cybersecurity-terms/a13ab7e5-c88c-4319-a977-02916d7c9406">
+    <img src="public/multiplayer.png" title="kahoot" alt="Multiplayer Icon" class="multiplayer-icon" id="multiplayer-icon">
+  </a>
+
+  <a href="https://enlightened-platforms-148708.framer.app/">
+    <img src="public/kids.png" title="enlightened" alt="Kids Icon" class="kids-icon" id="kids-icon">
+  </a>
+
+  <img src="public/music.png" title="music" alt="Music Icon" class="music-icon" id="music-icon" onclick="changebackgroundcolor()">
+
+  <main class="about-section">
+    <section class="about-header">
+      <h1 class="about-title">About CyberBear</h1>
+      <p class="about-subtitle">A <span class="highlight">Gamified</span> Cybersecurity Awareness Platform</p>
+    </section>
+
+    <section class="about-logo-container">
+      <!-- Placeholder for logo - replace src with actual logo path -->
+      <img src="public/cyberbear.jfif" alt="CyberBear Logo" class="about-logo">
+    </section>
+
+    <section class="about-description">
+      <p class="about-paragraph">
+        Welcome to CyberBear, where cybersecurity education meets interactive learning designed specifically <span class="highlight">for youth!</span>
+      </p>
+      <p class="about-paragraph">
+        In a digital world where <span class="highlight">over 95% of teens have access to smartphones</span> and <span class="highlight"> over 45% report being online "almost constantly," </span>cybersecurity education has never been more critical. Yet studies show that <span class="highlight">only 23% of schools offer  digital safety programs. </span>
+      </p>
+      <p class="about-paragraph">
+        We believe that cybersecurity awareness doesn't have to be complicated or boring. Through our gamified approach, we transform <span class="highlight">internet safety concepts</span> into fun, <span class="highlight">interactive experiences</span> that make learning both enjoyable and effective.  Our platform features specially designed games, quizzes, and interactive lessons that simplify cybersecurity concepts in ways that connect with children and teens.
+      </p>
+    </section>
+
+    <section class="services-section">
+      <h2 class="services-title"><span class="highlight">Specializing In</span></h2>
+      <div class="services-container">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3 class="service-title">Youth-Focused Cybersecurity Education</h3>
+          <p class="service-description">
+            We create fun, engaging, gamified experiences that help kids and teens build their cyber security knowledge. Through CyberBear, we help kids grasp the importance of online safety and how to be safe on the internet. 
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3 class="service-title">Interactive Learning Platforms</h3>
+          <p class="service-description">
+            Our platforms are built for the young to engage them and also instil vital cybersecurity and internet safety knowledge in them. We focus on youth and utilize web development technologies, colorful UI, and games targeted towards to youth to maximize student engagement and knowledge retention.          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3 class="service-title">Technology Integration</h3>
+          <p class="service-description">
+            Currently, our project contains only HTML and CSS code, but we are working to transition it to Next.js. Utilizing Next.js along with Python for backend operations, we aim to create a scalable, responsive, and continuously updated platform.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <h2 class="team-title">Meet Our Team</h2>
+      <div class="team-container">
+        <!-- Add team members here - these are placeholders -->
+        <div class="team-member">
+            <!-- Replace with actual team member photo -->
+            <img src="public/team-member1.jpg" alt="Team Member" class="team-photo">
+            <h3 class="team-name">Aditi Chhawacharia</h3>
+            <center><p class="team-role">High Schooler in Dallas, Texas, USA</p></center>
+            <div class="button-container" style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.5rem;">
+                <a href="https://aditichhawacharia.vercel.app/" target="_blank" 
+                   style="text-decoration: none;">
+                    <a href="https://www.linkedin.com/in/aditi-chhawacharia/"><button class="linkedin-button" 
+                            style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: white; color: #6c63ff; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px; box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);">
+                        <i class="fa fa-linkedin"></i> LinkedIn
+                    </button></a>
+                </a>
+                <a href="index.html">
+                    <button class="cta-button"
+                            style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: #6c63ff; color: white; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px;">
+                        Personal Website
+                    </button>
+                </a>
+            </div>
+        </div>
+        
+        
+        <div class="team-member">
+            <!-- Replace with actual team member photo -->
+            <img src="public/team-member1.jpg" alt="Team Member" class="team-photo">
+            <h3 class="team-name">Vinay Khanagavi</h3>
+            <center><p class="team-role">College Student in Mumbai, India</p></center>
+            <div class="button-container" style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.5rem;">
+                <a href="https://vinaykhanagavi.me/" target="_blank" 
+                   style="text-decoration: none;">
+                   <a href="https://www.linkedin.com/in/-vinaykhanagavi/"><button class="linkedin-button" 
+                    style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: white; color: #6c63ff; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px; box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);">
+                <i class="fa fa-linkedin"></i> LinkedIn
+            </button></a>
+                </a>
+                <a href="index.html">
+                    <button class="cta-button"
+                            style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: #6c63ff; color: white; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px;">
+                        Personal Website
+                    </button>
+                </a>
+            </div>
+        </div>
+        
+        
+
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="cta-title">Let's Learn about Internet Safety Together</h2>
+      <div class="cta-buttons">
+        <a href="index.html"><button class="cta-button">Get Started</button></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div class="row">
+        <a href="https://www.instagram.com/cyberbear.ai"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/cyberbear-ai/"><i class="fa fa-linkedin"></i></a>
+      </div>
+      
+      <div class="row">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+          <li><a href="#">Meet The Team</a></li>
+          <li><a href="our_partners.html">Our Partners</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+      
+  <button class="scroll_top">
+    <img src="public/arrow.png" alt="" id="to_top">
+  </button>
+
+  <script>
+    const scrollButton = document.querySelector(".scroll_top");
+
+    window.addEventListener("scroll", () => {
+      window.pageYOffset > 100
+        ? scrollButton.classList.add("show-btn")
+        : scrollButton.classList.remove("show-btn");
+    });
+
+    function smoothScrollToTop() {
+      const scrollY = window.pageYOffset;
+      const scrollStep = Math.max(10, Math.floor(scrollY / 20));
+      if (scrollY > 0) {
+        window.scrollBy(0, -scrollStep);
+        requestAnimationFrame(smoothScrollToTop);
+      }
+    }
+
+    // When the button is clicked, scroll to the top smoothly
+    scrollButton?.addEventListener("click", () => {
+      requestAnimationFrame(smoothScrollToTop);
+    });
+  </script>
+
+  <script>
+    var isPlaying = false;
+    var audio = document.getElementById('background-music');
+    var musicIcon = document.getElementById('music-icon');
+
+    musicIcon.addEventListener('click', function () {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+      } else {
+        audio.play().catch(error => {
+          console.log('Error playing audio:', error);
+        });
+        isPlaying = true;
+      }
+    });
+  </script>
+
+  <!-- Google Translate Element -->
+  <div id="google_translate_element" style="margin: 20px;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'af,ar,hy,az,ba,eu,bn,bs,ca,hr,cs,da,nl,en,eo,et,tl,tlh,fi,fr,gaa,ka,de,el,gu,ht,ha,he,hi,hu,is,id,it,ja,jw,kn,kk,km,ko,ku,ky,la,lv,lt,lb,mk,ml,mn,no,ne,pl,pt,pa,ro,ru,sr,si,sk,sl,es,su,sw,sv,ta,te,th,tl,tr,uk,ur,vi,cy,xh,yi,zu',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Chatbase Script (same as original) -->
+  <script>
+    window.embeddedChatbotConfig = {
+      chatbotId: "iHUFXP4dziHwbqdmgIfl3",
+      domain: "www.chatbase.co"
+    }
+  </script>
+  <script src="https://www.chatbase.co/embed.min.js" chatbotId="iHUFXP4dziHwbqdmgIfl3" domain="www.chatbase.co" defer></script>
+</body>
+
+</html>
