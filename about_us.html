@@ -243,12 +243,23 @@
     font-weight: 600;
     color: var(--color-whitesmoke);
     margin-bottom: 0.5rem;
+    margin-top: 0; /* Added to eliminate gap */
+    text-align: center; /* Added for better centering */
   }
 
   .team-role {
     font-size: var(--font-size-lgi);
     color: #77eafd;
     margin-bottom: 0.5rem;
+    margin-top: 0; /* Added to eliminate gap */
+    line-height: 1.3; /* Added for better spacing */
+  }
+
+  /* Added style for team role container */
+  .team-role-container {
+    margin: 0;
+    padding: 0;
+    text-align: center;
   }
 
   .cta-section {
@@ -271,20 +282,61 @@
     gap: 1.5rem;
   }
 
+  /* Updated CTA button styles */
   .cta-button {
-    padding: 0.75rem 2rem;
-    font-size: var(--font-size-lgi);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-whitesmoke);
     background: linear-gradient(90deg, #234271, #36648B);
     border: none;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
   }
 
   .cta-button:hover {
     background: linear-gradient(90deg, #77eafd, #4682B4);
+    transform: scale(1.05);
+  }
+
+  /* Keep the original style for main CTA button */
+  .cta-section .cta-button {
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lgi);
+    border-radius: 2rem;
+    max-width: none;
+  }
+
+  /* Social buttons container */
+  .button-container {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  /* LinkedIn button */
+  .linkedin-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: white;
+    color: #6c63ff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 200px;
+    transition: all 0.3s ease;
+  }
+
+  .linkedin-button:hover {
+    background-color: #f0f0f0;
     transform: scale(1.05);
   }
 
@@ -578,7 +630,7 @@
           <div class="service-number">01</div>
           <h3 class="service-title">Youth-Focused Cybersecurity Education</h3>
           <p class="service-description">
-            We create fun, engaging, gamified experiences that help kids and teens build their cyber security knowledge. Through CyberBear, we help kids grasp the importance of online safety and how to be safe on the internet. 
+            We create fun, engaging, gamified experiences that help kids and teens build their cyber security knowledge. Through CyberBear, we help kids grasp the importance of online safety and how to be safe on the internet. 
           </p>
         </div>
 
@@ -602,54 +654,47 @@
     <section class="team-section">
       <h2 class="team-title">Meet Our Team</h2>
       <div class="team-container">
-        <!-- Add team members here - these are placeholders -->
+        <!-- Team member 1 - Aditi -->
         <div class="team-member">
-            <!-- Replace with actual team member photo -->
-            <img src="public/team-member1.jpg" alt="Team Member" class="team-photo">
+            <img src="public/aditi.jpg" alt="Aditi Chhawacharia" class="team-photo">
             <h3 class="team-name">Aditi Chhawacharia</h3>
-            <center><p class="team-role">High Schooler in Dallas, Texas, USA</p></center>
-            <div class="button-container" style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.5rem;">
-                <a href="https://aditichhawacharia.vercel.app/" target="_blank" 
-                   style="text-decoration: none;">
-                    <a href="https://www.linkedin.com/in/aditi-chhawacharia/"><button class="linkedin-button" 
-                            style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: white; color: #6c63ff; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px; box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);">
+            <div class="team-role-container">
+                <p class="team-role">High Schooler in Dallas, Texas, USA</p>
+            </div>
+            <div class="button-container">
+                <a href="https://www.linkedin.com/in/aditi-chhawacharia/">
+                    <button class="linkedin-button">
                         <i class="fa fa-linkedin"></i> LinkedIn
-                    </button></a>
+                    </button>
                 </a>
-                <a href="index.html">
-                    <button class="cta-button"
-                            style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: #6c63ff; color: white; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px;">
+                <a href="https://aditichhawacharia.vercel.app/">
+                    <button class="cta-button">
                         Personal Website
                     </button>
                 </a>
             </div>
         </div>
         
-        
+        <!-- Team member 2 - Vinay -->
         <div class="team-member">
-            <!-- Replace with actual team member photo -->
-            <img src="public/team-member1.jpg" alt="Team Member" class="team-photo">
+            <img src="public/vinay.jfif" alt="Vinay Khanagavi" class="team-photo">
             <h3 class="team-name">Vinay Khanagavi</h3>
-            <center><p class="team-role">College Student in Mumbai, India</p></center>
-            <div class="button-container" style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.5rem;">
-                <a href="https://vinaykhanagavi.me/" target="_blank" 
-                   style="text-decoration: none;">
-                   <a href="https://www.linkedin.com/in/-vinaykhanagavi/"><button class="linkedin-button" 
-                    style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: white; color: #6c63ff; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px; box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);">
-                <i class="fa fa-linkedin"></i> LinkedIn
-            </button></a>
+            <div class="team-role-container">
+                <p class="team-role">College Student in Mumbai, India</p>
+            </div>
+            <div class="button-container">
+                <a href="https://www.linkedin.com/in/-vinaykhanagavi/">
+                    <button class="linkedin-button">
+                        <i class="fa fa-linkedin"></i> LinkedIn
+                    </button>
                 </a>
-                <a href="index.html">
-                    <button class="cta-button"
-                            style="padding: 0.5rem 1rem; font-size: 1rem; border: none; background-color: #6c63ff; color: white; border-radius: 0.5rem; cursor: pointer; width: 100%; max-width: 200px;">
+                <a href="https://vinaykhanagavi.me/">
+                    <button class="cta-button">
                         Personal Website
                     </button>
                 </a>
             </div>
         </div>
-        
-        
-
       </div>
     </section>
 
@@ -672,7 +717,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about_us.html">About Us</a></li>
-          <li><a href="#">Meet The Team</a></li>
+          <li><a href="meettheteam.html">Meet The Team</a></li>
           <li><a href="our_partners.html">Our Partners</a></li>
         </ul>
       </div>
