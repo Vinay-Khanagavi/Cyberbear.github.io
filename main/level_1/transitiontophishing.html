@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Voucher</title>
+    <link rel="stylesheet" href="css/amazon.css">
+    <link rel="shortcut icon" href="assets/amazon_logo.png" type="image/x-icon">
+    <style>
+        #phishing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #phishing-email {
+            max-width: 500px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Comic Sans MS', cursive;
+            color: blue;
+        }
+
+        p {
+            font-size: 1.1em;
+        }
+
+        button {
+            font-family: 'Comic Sans MS', cursive;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #claim-button {
+            background-color: limegreen;
+            color: white;
+        }
+
+        #claim-button-red {
+            background-color: red;
+            color: white;
+        }
+
+        h3 {
+            color: red;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="phishing-container">
+        <div id="phishing-email">
+            <h3>Great Work!  You have now finished Level 1's 
+                simulation and video. We have one more activity for you..
+            </h3>
+            <h2> Email Phishing Game </h2>
+
+            <p>
+                Go through the emails in your inbox (from Netflix, Microsoft, and more) and try to guess if it's phishing or not..
+            </p>
+
+            <button onclick="location.href='phishing_game.html'" id="claim-button">Let's do it!</button>
+        </div>
+    </div>
+</body>
+
+
+</html>

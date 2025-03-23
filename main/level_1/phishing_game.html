@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-white: #ffffff;
+            --color-black: #121212;
+            --color-primary: #3468c0;
+            --color-secondary: #f5f5f5;
+            --color-accent: #0b2545;
+            --padding-xl: 1.25rem;
+            --padding-2xs: 0.625rem;
+            --gap-sm: 0.875rem;
+            --gap-base: 1rem;
+            --gap-smi: 0.813rem;
+            --font-size-17xl: 2.25rem;
+            --font-size-5xl: 1.5rem;
+            --font-size-lgi: 1.125rem;
+            --font-size-3xl: 1.375rem;
+            --font-inter: 'Poppins', sans-serif;
+            --br-81xl: 6.25rem;
+        }
+        
+        body {
+            font-family: var(--font-inter);
+            margin: 0;
+            padding: 0;
+            background: var(--color-white);
+            color: var(--color-black);
+            box-sizing: border-box;
+            line-height: normal;
+            letter-spacing: normal;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            text-align: center;
+            font-weight: 800;
+            font-size: var(--font-size-17xl);
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+        }
+        
+        .instructions {
+            background-color: var(--color-secondary);
+            border-left: 4px solid var(--color-primary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            color: var(--color-black);
+        }
+        
+        .instructions h2 {
+            margin-top: 0;
+            font-size: var(--font-size-5xl);
+            color: var(--color-primary);
+        }
+        
+        .score-container {
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            background-color: var(--color-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--color-primary);
+            color: var(--color-black);
+        }
+        
+        .progress-status {
+            font-size: var(--font-size-lgi);
+        }
+        
+        .inbox {
+            background-color: var(--color-white);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .inbox-header {
+            background-color: var(--color-primary);
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--color-white);
+        }
+        
+        .inbox-title {
+            font-size: var(--font-size-5xl);
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .email-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            color: var(--color-black);
+        }
+        
+        .email-item:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .email-item.selected {
+            background-color: rgba(52, 104, 192, 0.1);
+        }
+        
+        .email-item.read {
+            opacity: 0.7;
+        }
+        
+        .email-icon {
+            margin-right: 1rem;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+        
+        .email-content {
+            flex: 1;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-sender {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .email-time {
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        .email-viewer {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            color: var(--color-black);
+            display: none;
+            margin-bottom: 2rem;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .email-viewer.active {
+            display: block;
+        }
+        
+        .email-viewer-header {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .email-viewer-subject {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .email-viewer-meta {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .email-viewer-body {
+            padding: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .email-actions {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.625rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--font-inter);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-legitimate {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .btn-legitimate:hover {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+        }
+        
+        .btn-phishing {
+            background-color: #F44336;
+            color: white;
+        }
+        
+        .btn-phishing:hover {
+            background-color: #D32F2F;
+            transform: translateY(-2px);
+        }
+        
+        .feedback {
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #2E7D32;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .feedback.incorrect {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #C62828;
+            border-left: 4px solid #F44336;
+        }
+        
+        .explanation {
+            margin-top: 0.75rem;
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        .result-message {
+            background-color: var(--color-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--color-primary);
+            color: var(--color-black);
+        }
+        
+        .result-title {
+            font-size: var(--font-size-5xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .result-score {
+            font-size: var(--font-size-lgi);
+            margin-bottom: 1.5rem;
+        }
+        
+        .result-tips {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        @media screen and (max-width: 825px) {
+            .container {
+                padding: var(--padding-xl);
+            }
+            
+            h1 {
+                font-size: var(--font-size-10xl);
+            }
+            
+            .instructions h2,
+            .inbox-title {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .email-content {
+                overflow: hidden;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.2rem;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            .score-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .email-actions {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .btn {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phishing Detection Challenge</h1>
+        
+        <div class="instructions">
+            <h2>📧 Simulated Inbox Challenge</h2>
+            <p>Check your inbox and decide if these emails are <strong>Legitimate ✅</strong> or <strong>Phishing ❌</strong>.</p>
+            <p>Can you spot the warning signs of a phishing attempt?</p>
+        </div>
+        
+        <div class="score-container">
+            <div class="progress-status">Email <span id="current-email">0</span> of <span id="total-emails">4</span> reviewed</div>
+            <div>Score: <span id="score">0</span> correct</div>
+        </div>
+        
+        <div class="inbox">
+            <div class="inbox-header">
+                <h2 class="inbox-title">Inbox</h2>
+                <div class="inbox-controls">
+                    <span>4 unread messages</span>
+                </div>
+            </div>
+            <div id="email-list">
+                <!-- Email items will be added here by JavaScript -->
+            </div>
+        </div>
+        
+        <div id="email-viewer" class="email-viewer">
+            <!-- Email content will be displayed here -->
+        </div>
+        
+        <div class="result-message" id="final-result">
+            <!-- Final results will be displayed here -->
+        </div>
+    </div>
+    
+    <script>
+        // Email data
+        const emails = [
+            {
+                id: 1,
+                sender: "Microsoft Security, security-noreply@microsoft-account.com",
+                subject: "Urgent: Your Microsoft Account Was Compromised",
+                date: "Today, 10:23 AM",
+                content: `<p>Dear Valued Customer,</p>
+                <p>We have detected suspicious activities on your Microsoft account. Your account will be suspended in 24 hours unless you verify your identity immediately.</p>
+                <p>Click here to secure your account: <a href="#">https://microsoft-security-alert.com/verify-account</a></p>
+                <p>If you did not initiate this request, please click the link above to prevent unauthorized access.</p>
+                <p>Regards,<br>
+                Microsoft Security Team</p>`,
+                isPhishing: true,
+                explanation: "This is a phishing email. Red flags include: non-Microsoft domain in the sender email (microsoft-account.com instead of microsoft.com), suspicious link (microsoft-security-alert.com), urgency to create panic ('account will be suspended in 24 hours'), and generic greeting ('Dear Valued Customer' instead of using your name)."
+            },
+            {
+                id: 2,
+                sender: "Netflix, info@mailer.netflix.com",
+                subject: "Your Netflix payment didn't go through",
+                date: "Today, 9:15 AM",
+                content: `<p>Hi there,</p>
+                <p>We're having some trouble with your current billing information. We'll try again, but in the meantime you may want to update your payment details.</p>
+                <p><a href="#">Update payment information</a></p>
+                <p>If you need help, visit the <a href="#">Help Center</a>.</p>
+                <p>–Your friends at Netflix</p>`,
+                isPhishing: false,
+                explanation: "This is a legitimate email from Netflix. The sender email domain (mailer.netflix.com) is correct, there's no suspicious urgency, and it doesn't ask for sensitive information directly in the email. Netflix does send payment notification emails through mailer.netflix.com."
+            },
+            {
+                id: 3,
+                sender: "Amazon Orders, order-update@amaz0n-secure.net",
+                subject: "Your Amazon order #708-9653210-1428183 of AirPods Pro",
+                date: "Yesterday, 3:42 PM",
+                content: `<p>Hello,</p>
+                <p>We noticed you recently made a purchase on your Amazon account for AirPods Pro ($249.99).</p>
+                <p>Order #708-9653210-1428183</p>
+                <p>If you did not make this purchase, please click <a href="#">here</a> to cancel the order and receive a full refund.</p>
+                <p>Thank you for shopping with Amazon!</p>`,
+                isPhishing: true,
+                explanation: "This is a phishing email. Red flags include: misspelled domain in the sender email (amaz0n-secure.net with a zero instead of amazon.com), creating urgency about a purchase you didn't make, and a suspicious link. Amazon order confirmation emails come from domains like amazon.com, not third-party domains."
+            },
+            {
+                id: 4,
+                sender: "PayPal,service@paypal.com",
+                subject: "Receipt for Your Payment to Digital Streaming Services",
+                date: "Yesterday, 11:08 AM",
+                content: `<p>Hello,</p>
+                <p>You sent a payment of $14.99 USD to Digital Streaming Services</p>
+                <p><strong>Receipt number:</strong> 7298-4516-1172-9463</p>
+                <p>Please note that it may take a little while for this payment to appear in the Recent Activity list on your PayPal account.</p>
+                <p>If you have questions about this transaction, you can <a href="#">contact PayPal Customer Service</a>.</p>
+                <p>Thanks for using PayPal!<br>
+                The PayPal Team</p>`,
+                isPhishing: false,
+                explanation: "This is a legitimate email from PayPal. The sender domain (paypal.com) is correct, the email provides specific transaction details, and it doesn't create false urgency or request sensitive information. PayPal does send receipt emails after transactions."
+            }
+        ];
+        
+        let currentScore = 0;
+        let answeredEmails = 0;
+        let selectedEmailId = null;
+        
+        // Initialize the inbox
+        function initInbox() {
+            const emailListContainer = document.getElementById('email-list');
+            emailListContainer.innerHTML = '';
+            
+            emails.forEach(email => {
+                const emailElement = createEmailListItem(email);
+                emailListContainer.appendChild(emailElement);
+            });
+            
+            document.getElementById('total-emails').textContent = emails.length;
+        }
+        
+        // Create email list item
+        function createEmailListItem(email) {
+            const emailItem = document.createElement('div');
+            emailItem.className = 'email-item';
+            emailItem.dataset.id = email.id;
+            
+            emailItem.innerHTML = `
+                <div class="email-icon">📧</div>
+                <div class="email-content">
+                    <div class="email-subject">${email.subject}</div>
+                    <div class="email-sender">${email.sender}</div>
+                </div>
+                <div class="email-time">${email.date}</div>
+            `;
+            
+            emailItem.addEventListener('click', () => selectEmail(email.id));
+            
+            return emailItem;
+        }
+        
+        // Select an email to view
+        function selectEmail(emailId) {
+            // Deselect previously selected email
+            if (selectedEmailId) {
+                const previousItem = document.querySelector(`.email-item[data-id="${selectedEmailId}"]`);
+                if (previousItem) previousItem.classList.remove('selected');
+            }
+            
+            selectedEmailId = emailId;
+            
+            // Select current email
+            const currentItem = document.querySelector(`.email-item[data-id="${emailId}"]`);
+            currentItem.classList.add('selected');
+            
+            // Get email data
+            const email = emails.find(e => e.id === emailId);
+            
+            // Update email viewer
+            const emailViewer = document.getElementById('email-viewer');
+            emailViewer.innerHTML = `
+                <div class="email-viewer-header">
+                    <div class="email-viewer-subject">${email.subject}</div>
+                    <div class="email-viewer-meta">
+                        <div>From: ${email.sender}</div>
+                        <div>To: you@example.com</div>
+                        <div>Date: ${email.date}</div>
+                    </div>
+                </div>
+                <div class="email-viewer-body">
+                    ${email.content}
+                </div>
+                <div class="email-actions">
+                    <button class="btn btn-legitimate" onclick="checkAnswer(${email.id}, false)">Legitimate ✅</button>
+                    <button class="btn btn-phishing" onclick="checkAnswer(${email.id}, true)">Phishing ❌</button>
+                </div>
+                <div class="feedback" id="feedback-${email.id}"></div>
+            `;
+            
+            emailViewer.classList.add('active');
+            
+            // Check if this email was already answered
+            if (currentItem.classList.contains('read')) {
+                const feedbackElement = document.getElementById(`feedback-${email.id}`);
+                if (feedbackElement) {
+                    feedbackElement.style.display = 'block';
+                }
+            }
+        }
+        
+        // Check user's answer
+        function checkAnswer(emailId, userThinkItsPhishing) {
+            const email = emails.find(e => e.id === emailId);
+            const emailItem = document.querySelector(`.email-item[data-id="${emailId}"]`);
+            const feedbackElement = document.getElementById(`feedback-${emailId}`);
+            
+            // Prevent answering twice
+            if (emailItem.classList.contains('read')) {
+                return;
+            }
+            
+            answeredEmails++;
+            document.getElementById('current-email').textContent = answeredEmails;
+            
+            emailItem.classList.add('read');
+            
+            const isCorrect = userThinkItsPhishing === email.isPhishing;
+            if (isCorrect) {
+                currentScore++;
+                document.getElementById('score').textContent = currentScore;
+                feedbackElement.className = 'feedback correct';
+                feedbackElement.innerHTML = `✅ Correct! ${email.isPhishing ? 'This is indeed a phishing email.' : 'This is a legitimate email.'} <div class="explanation">${email.explanation}</div>`;
+            } else {
+                feedbackElement.className = 'feedback incorrect';
+                feedbackElement.innerHTML = `❌ Oops! ${email.isPhishing ? 'This is actually a phishing email.' : 'This is actually a legitimate email.'} <div class="explanation">${email.explanation}</div>`;
+            }
+            
+            feedbackElement.style.display = 'block';
+            
+            // Check if all emails are answered
+            if (answeredEmails === emails.length) {
+                showFinalResults();
+            }
+        }
+        
+        // Show final results
+        function showFinalResults() {
+            document.querySelector('.inbox').style.display = 'none';
+            document.querySelector('.email-viewer').style.display = 'none';
+            const resultElement = document.getElementById('final-result');
+            const percentage = (currentScore / emails.length) * 100;
+            
+            let message = '';
+            
+            if (percentage === 100) {
+                message = 'Perfect! You spotted all phishing attempts! 🏆';
+            } else if (percentage >= 75) {
+                message = 'Great job! You have good phishing detection skills. 👍';
+            } else if (percentage >= 50) {
+                message = 'Not bad, but you should be more careful with emails. 🔍';
+            } else {
+                message = 'You need to improve your phishing detection skills! ⚠️';
+            }
+            
+            resultElement.innerHTML = `
+                <div class="result-title">${message}</div>
+                <div class="result-score">Your score: ${currentScore}/${emails.length} (${percentage}%)</div>
+                <div class="result-tips">
+                    <p>Remember these tips to protect yourself from phishing:</p>
+                    <ul>
+                        <li>Check sender email addresses carefully</li>
+                        <li>Be suspicious of urgent requests and threats</li>
+                        <li>Hover over links before clicking them</li>
+                        <li>Never share personal information via email</li>
+                        <li>When in doubt, contact the company directly using official channels</li>
+                    </ul>
+                </div>
+                <h3> Great work! Time to move on to the questions! Almost there.. </h3>
+                <a href="/main/level_1/question.html" style="text-decoration: none;">
+                    <button style="background-color: #90D5FF; color: white; padding: 12px 24px; border-radius: 8px; border: none; font-size: 16px; cursor: pointer; display: inline-block; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                        Questions..
+                    </button>
+                </a>
+            `;
+            
+            resultElement.style.display = 'block';
+        }
+        
+        // Initialize the inbox when the page loads
+        window.onload = initInbox;
+    </script>
+</body>
+</html>
