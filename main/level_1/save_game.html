@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save</title>
     <link rel="icon" href="assets/favicon.png">
-    <link rel="stylesheet" href="css/question.css">
+    <link rel="stylesheet" href="/css/quiz.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" />
     <style>
@@ -69,7 +69,108 @@
             </div>
         </div>
     </section>
-    <script preload="lazy" src="js/end.js"></script>
+    <script preload="lazy" src="js/end.js"> 
+                            // Get DOM elements
+                    const username = document.getElementById('username');
+                    const saveScoreBtn = document.getElementById('saveScoreBtn');
+                    const finalScore = document.getElementById('finalScore');
+                    const mostRecentScore = localStorage.getItem('mostRecentScore');
+                    const modalBox = document.querySelector('.modal-box');
+                    const overlay = document.querySelector('.overlay');
+
+                    // Create audio element for celebration sound
+                    const celebrationSound = new Audio('assets/success.mp3'); // Make sure this file exists in your assets folder
+
+                    // Set the final score from localStorage
+                    finalScore.innerText = mostRecentScore || 0;
+
+                    // Enable save button only when username has content
+                    username.addEventListener('keyup', () => {
+                        saveScoreBtn.disabled = !username.value;
+                    });
+
+                    // Save high score function
+                    const saveHighScore = (e) => {
+                        e.preventDefault();
+                        
+                        // Get existing high scores or initialize empty array
+                        const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+                        
+                        // Create score object with username and score
+                        const score = {
+                            score: mostRecentScore,
+                            name: username.value
+                        };
+                        
+                        // Add to high scores array, sort, and keep only top 5
+                        highScores.push(score);
+                        highScores.sort((a, b) => b.score - a.score);
+                        highScores.splice(5);
+                        
+                        // Save back to localStorage
+                        localStorage.setItem('highScores', JSON.stringify(highScores));
+                        
+                        // Show mission completed modal and play sound
+                        showMissionCompleted();
+                    };
+
+                    // Function to show mission completed modal
+                    function showMissionCompleted() {
+                        // Make modal and overlay visible
+                        modalBox.style.display = "flex";
+                        overlay.style.display = "block";
+                        
+                        // Play celebration sound
+                        celebrationSound.volume = 0.7; // Set volume to 70%
+                        celebrationSound.play().catch(error => {
+                            console.log("Audio play failed: ", error);
+                            // Some browsers require user interaction before playing audio
+                        });
+                        
+                        // Create confetti effect
+                        createConfetti();
+                    }
+
+                    // Create confetti particles
+                    function createConfetti() {
+                        const confettiCount = 100;
+                        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+                        
+                        for (let i = 0; i < confettiCount; i++) {
+                            const confetti = document.createElement('div');
+                            confetti.className = 'confetti';
+                            confetti.style.left = Math.random() * 100 + 'vw';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                            confetti.style.animationDelay = Math.random() * 2 + 's';
+                            document.body.appendChild(confetti);
+                            
+                            // Remove confetti after animation completes
+                            setTimeout(() => {
+                                confetti.remove();
+                            }, 5000);
+                        }
+                    }
+
+                    // Check if need to show mission completed on page load
+                    // This assumes you have some condition to check if mission is completed
+                    // For testing, you can trigger it immediately or based on score threshold
+                    window.addEventListener('DOMContentLoaded', () => {
+                        // Example condition: if score is above 70, show mission completed
+                        if (parseInt(mostRecentScore) >= 70) {
+                            showMissionCompleted();
+                        }
+                        
+                        // For testing, you can uncomment this to always show the modal:
+                        // setTimeout(showMissionCompleted, 500);
+                    });
+
+                    // Make sure the saveScoreBtn click handler is properly attached
+                    saveScoreBtn.addEventListener('click', saveHighScore);
+
+
+
+    </script>
 </body>
 
 </html>

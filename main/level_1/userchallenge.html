@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Voucher</title>
+    <link rel="stylesheet" href="css/amazon.css">
+    <link rel="shortcut icon" href="assets/amazon_logo.png" type="image/x-icon">
+    <style>
+        #phishing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #phishing-email {
+            max-width: 500px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Comic Sans MS', cursive;
+            color: blue;
+        }
+
+        p {
+            font-size: 1.1em;
+        }
+
+        button {
+            font-family: 'Comic Sans MS', cursive;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #claim-button {
+            background-color: limegreen;
+            color: white;
+        }
+
+        #claim-button-red {
+            background-color: red;
+            color: white;
+        }
+
+        h3 {
+            color: red;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="phishing-container">
+        <div id="phishing-email">
+            <h3>Note: This is just a part of a fun game and lesson! It's not a real offer. Always be careful online!
+            </h3>
+
+            <h2>Wow, Super Cool Offer! (But Wait...)</h2>
+
+            <p>
+                Hey there! Guess what? You've won a free gift card worth <span
+                    style="color: forestgreen;">$20,000</span>! <br>
+                Sounds amazing, right? Well, here's something to think about: Before you click any buttons, remember
+                that it's important to check if things like this are real.
+            </p>
+
+            <button onclick="location.href='userchallenge_result.html'" id="claim-button">See What Happens</button>
+            <button onclick="location.href='transitiontophishing.html'" id="claim-button-red">Skip</button>
+        </div>
+    </div>
+</body>
+
+
+</html>
