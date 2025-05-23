@@ -8,10 +8,34 @@
     <meta httpEquiv="Content-Type" content="text/html"/>
     <meta charSet="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+    .back-arrow {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background-color: #e0e0e0;
+}
+
+</style>
 </head>
 
+
 <body>
-    
+<a href="../../../index.html" class="back-arrow" title="Back to Home">&#8592;</a>
+    &#8592;
+</a>
     <form class="modal">
     <div class="title"><h1>Wack-The-Hacker</h1></div>
     <div class="select">select difficulty:</div>

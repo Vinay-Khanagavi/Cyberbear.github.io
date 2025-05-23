@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberBear CYBER-FIT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #0a0a23, #1a1a3a, #2d2d5f, #4a4a8a);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cyberbear-logo {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00d4ff, #4ecdc4, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .cyber-fit-title {
+            font-size: 2.5em;
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            border-color: rgba(0, 212, 255, 0.6);
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #4ecdc4;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+        }
+
+        .cyber-shield {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+            50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(0, 212, 255, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+        }
+
+        .content-text {
+            font-size: 1.3em;
+            line-height: 1.8;
+            text-align: center;
+            color: #e8e8e8;
+        }
+
+        .security-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .security-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .security-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 107, 107, 0.8);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card-description {
+            font-size: 1.1em;
+            color: #c8c8c8;
+            line-height: 1.6;
+        }
+
+        .interactive-tips {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(255, 107, 107, 0.1));
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid rgba(0, 212, 255, 0.4);
+        }
+
+        .tip-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #4ecdc4;
+            transition: all 0.3s ease;
+        }
+
+        .tip-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .game-section {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 107, 107, 0.4);
+        }
+
+        .quiz-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-weight: bold;
+        }
+
+        .quiz-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.2em;
+            color: #4ecdc4;
+        }
+
+        .quiz-container {
+            display: none;
+            background: rgba(0, 212, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            height: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            background: linear-gradient(45deg, #4ecdc4, #00d4ff);
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .quiz-question {
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .quiz-option {
+            background: rgba(0, 212, 255, 0.2);
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            background: rgba(0, 212, 255, 0.4);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .quiz-option.correct {
+            background: rgba(78, 205, 196, 0.5);
+            border-color: #4ecdc4;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(255, 193, 7, 0.5);
+            border-color: #ffc107;
+        }
+
+        .quiz-feedback {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(78, 205, 196, 0.4);
+        }
+
+        .quiz-score {
+            background: linear-gradient(45deg, rgba(78, 205, 196, 0.2), rgba(0, 212, 255, 0.2));
+            border: 2px solid #4ecdc4;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .quiz-score h3 {
+            font-size: 2em;
+            color: #4ecdc4;
+            margin-bottom: 15px;
+        }
+
+        .quiz-score p {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .quiz-controls {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .quiz-nav-button {
+            background: linear-gradient(45deg, #4ecdc4, #00d4ff);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: none;
+        }
+
+        .quiz-nav-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .cyberbear-logo { font-size: 2em; }
+            .cyber-fit-title { font-size: 1.8em; }
+            .section-title { font-size: 1.8em; }
+            .content-text { font-size: 1.1em; }
+            .security-cards { grid-template-columns: 1fr; }
+            .quiz-question { font-size: 1.3em; }
+            .quiz-option { font-size: 1em; }
+        }
+          .back-arrow {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #6a0dad; /* example purple */
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-arrow:hover {
+  background-color: #5a0099; /* darker purple on hover */
+}
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+             <a href="index.html" class="back-arrow" id="backArrow">←</a>
+
+        <div class="header">
+            <div class="cyberbear-logo">🐻 CYBERBEAR 🛡️</div>
+            <div class="cyber-fit-title">CYBER-FIT ADVENTURE!</div>
+        </div>
+
+        <div class="section">
+            <div class="cyber-shield">🛡️</div>
+            <h2 class="section-title">What is Cyber Security?</h2>
+            <div class="content-text">
+                Cyber security is like having a special shield to protect your online adventures! 🌟 
+                It helps keep your personal information safe from sneaky tricks and bad guys on the internet, 
+                so you can explore and have fun without worries. It stops bad people from stealing our stuff 
+                and keeps our online world safe, just like locking our doors keeps our homes safe! 🏠🔒
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Why is Cyber Security Super Important?</h2>
+            <div class="interactive-tips">
+                <div class="tip-item">
+                    <span class="emoji">🛡️</span>
+                    <strong>Protects Your Secrets:</strong> Keeps your photos, messages, and personal info safe from strangers!
+                </div>
+                <div class="tip-item">
+                    <span class="emoji">🎮</span>
+                    <strong>Safe Gaming:</strong> Lets you play online games without getting tricked by fake friends!
+                </div>
+                <div class="tip-item">
+                    <span class="emoji">💳</span>
+                    <strong>Money Safety:</strong> Protects your family's money and important information!
+                </div>
+                <div class="tip-item">
+                    <span class="emoji">🌐</span>
+                    <strong>Happy Internet:</strong> Makes sure everyone can have fun online safely!
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Cyber Security Super Powers!</h2>
+            <div class="security-cards">
+                <div class="security-card">
+                    <span class="card-icon">🎣</span>
+                    <div class="card-title">Phishing Protection</div>
+                    <div class="card-description">
+                        Phishing is like fake fishing! Bad guys send fake emails or messages pretending to be someone you trust. 
+                        Always ask a grown-up before clicking links from strangers!
+                    </div>
+                </div>
+
+                <div class="security-card">
+                    <span class="card-icon">🦠</span>
+                    <div class="card-title">Malware Shield</div>
+                    <div class="card-description">
+                        Malware are like digital germs that can make computers sick! They hide in downloads and websites. 
+                        Only download from safe places that grown-ups approve!
+                    </div>
+                </div>
+
+                <div class="security-card">
+                    <span class="card-icon">🔐</span>
+                    <div class="card-title">Password Power</div>
+                    <div class="card-description">
+                        Strong passwords are like secret codes! Use long passwords with letters, numbers, and symbols. 
+                        Never share your passwords, even with friends!
+                    </div>
+                </div>
+
+                <div class="security-card">
+                    <span class="card-icon">🦠</span>
+                    <div class="card-title">Virus Defender</div>
+                    <div class="card-description">
+                        Computer viruses spread like real viruses! They can copy themselves and damage files. 
+                        Keep your antivirus software updated like getting your shots!
+                    </div>
+                </div>
+
+                <div class="security-card">
+                    <span class="card-icon">👨‍💻</span>
+                    <div class="card-title">Hacking Alert</div>
+                    <div class="card-description">
+                        Hackers try to sneak into computers without permission! Use strong passwords and never share 
+                        personal information online with strangers!
+                    </div>
+                </div>
+
+                <div class="security-card">
+                    <span class="card-icon">📶</span>
+                    <div class="card-title">WiFi Warrior</div>
+                    <div class="card-description">
+                        Public WiFi can be dangerous! Bad guys can see what you do on unsecured networks. 
+                        Only use trusted WiFi and ask grown-ups first!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-section">
+            <h2 class="section-title">🎮 Test Your Cyber Skills! 🎮</h2>
+            <div class="content-text" style="margin-bottom: 20px;">
+                Think you're ready to be a Cyber Security superhero? Try our fun quiz!
+            </div>
+            <button class="quiz-button" onclick="startQuiz()">🚀 Start Cyber Quiz!</button>
+            <button class="quiz-button" onclick="showTips()">💡 More Safety Tips!</button>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-header">
+                    <h3 style="color: #4ecdc4; font-size: 1.8em; margin-bottom: 10px;">🎯 Cyber Security Challenge</h3>
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="progressBar"></div>
+                    </div>
+                    <p style="color: #c8c8c8;">Question <span id="questionNumber">1</span> of <span id="totalQuestions">5</span></p>
+                </div>
+                
+                <div class="quiz-question" id="quizQuestion"></div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+                
+                <div class="quiz-controls">
+                    <button class="quiz-nav-button" id="nextButton" onclick="nextQuestion()">Next Question 🚀</button>
+                    <button class="quiz-nav-button" id="finishButton" onclick="finishQuiz()">See Results 🏆</button>
+                    <button class="quiz-nav-button" id="restartButton" onclick="restartQuiz()">Try Again 🔄</button>
+                </div>
+                
+                <div class="quiz-score" id="quizScore" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>🐻 Stay Safe Online with CyberBear! 🛡️</div>
+            <div style="font-size: 0.9em; margin-top: 10px; color: #888;">
+                Remember: Always ask a grown-up before sharing information online!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "🔐 Should you share your password with your best friend?",
+                options: ["Yes, best friends share everything!", "No, passwords should stay secret!", "Only if they promise not to tell", "Yes, but only strong passwords"],
+                correct: 1,
+                explanation: "Passwords should always stay secret, even from best friends! This keeps your accounts safe. 🛡️"
+            },
+            {
+                question: "🎣 What should you do if you get an email from a 'prince' offering money?",
+                options: ["Reply immediately!", "Delete it - it's probably phishing!", "Ask for more details", "Share it with friends"],
+                correct: 1,
+                explanation: "This is a classic phishing scam! Always delete suspicious emails that seem too good to be true. 🗑️"
+            },
+            {
+                question: "📶 Is it safe to use public WiFi for online shopping?",
+                options: ["Yes, all WiFi is the same", "No, public WiFi isn't secure for important stuff!", "Only on weekends", "Yes, if the store is famous"],
+                correct: 1,
+                explanation: "Public WiFi isn't secure! Bad guys can see what you do. Only use trusted networks for important things. 🔒"
+            },
+            {
+                question: "💾 Should you download a 'free' game from a random website?",
+                options: ["Yes, free games are awesome!", "No, it might contain malware!", "Only if it looks fun", "Yes, but scan it first"],
+                correct: 1,
+                explanation: "Unknown websites might hide malware in 'free' downloads! Only download from trusted sources. ✅"
+            },
+            {
+                question: "🔒 What makes a password strong?",
+                options: ["Just your name", "Long with letters, numbers, and symbols!", "Your birthday", "The word 'password'"],
+                correct: 1,
+                explanation: "Strong passwords are long and mix letters, numbers, and symbols! This makes them super hard to guess. 💪"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let quizStarted = false;
+        let answered = false;
+
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            quizStarted = true;
+            answered = false;
+            
+            // Show quiz container
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('totalQuestions').textContent = quizData.length;
+            
+            // Hide start button temporarily
+            document.querySelector('.quiz-button').style.display = 'none';
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = quizData[currentQuestion];
+            answered = false;
+            
+            // Update progress
+            const progress = ((currentQuestion) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('questionNumber').textContent = currentQuestion + 1;
+            
+            // Show question
+            document.getElementById('quizQuestion').textContent = question.question;
+            
+            // Create options
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'quiz-option';
+                optionElement.textContent = option;
+                optionElement.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Clear feedback and hide buttons
+            document.getElementById('quizFeedback').innerHTML = '';
+            document.getElementById('nextButton').style.display = 'none';
+            document.getElementById('finishButton').style.display = 'none';
+            document.getElementById('restartButton').style.display = 'none';
+        }
+
+        function selectAnswer(selectedIndex) {
+            if (answered) return; // Prevent multiple selections
+            answered = true;
+            
+            const question = quizData[currentQuestion];
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                score++;
+            }
+            
+            // Style all options
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex && !isCorrect) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // Show feedback
+            const feedback = document.getElementById('quizFeedback');
+            feedback.innerHTML = `
+                <div style="font-size: 1.4em; margin-bottom: 15px;">
+                    ${isCorrect ? '🎉 Awesome!' : '🤔 Not quite!'}
+                </div>
+                <div>${question.explanation}</div>
+            `;
+            
+            // Show appropriate button
+            if (currentQuestion < quizData.length - 1) {
+                document.getElementById('nextButton').style.display = 'inline-block';
+            } else {
+                document.getElementById('finishButton').style.display = 'inline-block';
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            showQuestion();
+        }
+
+        function finishQuiz() {
+            const percentage = Math.round((score / quizData.length) * 100);
+            let message = '';
+            let emoji = '';
+            
+            if (percentage >= 80) {
+                message = "You're a Cyber Security Champion!";
+                emoji = "🏆";
+            } else if (percentage >= 60) {
+                message = "Great job! You're becoming a cyber hero!";
+                emoji = "🌟";
+            } else {
+                message = "Good try! Keep learning to become cyber-safe!";
+                emoji = "💪";
+            }
+            
+            // Update progress to 100%
+            document.getElementById('progressBar').style.width = '100%';
+            
+            // Hide question elements
+            document.getElementById('quizQuestion').style.display = 'none';
+            document.getElementById('quizOptions').style.display = 'none';
+            document.getElementById('quizFeedback').style.display = 'none';
+            document.getElementById('finishButton').style.display = 'none';
+            
+            // Show score
+            const scoreContainer = document.getElementById('quizScore');
+            scoreContainer.innerHTML = `
+                <h3>${emoji} ${message}</h3>
+                <p style="font-size: 1.5em; color: #00d4ff;">Score: ${score}/${quizData.length}</p>
+                <p style="color: #4ecdc4;">${percentage}% Correct!</p>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(0, 212, 255, 0.1); border-radius: 10px;">
+                    ${percentage >= 80 ? 
+                        "🎯 You really know your cyber security! Keep up the great work!" :
+                        percentage >= 60 ?
+                        "📚 You're on the right track! Review the tips above to learn even more." :
+                        "🔍 Don't worry! Learning takes time. Try reading through the information again and take the quiz once more!"
+                    }
+                </div>
+            `;
+            scoreContainer.style.display = 'block';
+            document.getElementById('restartButton').style.display = 'inline-block';
+        }
+
+        function restartQuiz() {
+            // Reset quiz
+            currentQuestion = 0;
+            score = 0;
+            answered = false;
+            
+            // Show question elements
+            document.getElementById('quizQuestion').style.display = 'block';
+            document.getElementById('quizOptions').style.display = 'flex';
+            document.getElementById('quizFeedback').style.display = 'block';
+            document.getElementById('quizScore').style.display = 'none';
+            document.getElementById('restartButton').style.display = 'none';
+            
+            showQuestion();
+        }
+
+        function showTips() {
+            alert(`🛡️ BONUS CYBER SAFETY TIPS! 🛡️
+
+🔸 Never meet online friends in real life without parents
+🔸 Don't share photos of yourself with strangers
+🔸 Tell a grown-up if someone online makes you uncomfortable
+🔸 Keep personal info (address, phone, school) private
+🔸 Use parental controls on devices
+🔸 Always log out when using shared computers
+🔸 Be kind online - no cyberbullying!
+
+Stay safe, cyber hero! 🌟`);
+        }
+
+        // Add click animations to security cards
+        document.querySelectorAll('.security-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1) rotate(2deg)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 200);
+            });
+        });
+
+        // Initialize stars when page loads
+        createStars();
+
+        // Add floating animation to sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach((section, index) => {
+            section.style.animationDelay = (index * 0.2) + 's';
+        });
+    </script>
+</body>
+</html>
