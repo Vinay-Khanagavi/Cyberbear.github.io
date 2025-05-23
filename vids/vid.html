@@ -4,61 +4,546 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybersecurity Awareness</title>
-  <link rel="stylesheet" href="styles.css">
-
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #87CEEB 0%, #4682B4 50%, #1E90FF 100%);
+      color: #2C3E50;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Cute floating elements */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 20%),
+        radial-gradient(circle at 80% 80%, rgba(173, 216, 230, 0.4) 0%, transparent 20%),
+        radial-gradient(circle at 40% 40%, rgba(135, 206, 235, 0.3) 0%, transparent 15%);
+      animation: floatBubbles 15s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatBubbles {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-20px) scale(1.1); }
+    }
+
+    /* Cute cloud decorations */
+    .cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50px;
+      opacity: 0.6;
+      animation: floatClouds 20s linear infinite;
+      z-index: 0;
+    }
+
+    .cloud:before {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50px;
+    }
+
+    .cloud:after {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50px;
+    }
+
+    .cloud1 {
+      width: 60px;
+      height: 30px;
+      top: 20%;
+      animation-duration: 25s;
+      animation-delay: -5s;
+    }
+
+    .cloud1:before {
+      width: 40px;
+      height: 40px;
+      top: -20px;
+      left: 10px;
+    }
+
+    .cloud1:after {
+      width: 30px;
+      height: 30px;
+      top: -15px;
+      right: 10px;
+    }
+
+    .cloud2 {
+      width: 80px;
+      height: 40px;
+      top: 60%;
+      animation-duration: 30s;
+      animation-delay: -10s;
+    }
+
+    .cloud2:before {
+      width: 50px;
+      height: 50px;
+      top: -25px;
+      left: 15px;
+    }
+
+    .cloud2:after {
+      width: 35px;
+      height: 35px;
+      top: -20px;
+      right: 15px;
+    }
+
+    @keyframes floatClouds {
+      0% { left: -100px; }
+      100% { left: 100vw; }
+    }
+
     .backButton-icon {
       position: fixed;
       top: 20px;
       left: 20px;
-      width: 40px; /* Adjust size as needed */
-      height: 40px; /* Adjust size as needed */
+      width: 50px;
+      height: 50px;
       cursor: pointer;
-      z-index: 1000; /* Ensure it is on top of other elements */
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      padding: 10px;
+      border: 3px solid #4682B4;
+      box-shadow: 0 4px 15px rgba(70, 130, 180, 0.3);
+    }
+
+    .backButton-icon:hover {
+      transform: scale(1.1) rotate(-5deg);
+      background: #FFF;
+      box-shadow: 0 6px 20px rgba(70, 130, 180, 0.5);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 60px 0 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #FFF;
+      text-shadow: 
+        3px 3px 0px #4682B4,
+        6px 6px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 20px;
+      animation: bounceIn 1.2s ease-out;
+      position: relative;
+    }
+
+    h1::after {
+      content: '🎬';
+      position: absolute;
+      right: -60px;
+      top: -10px;
+      font-size: 0.6em;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+      50% { transform: scale(1.05) rotate(2deg); }
+      70% { transform: scale(0.9) rotate(-1deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    main {
+      padding-bottom: 60px;
+    }
+
+    #videos h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #FFF;
+      text-shadow: 2px 2px 4px rgba(70, 130, 180, 0.8);
+      animation: slideIn 1s ease-out 0.3s both;
+      position: relative;
+    }
+
+    #videos h2::before {
+      content: '⭐';
+      margin-right: 15px;
+      animation: twinkle 2s ease-in-out infinite alternate;
+    }
+
+    #videos h2::after {
+      content: '⭐';
+      margin-left: 15px;
+      animation: twinkle 2s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.4; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .video {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 25px;
+      margin-bottom: 30px;
+      border: 4px solid #87CEEB;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      animation: popIn 0.6s ease-out both;
+      box-shadow: 0 8px 25px rgba(70, 130, 180, 0.2);
+    }
+
+    .video:nth-child(2) { animation-delay: 0.2s; }
+    .video:nth-child(3) { animation-delay: 0.4s; }
+    .video:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+      80% { transform: scale(1.05) translateY(-5px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .video::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #87CEEB, #4682B4, #1E90FF, #87CEEB);
+      border-radius: 25px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(70, 130, 180, 0.4);
+      border-color: #4682B4;
+    }
+
+    .video:hover::before {
+      opacity: 1;
+    }
+
+    /* Cute corner decorations */
+    .video::after {
+      content: '🌟';
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .video:hover::after {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    video {
+      width: 100%;
+      max-height: 350px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(70, 130, 180, 0.3);
+      border: 3px solid #87CEEB;
+    }
+
+    video:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(70, 130, 180, 0.5);
+      border-color: #4682B4;
+    }
+
+    .video p {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2C3E50;
+      text-align: center;
+      line-height: 1.4;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+      position: relative;
+    }
+
+    .video:nth-child(2) p::before { content: '🔐 '; }
+    .video:nth-child(3) p::before { content: '🎣 '; }
+    .video:nth-child(4) p::before { content: '🛡️ '; }
+
+    /* Floating hearts animation */
+    .heart {
+      position: absolute;
+      color: #FFB6C1;
+      font-size: 1.2rem;
+      animation: floatHeart 4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(0px) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+      100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .backButton-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h1::after {
+        right: -40px;
+        font-size: 0.5em;
+      }
+
+      #videos h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+
+      .video {
+        padding: 20px;
+        margin-bottom: 25px;
+      }
+
+      video {
+        max-height: 250px;
+      }
+
+      .video p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .video {
+        padding: 15px;
+      }
+
+      .video p {
+        font-size: 1rem;
+      }
+
+      h1::after {
+        display: none;
+      }
+    }
+
+    /* Rainbow loading bar */
+    .loading-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #87CEEB, #4682B4, #1E90FF, #87CEEB);
+      background-size: 200% 100%;
+      animation: rainbowSlide 2s linear infinite;
+      z-index: 1001;
+      opacity: 0;
+    }
+
+    @keyframes rainbowSlide {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .loading-bar.show {
+      opacity: 1;
     }
   </style>
-
 </head>
-
 <body>
-  <a href="../index.html">
-    <img src="../public/back_button.png" alt="Back Icon" class="backButton-icon" id="backButton-icon">
-  </a>
+  <!-- Cute floating clouds -->
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  
+  <!-- Floating hearts -->
+  <div class="heart" style="top: 15%; left: 10%; animation-delay: 0s;">💙</div>
+  <div class="heart" style="top: 30%; right: 15%; animation-delay: 1s;">💙</div>
+  <div class="heart" style="top: 70%; left: 20%; animation-delay: 2s;">💙</div>
+  <div class="heart" style="top: 80%; right: 25%; animation-delay: 3s;">💙</div>
 
+  <div class="loading-bar" id="loadingBar"></div>
+  
+  <a href="../index.html">
+    <svg class="backButton-icon" viewBox="0 0 24 24" fill="none" stroke="#4682B4" stroke-width="3">
+      <path d="M19 12H5"/>
+      <path d="m12 19-7-7 7-7"/>
+    </svg>
+  </a>
+  
   <header>
     <div class="container">
-      <h1>Animated Videos</h1>
+      <h1>Fun Learning Videos!</h1>
     </div>
   </header>
+  
   <main>
     <div class="container">
       <section id="videos">
-        <h2>Featured Videos</h2>
+        <h2>Super Cool Videos</h2>
+        
         <div class="video">
           <video controls>
             <source src="pingu.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <p>Video 1: Importance of Strong Passwords</p>
+          <p>Making Super Strong Passwords!</p>
         </div>
+        
         <div class="video">
           <video controls>
             <source src="rabit.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <p>Video 2: Recognizing Phishing Emails</p>
+          <p>Spotting Tricky Email Messages!</p>
         </div>
+        
         <div class="video">
-            <video controls>
-              <source src="lady.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Video 3: Security Awareness</p>
-          </div>
-        <!-- Add more videos as needed -->
+          <video controls>
+            <source src="lady.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Staying Safe Online!</p>
+        </div>
       </section>
     </div>
   </main>
-  
+
+  <script>
+    // Show loading bar when videos are loading
+    document.addEventListener('DOMContentLoaded', () => {
+      const loadingBar = document.getElementById('loadingBar');
+      const videos = document.querySelectorAll('video');
+      
+      videos.forEach(video => {
+        video.addEventListener('loadstart', () => {
+          loadingBar.classList.add('show');
+        });
+        
+        video.addEventListener('canplaythrough', () => {
+          loadingBar.classList.remove('show');
+        });
+      });
+
+      // Add cute interaction sounds (visual feedback)
+      const videoContainers = document.querySelectorAll('.video');
+      videoContainers.forEach((container, index) => {
+        container.addEventListener('mouseenter', () => {
+          // Add a cute wiggle effect
+          container.style.animation = 'none';
+          setTimeout(() => {
+            container.style.animation = '';
+          }, 10);
+        });
+      });
+
+      // Enhanced back button with cute animation
+      const backButton = document.querySelector('.backButton-icon');
+      backButton.addEventListener('mouseenter', () => {
+        backButton.style.transform = 'scale(1.1) rotate(-5deg)';
+      });
+      
+      backButton.addEventListener('mouseleave', () => {
+        backButton.style.transform = 'scale(1) rotate(0deg)';
+      });
+
+      // Add random floating elements periodically
+      setInterval(() => {
+        createFloatingElement();
+      }, 5000);
+    });
+
+    function createFloatingElement() {
+      const emojis = ['💙', '⭐', '🌟', '✨', '💎'];
+      const element = document.createElement('div');
+      element.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      element.style.position = 'fixed';
+      element.style.left = Math.random() * 100 + '%';
+      element.style.top = '100%';
+      element.style.fontSize = '1.5rem';
+      element.style.pointerEvents = 'none';
+      element.style.zIndex = '10';
+      element.style.animation = 'floatUp 4s ease-out forwards';
+      
+      document.body.appendChild(element);
+      
+      setTimeout(() => {
+        element.remove();
+      }, 4000);
+    }
+
+    // Add CSS for floating up animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes floatUp {
+        0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
