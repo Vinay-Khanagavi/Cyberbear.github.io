@@ -2,6 +2,8 @@
 
 Welcome to **CyberBear**, a gamified platform designed to educate users on cybersecurity through interactive games, quizzes, and a fine-tuned LLM chatbot assistant. This project aims to make learning cybersecurity engaging and effective, targeting individuals, educational institutions, and businesses alike.
 
+CyberBear was co-founded and developed by Aditi Chhawacharia and Vinay Khanagavi.
+
 ## Table of Contents
 - [🐻 CyberBear: Gamifying Cybersecurity Awareness for Safer Online Practices 🛡️](#-cyberbear-gamifying-cybersecurity-awareness-for-safer-online-practices-️)
   - [Table of Contents](#table-of-contents)

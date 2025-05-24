@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Pet Protector 🐾</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .game-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+
+        .title {
+            font-size: 2.5em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .pet-container {
+            position: relative;
+            margin: 20px 0;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pet {
+            font-size: 4em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            animation: idle 2s ease-in-out infinite;
+        }
+
+        @keyframes idle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes happy {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.2) rotate(-5deg); }
+            75% { transform: scale(1.2) rotate(5deg); }
+        }
+
+        @keyframes scared {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .pet.happy {
+            animation: happy 0.6s ease-in-out;
+        }
+
+        .pet.scared {
+            animation: scared 0.3s ease-in-out 3;
+            filter: sepia(1) hue-rotate(320deg) saturate(2);
+        }
+
+        .cage {
+            position: absolute;
+            font-size: 4em;
+            color: #888;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cage.visible {
+            opacity: 0.7;
+        }
+
+        .pet-name {
+            font-size: 1.5em;
+            color: #4a90e2;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .name-input {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1em;
+            margin: 10px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .name-input:focus {
+            border-color: #4a90e2;
+        }
+
+        .password-section {
+            margin: 20px 0;
+        }
+
+        .password-input {
+            padding: 15px 20px;
+            border: 3px solid #ddd;
+            border-radius: 25px;
+            font-size: 1.2em;
+            width: 100%;
+            margin: 10px 0;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: monospace;
+        }
+
+        .password-input:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        .password-input.weak {
+            border-color: #e74c3c;
+            background-color: #fdf2f2;
+        }
+
+        .password-input.medium {
+            border-color: #f39c12;
+            background-color: #fef9e7;
+        }
+
+        .password-input.strong {
+            border-color: #27ae60;
+            background-color: #f0f9f4;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feedback.weak {
+            background: #fdf2f2;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+        }
+
+        .feedback.medium {
+            background: #fef9e7;
+            color: #f39c12;
+            border: 2px solid #f39c12;
+        }
+
+        .feedback.strong {
+            background: #f0f9f4;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #4a90e2, #357abd);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .pet-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pet-option {
+            font-size: 2em;
+            padding: 10px;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pet-option:hover {
+            border-color: #4a90e2;
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .pet-option.selected {
+            border-color: #4a90e2;
+            background: rgba(74, 144, 226, 0.2);
+        }
+
+        .villain {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .villain.active {
+            opacity: 1;
+            animation: bounce 0.5s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .success-message {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            animation: celebrate 0.6s ease-in-out;
+        }
+
+        @keyframes celebrate {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .tips {
+            background: rgba(74, 144, 226, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .tips h4 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .tips ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tips li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tips li:before {
+            content: "🔐";
+            position: absolute;
+            left: 0;
+        }
+
+        .phase {
+            display: none;
+        }
+
+        .phase.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="villain">🦹‍♂️</div>
+        
+        <h1 class="title">Password Pet Protector 🐾</h1>
+        <p class="subtitle">Keep your pet safe from Dr. Hack!</p>
+
+        <!-- Phase 1: Pet Selection and Naming -->
+        <div id="phase1" class="phase active">
+            <h3>Choose and name your pet:</h3>
+            <div class="pet-selector">
+                <div class="pet-option" data-pet="🐶">🐶</div>
+                <div class="pet-option" data-pet="🐱">🐱</div>
+                <div class="pet-option" data-pet="🐰">🐰</div>
+                <div class="pet-option" data-pet="🐹">🐹</div>
+                <div class="pet-option" data-pet="🐸">🐸</div>
+            </div>
+            <input type="text" class="name-input" id="petNameInput" placeholder="What's your pet's name?" maxlength="15">
+            <br>
+            <button class="btn" id="startGame">Start Protecting!</button>
+        </div>
+
+        <!-- Phase 2: Password Creation -->
+        <div id="phase2" class="phase">
+            <div class="pet-container">
+                <div class="pet" id="gamePet">🐶</div>
+                <div class="cage" id="cage">🔒</div>
+            </div>
+            <div class="pet-name" id="petName">Buddy</div>
+            
+            <p><strong>Oh no! Dr. Hack is trying to steal <span id="petNameSpan">your pet</span>!</strong></p>
+            <p>Create a strong password to protect them:</p>
+            
+            <input type="password" class="password-input" id="passwordInput" placeholder="Enter a strong password...">
+            <button class="btn" id="togglePassword">👁️ Show Password</button>
+            
+            <div class="feedback" id="feedback">
+                Start typing your password to see how strong it is!
+            </div>
+
+            <div id="successSection" style="display: none;">
+                <div class="success-message">
+                    🎉 Amazing! <span id="successPetName">Your pet</span> is safe! 
+                    Dr. Hack can't crack that password! 🛡️
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn" id="playAgain">Play Again</button>
+                    <a href="question.html" class="btn" id="continueBtn" style="background: linear-gradient(45deg, #27ae60, #2ecc71); text-decoration: none; display: inline-block;">Continue →</a>
+                </div>
+            </div>
+
+            <div class="tips">
+                <h4>💡 Password Tips:</h4>
+                <ul>
+                    <li>Use at least 8 characters</li>
+                    <li>Mix letters, numbers, and symbols</li>
+                    <li>Don't use your name or pet's name</li>
+                    <li>Try random words like "Pizza#Mountain7!"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedPet = '🐶';
+        let petName = 'Buddy';
+        let gameData = {
+            pet: '🐶',
+            name: 'Buddy'
+        };
+
+        // Phase management
+        function showPhase(phaseNumber) {
+            document.querySelectorAll('.phase').forEach(phase => {
+                phase.classList.remove('active');
+            });
+            document.getElementById(`phase${phaseNumber}`).classList.add('active');
+        }
+
+        // Pet selection
+        document.querySelectorAll('.pet-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.pet-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedPet = this.dataset.pet;
+            });
+        });
+
+        // Start game
+        document.getElementById('startGame').addEventListener('click', function() {
+            const nameInput = document.getElementById('petNameInput');
+            petName = nameInput.value.trim() || 'Buddy';
+            gameData = { pet: selectedPet, name: petName };
+            
+            // Update game UI
+            document.getElementById('gamePet').textContent = selectedPet;
+            document.getElementById('petName').textContent = petName;
+            document.getElementById('petNameSpan').textContent = petName;
+            document.getElementById('successPetName').textContent = petName;
+            
+            showPhase(2);
+            
+            // Show villain
+            setTimeout(() => {
+                document.querySelector('.villain').classList.add('active');
+            }, 500);
+        });
+
+        // Password strength checker
+        function checkPasswordStrength(password) {
+            let score = 0;
+            let feedback = '';
+            let className = 'weak';
+
+            if (password.length === 0) {
+                return {
+                    score: 0,
+                    feedback: "Start typing your password to see how strong it is!",
+                    className: ''
+                };
+            }
+
+            // Check for personal info
+            if (password.toLowerCase().includes(petName.toLowerCase()) || 
+                password.toLowerCase().includes('password') ||
+                password.toLowerCase().includes('123')) {
+                return {
+                    score: 0,
+                    feedback: `🚫 Don't use "${petName}" or common words like "password" or "123"!`,
+                    className: 'weak'
+                };
+            }
+
+            // Length check
+            if (password.length < 6) {
+                feedback = "🔍 Too short! Dr. Hack can guess short passwords easily. Try at least 8 characters!";
+            } else if (password.length < 8) {
+                score += 1;
+                feedback = "📏 Getting longer! But 8+ characters would be even safer!";
+            } else {
+                score += 2;
+            }
+
+            // Character variety checks
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasNumbers = /\d/.test(password);
+            const hasSymbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+
+            let varietyCount = [hasLowerCase, hasUpperCase, hasNumbers, hasSymbols].filter(Boolean).length;
+            score += varietyCount;
+
+            if (score < 3) {
+                className = 'weak';
+                if (password.length >= 6) {
+                    feedback = "💪 Try adding some CAPITAL letters, numbers (1-9), or symbols (!@#$) to make it stronger!";
+                }
+            } else if (score < 5) {
+                className = 'medium';
+                feedback = "🔶 Getting better! Add more variety (Capital Letters, numbers, symbols) to make it super strong!";
+            } else {
+                className = 'strong';
+                feedback = `🛡️ WOW! That's a super strong password! ${petName} is safe from Dr. Hack! 🎉`;
+            }
+
+            return { score, feedback, className };
+        }
+
+        // Password input handler
+        const passwordInput = document.getElementById('passwordInput');
+        const feedbackDiv = document.getElementById('feedback');
+        const petElement = document.getElementById('gamePet');
+        const cageElement = document.getElementById('cage');
+
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const result = checkPasswordStrength(password);
+            
+            // Update feedback
+            feedbackDiv.textContent = result.feedback;
+            feedbackDiv.className = `feedback ${result.className}`;
+            
+            // Update input styling
+            passwordInput.className = `password-input ${result.className}`;
+            
+            // Update pet animation
+            petElement.classList.remove('happy', 'scared');
+            
+            if (result.score >= 5) {
+                petElement.classList.add('happy');
+                cageElement.classList.add('visible');
+                setTimeout(() => {
+                    document.getElementById('successSection').style.display = 'block';
+                    document.querySelector('.villain').classList.remove('active');
+                }, 1000);
+            } else if (result.score > 0) {
+                // Neutral state
+                cageElement.classList.remove('visible');
+            } else if (password.length > 0) {
+                petElement.classList.add('scared');
+                cageElement.classList.remove('visible');
+            }
+        });
+
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const input = passwordInput;
+            if (input.type === 'password') {
+                input.type = 'text';
+                this.textContent = '🙈 Hide Password';
+            } else {
+                input.type = 'password';
+                this.textContent = '👁️ Show Password';
+            }
+        });
+
+        // Continue button is now an anchor link - no JavaScript handler needed
+
+        // Play again
+        document.getElementById('playAgain').addEventListener('click', function() {
+            // Reset everything
+            passwordInput.value = '';
+            feedbackDiv.textContent = "Start typing your password to see how strong it is!";
+            feedbackDiv.className = 'feedback';
+            passwordInput.className = 'password-input';
+            petElement.classList.remove('happy', 'scared');
+            cageElement.classList.remove('visible');
+            document.getElementById('successSection').style.display = 'none';
+            document.querySelector('.villain').classList.add('active');
+            
+            // Go back to pet selection
+            document.getElementById('petNameInput').value = '';
+            document.querySelectorAll('.pet-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector('.pet-option[data-pet="🐶"]').classList.add('selected');
+            selectedPet = '🐶';
+            
+            showPhase(1);
+        });
+    </script>
+</body>
+</html>
